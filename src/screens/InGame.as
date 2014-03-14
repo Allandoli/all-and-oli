@@ -12,6 +12,8 @@ package screens
 	 */
 	public class InGame extends Sprite 
 	{
+		// cambiar de pantalla si la anterior esta superada
+		
 		private var Bg:Image;
 		private var Platform:Image;
 		private var Player:Character;
@@ -19,6 +21,8 @@ package screens
 		private var CombBar:Image;
 		private var EnergyBar:Image;
 		private var CurrentCharIcon:Image;
+		
+		// llamar a los objetos a crear
 		
 		public function InGame() 
 		{
