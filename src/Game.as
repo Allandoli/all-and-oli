@@ -10,7 +10,7 @@ package
 	
 	/**
 	 * ...
-	 * @author 
+	 * @author argrwhrh
 	 */
 	
 	public class Game extends Sprite 
