@@ -1,5 +1,6 @@
 package objects 
 {
+	import events.CharacterEvent;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -18,12 +19,14 @@ package objects
 		// screwCount
 		// collectibleCount
 		
+		// KeyboardEvent -> click derecho -> Find all references
+		
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		
 		// CAMBIAR IMAGEN CON SWITCH EN VEZ DE CON TANTOS IF ???????????????????
 		
 		private var characterImage:Image;
-		private var currentChar:Boolean;
+		private var currentChar:CharacterEvent;
 		private var key:KeyboardEvent;
 		private var collectibleCounter:int;
 		private var screwCounter:int;
@@ -43,17 +46,27 @@ package objects
 			createCharacter();
 		}
 		
+		public function disposeTemporarily():void 
+		{
+			this.visible = false;
+		}
+		
+		public function initialize():void
+		{
+			this.visible = true;
+		}
+		
 		private function createCharacter():void 
 		{
-			if (currentChar == true)
+			if (currentChar == "all")
 			{
 				characterImage = new Image(Media.getTexture("All.png"));
-				this.addChild(char);
+				this.addChild(characterImage);
 			}
 			else
 			{
 				characterImage = new Image(Media.getTexture("Oli.png"));
-				this.addChild(char);
+				this.addChild(characterImage);
 			}
 		}
 		
@@ -62,7 +75,7 @@ package objects
 			
 			key = new KeyboardEvent(null);
 			
-			if (charCode == true)
+			if (charCode == "all")
 			{
 				if (key == "keyRight") 
 				{
@@ -74,11 +87,11 @@ package objects
 				}
 			else if (key == "keyLeft")
 				{
-			characterImage = new Image(Media.getTexture("AllLeft.png"));
+				characterImage = new Image(Media.getTexture("AllLeft.png"));
 				}
 			}
 			
-			else 
+			else if (charCode == "oli") // if charCode == null ??????????
 			{
 				if (key == "keyRight") 
 				{
@@ -90,7 +103,7 @@ package objects
 				}
 			else if (key == "keyLeft")
 				{
-			characterImage = new Image(Media.getTexture("OliLeft.png"));
+				characterImage = new Image(Media.getTexture("OliLeft.png"));
 				}
 			}
 		}

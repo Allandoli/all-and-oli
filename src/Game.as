@@ -1,6 +1,8 @@
 package  
 {
+	import events.CharacterEvent;
 	import events.NavigationEvent;
+	import objects.Character;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import screens.Welcome;
@@ -19,6 +21,8 @@ package
 		private var screenInGame:InGame;
 		private var screenEnd:End;
 		private var screenCredits:Credits;
+		private var charAll:Character;
+		private var charOli:Character;
 		
 		
 		public function Game() 
@@ -33,6 +37,7 @@ package
 			trace("starling frameworks funciona");
 		
 			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
+			this.addEventListener(CharacterEvent.CHANGE_CHAR, onChangeChar);
 			
 			screenInGame = new InGame();
 			screenInGame.disposeTemporarily();
@@ -70,6 +75,21 @@ package
 				case "credits":
 					screenEnd.disposeTemporarily();
 					screenCredits.initialize();
+					break;
+			}
+		}
+		
+		private function onChangeChar(event:CharacterEvent):void 
+		{
+			switch(event.params.id)
+			{
+				case "all":
+					charOli.disposeTemporarily();
+					charAll.initialize();
+					break;
+				case "oli":
+					charAll.disposeTemporarily();
+					charOli.initialize();
 					break;
 			}
 		}
