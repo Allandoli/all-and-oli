@@ -34,6 +34,30 @@ package
 		[Embed(source = "../media/images/CreditsButton.jpg")]
 		public static const CreditsButton:Class;
 		
+		[Embed(source = "../media/images/All.png")]
+		public static const All:Class;
+		
+		[Embed(source = "../media/images/AllLeft.png")]
+		public static const AllLeft:Class;
+		
+		[Embed(source = "../media/images/AllRight.png")]
+		public static const AllRight:Class;
+		
+		[Embed(source = "../media/images/AllJump.png")]
+		public static const AllJump:Class;
+		
+		[Embed(source = "../media/images/Oli.png")]
+		public static const Oli:Class;
+		
+		[Embed(source = "../media/images/OliLeft.png")]
+		public static const OliLeft:Class;
+		
+		[Embed(source = "../media/images/OliRight.png")]
+		public static const OliRight:Class;
+		
+		[Embed(source = "../media/images/OliJump.png")]
+		public static const OliJump:Class;
+		
 		public static function getTexture(name:String):Texture 
 		{
 			if (gameTextures[name] == undefined)
