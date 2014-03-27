@@ -23,8 +23,6 @@ package objects
 		
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		
-		// CAMBIAR IMAGEN CON SWITCH EN VEZ DE CON TANTOS IF ???????????????????
-		
 		private var characterImage:Image;
 		private var currentChar:CharacterEvent;
 		private var key:KeyboardEvent;
@@ -75,36 +73,37 @@ package objects
 			
 			key = new KeyboardEvent(null);
 			
-			if (charCode == "all")
+			switch (charCode) 
 			{
-				if (key == "keyRight") 
-				{
-				characterImage = new Image(Media.getTexture("AllRight.png"));
-				}
-			else if (key == "keyUp")
-				{
-				characterImage = new Image(Media.getTexture("AllJump.png"));
-				}
-			else if (key == "keyLeft")
-				{
-				characterImage = new Image(Media.getTexture("AllLeft.png"));
-				}
-			}
-			
-			else if (charCode == "oli") // if charCode == null ??????????
-			{
-				if (key == "keyRight") 
-				{
-				characterImage = new Image(Media.getTexture("OliRight.png"));
-				}
-			else if (key == "keyUp")
-				{
-				characterImage = new Image(Media.getTexture("OliJump.png"));
-				}
-			else if (key == "keyLeft")
-				{
-				characterImage = new Image(Media.getTexture("OliLeft.png"));
-				}
+				case "all":	
+					switch (key) 
+					{
+					case "keyRight":
+						characterImage = new Image(Media.getTexture("AllRight.png"));
+						break;
+					case "keyUp":
+						characterImage = new Image(Media.getTexture("AllJump.png"));
+						break;
+					case "keyLeft":
+						characterImage = new Image(Media.getTexture("AllLeft.png"));
+						break;
+					}
+					break;
+				case "oli":	
+					switch (key) 
+					{
+					case "keyRight":
+						characterImage = new Image(Media.getTexture("OliRight.png"));
+						break;
+					case "keyUp":
+						characterImage = new Image(Media.getTexture("OliJump.png"));
+						break;
+					case "keyLeft":
+						characterImage = new Image(Media.getTexture("OliLeft.png"));
+						break;
+					}
+					break;
+
 			}
 		}
 		
