@@ -18,7 +18,7 @@ package
 		public function Main():void 
 		{
 			
-			myStarling = new Starling(Game, stage, null, null, "auto", "baseline");
+			myStarling = new Starling(MainMenu, stage, null, null, "auto", "baseline");
 			myStarling.start();
 		}
 		

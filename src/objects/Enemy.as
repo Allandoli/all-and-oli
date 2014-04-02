@@ -14,6 +14,7 @@ package objects
 		// attack
 		// movimiento/perseguir
 		// image
+		private var positionX:int;
 		
 		public function Enemy() 
 		{

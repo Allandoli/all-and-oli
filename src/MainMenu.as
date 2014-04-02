@@ -15,7 +15,7 @@ package
 	 * @author argrwhrh
 	 */
 	
-	public class Game extends Sprite 
+	public class MainMenu extends Sprite 
 	{
 		private var screenWelcome:Welcome;
 		private var screenInGame:InGame;
@@ -25,7 +25,7 @@ package
 		private var charOli:Character;
 		
 		
-		public function Game() 
+		public function MainMenu() 
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);

@@ -12,11 +12,7 @@ package objects
 	 */
 	public class Character extends Sprite 
 	{
-		// currentChar
-		// energyBar
-		// exhaustionBar
-		// screwCount
-		// collectibleCount
+			// collectibleCount
 		// las barras no irian en el game? y que el game lea nuestros int de energy y exaustion?
 		// KeyboardEvent -> click derecho -> Find all references
 		
@@ -25,19 +21,25 @@ package objects
 		private var characterImage:Image;
 		private var currentChar:CharacterEvent;
 		private var key:KeyboardEvent;
-		private var collectibleCounter:int;
-		private var screwCounter:int;
-		private var energyBar:Image;
+		private var _collectibleCounter:int;
+		private var _screwCounter:int;
 		private var energyAll:int;//max 100%
 		private var energyOli:int;//max 100%
-		private var exhaustionBar:Image;
 		private var exhaustionAll:int;//max 100%
 		private var exhaustionOli:int;//max 100%
+		private var _exhaustionChar:int;//max 100%
+		private var _energyChar:int;//max 100%
 		
 		public function Character() 
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this._energyAll = 100;
+			this._energyOli = 100;
+			this._exhaustionAll = 100;
+			this._exhaustionOli = 100;
+			this._collectibleCounter = 0;
+			this._screwCounter = 0;
 			
 		}
 		
@@ -75,14 +77,22 @@ package objects
 			if (currentChar=="all") 
 			{	if (energyOli>0) 
 				{
+					energyAll = this._energyChar;
+					exhaustionAll = this._exhaustionChar;
 					currentChar = "oli";
+					this._energyChar = energyOli;
+					this._exhaustionChar = exhaustionOli;
 				}
 			}
 			else 
 			{
 				if (energyAll>0) 
 				{
+					energyOli = this._energyChar;
+					exhaustionOli = this._exhaustionChar;
 					currentChar = "all";
+					this._energyChar = energyAll;
+					this._exhaustionChar = exhaustionAll;
 				}
 			}
 		}
@@ -127,6 +137,46 @@ package objects
 					}
 					break;
 			}
+		}
+		
+		public function get screwCounter():int 
+		{
+			return _screwCounter;
+		}
+		
+		public function set screwCounter(value:int):void 
+		{
+			_screwCounter = value;
+		}
+		
+		public function get collectibleCounter():int 
+		{
+			return _collectibleCounter;
+		}
+		
+		public function set collectibleCounter(value:int):void 
+		{
+			_collectibleCounter = value;
+		}
+		
+		public function get exhaustionChar():int 
+		{
+			return _exhaustionChar;
+		}
+		
+		public function set exhaustionChar(value:int):void 
+		{
+			_exhaustionChar = value;
+		}
+		
+		public function get energyChar():int 
+		{
+			return _energyChar;
+		}
+		
+		public function set energyChar(value:int):void 
+		{
+			_energyChar = value;
 		}
 	}
 }
