@@ -1,6 +1,5 @@
 package objects 
 {
-	import events.CharacterEvent;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -12,13 +11,12 @@ package objects
 	 */
 	public class Character extends Sprite 
 	{
-		// las barras no irian en el game? y que el game lea nuestros int de energy y exaustion?
 		// KeyboardEvent -> click derecho -> Find all references
 		
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		
 		private var characterImage:Image;
-		private var currentChar:CharacterEvent;
+		public static var currentChar:String;
 		private var key:KeyboardEvent;
 		private var _collectibleCounter:int;
 		private var _screwCounter:int;
@@ -35,14 +33,14 @@ package objects
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			/*this._energyAll = 100;
-			this._energyOli = 100;
-			this._exhaustionAll = 100;
-			this._exhaustionOli = 100;
+			this.energyAll = 100;
+			this.energyOli = 100;
+			this.exhaustionAll = 100;
+			this.exhaustionOli = 100;
 			this._collectibleCounter = 0;
 			this._screwCounter = 0;
-			*/
-			
+			this._energyChar = 100;
+			this._exhaustionChar = 100;
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -119,9 +117,6 @@ package objects
 						characterImage = new Image(Media.getTexture("AllLeft.png"));
 						characterX--;
 						break;
-					case null:
-						characterImage = new Image(Media.getTexture("All.png"));
-						break;
 					}
 					break;
 				case "oli":	
@@ -137,9 +132,6 @@ package objects
 					case "keyLeft":
 						characterImage = new Image(Media.getTexture("OliLeft.png"));
 						characterX--;
-						break;
-					case null:
-						characterImage = new Image(Media.getTexture("Oli.png"));
 						break;
 					}
 					break;

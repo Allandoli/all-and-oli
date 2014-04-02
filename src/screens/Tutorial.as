@@ -11,7 +11,7 @@ package screens
 	 * ...
 	 * @author Vicent
 	 */
-	public class InGame extends Sprite 
+	public class Tutorial extends Sprite 
 	{
 		// cambiar de pantalla si la anterior esta superada
 		
@@ -26,10 +26,13 @@ package screens
 		
 		// llamar a los objetos a crear
 		
-		public function InGame() 
+		public function Tutorial() 
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			Player = new Character();
+			this.addChild(Player);
+			
 		}
 		
 		private function onAddedToStage(e:Event):void 

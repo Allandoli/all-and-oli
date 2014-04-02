@@ -3,6 +3,10 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import starling.core.Starling;
+	import Box2D.Common.Math.b2Vec2;
+	import com.reyco1.physinjector.PhysInjector;
+    import com.reyco1.physinjector.data.PhysicsObject;
+    import com.reyco1.physinjector.data.PhysicsProperties;
 	
 	/**
 	 * ...
@@ -14,6 +18,7 @@ package
 	public class Main extends Sprite 
 	{
 		private var myStarling:Starling;
+		protected var physics:PhysInjector;
 		
 		public function Main():void 
 		{

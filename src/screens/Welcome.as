@@ -1,6 +1,6 @@
 package screens 
 {
-	import events.CharacterEvent;
+	
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -18,10 +18,6 @@ package screens
 		
 		private var welcomeBg:Image;
 		private var welcomeTitle:Image;
-		//private var welcomeAll:Image;
-		//private var welcomeOli:Image;
-		
-		private var welcomePlayBtn:Button;
 		private var welcomeCreditsBtn:Button;
 		private var welcomeAllBtn:Button;
 		private var welcomeOliBtn:Button;
@@ -44,11 +40,6 @@ package screens
 		{
 			welcomeBg = new Image(Media.getTexture("BgWelcome"));
 			this.addChild(welcomeBg);
-			
-			welcomePlayBtn = new Button(Media.getTexture("PlayButton"));
-			welcomePlayBtn.x = 500;
-			welcomePlayBtn.y = 500;
-			this.addChild(welcomePlayBtn);
 			
 			welcomeAllBtn = new Button(Media.getTexture("AllButton"));
 			welcomeAllBtn.x = 300;
@@ -77,17 +68,15 @@ package screens
 		{	
 			
 			var buttonClicked:Button = event.target as Button;
-			if ((buttonClicked as Button) == welcomePlayBtn)
-			{
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
-			}
 			if ((buttonClicked as Button) == welcomeAllBtn)
 			{
-				this.dispatchEvent(new CharacterEvent(CharacterEvent.CHANGE_CHAR, { id:"all" }, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+				Character.currentChar = "all";
 			}
 			if ((buttonClicked as Button) == welcomeOliBtn)
 			{
-				this.dispatchEvent(new CharacterEvent(CharacterEvent.CHANGE_CHAR, { id:"oli" }, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+				Character.currentChar = "oli";
 			}
 		}
 	}

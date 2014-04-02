@@ -25,9 +25,6 @@ package
 		[Embed(source = "../media/images/BgCredits.jpg")]
 		public static const BgCredits:Class;
 		
-		[Embed(source = "../media/images/PlayButton.png")]
-		public static const PlayButton:Class;
-		
 		[Embed(source = "../media/images/StartButton.jpg")]
 		public static const StartButton:Class;
 		
@@ -40,7 +37,7 @@ package
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
 		
-		Embed(source = "../media/images/All.png")]
+		/*[Embed(source = "../media/images/All.png")]
 		public static const All:Class;
 		
 		[Embed(source = "../media/images/AllLeft.png")]
@@ -52,7 +49,7 @@ package
 		[Embed(source = "../media/images/AllJump.png")]
 		public static const AllJump:Class;
 		
-		/*[Embed(source = "../media/images/Oli.png")]
+		[Embed(source = "../media/images/Oli.png")]
 		public static const Oli:Class;
 		
 		[Embed(source = "../media/images/OliLeft.png")]
