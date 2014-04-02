@@ -12,7 +12,6 @@ package objects
 	 */
 	public class Character extends Sprite 
 	{
-			// collectibleCount
 		// las barras no irian en el game? y que el game lea nuestros int de energy y exaustion?
 		// KeyboardEvent -> click derecho -> Find all references
 		
@@ -29,6 +28,8 @@ package objects
 		private var exhaustionOli:int;//max 100%
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
+		private var damage:int = 5;
+		private var characterX:int;
 		
 		public function Character() 
 		{
@@ -107,12 +108,14 @@ package objects
 					{
 					case "keyRight":
 						characterImage = new Image(Media.getTexture("AllRight.png"));
+						characterX++;
 						break;
 					case "keyUp":
 						characterImage = new Image(Media.getTexture("AllJump.png"));
 						break;
 					case "keyLeft":
 						characterImage = new Image(Media.getTexture("AllLeft.png"));
+						characterX--;
 						break;
 					case null:
 						characterImage = new Image(Media.getTexture("All.png"));
@@ -124,12 +127,14 @@ package objects
 					{
 					case "keyRight":
 						characterImage = new Image(Media.getTexture("OliRight.png"));
+						characterX++;
 						break;
 					case "keyUp":
 						characterImage = new Image(Media.getTexture("OliJump.png"));
 						break;
 					case "keyLeft":
 						characterImage = new Image(Media.getTexture("OliLeft.png"));
+						characterX--;
 						break;
 					case null:
 						characterImage = new Image(Media.getTexture("Oli.png"));
@@ -166,7 +171,7 @@ package objects
 		
 		public function set exhaustionChar(value:int):void 
 		{
-			_exhaustionChar = value;
+			_exhaustionChar -= value;
 		}
 		
 		public function get energyChar():int 
@@ -176,7 +181,7 @@ package objects
 		
 		public function set energyChar(value:int):void 
 		{
-			_energyChar = value;
+			_energyChar -=value;
 		}
 	}
 }

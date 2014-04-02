@@ -1,5 +1,6 @@
 package objects 
 {
+	import starling.display.Image;
 	import starling.display.Sprite;
 	/**
 	 * ...
@@ -8,7 +9,7 @@ package objects
 	public class Collectible extends Sprite
 	{
 		// spawn
-		// image
+		private var skin:Image;
 		
 		public function Collectible() 
 		{
