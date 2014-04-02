@@ -6,6 +6,7 @@ package events
 	 * ...
 	 * @author Vicent
 	 */
+	
 	public class CharacterEvent extends Event 
 	{
 		public static const CHANGE_CHAR:String = "changeCharacter";

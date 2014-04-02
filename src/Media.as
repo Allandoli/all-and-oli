@@ -34,7 +34,13 @@ package
 		[Embed(source = "../media/images/CreditsButton.jpg")]
 		public static const CreditsButton:Class;
 		
-		[Embed(source = "../media/images/All.png")]
+		[Embed(source = "../media/images/AllButton.png")]
+		public static const AllButton:Class;
+		
+		[Embed(source = "../media/images/OliButton.png")]
+		public static const OliButton:Class;
+		
+		Embed(source = "../media/images/All.png")]
 		public static const All:Class;
 		
 		[Embed(source = "../media/images/AllLeft.png")]
@@ -46,7 +52,7 @@ package
 		[Embed(source = "../media/images/AllJump.png")]
 		public static const AllJump:Class;
 		
-		[Embed(source = "../media/images/Oli.png")]
+		/*[Embed(source = "../media/images/Oli.png")]
 		public static const Oli:Class;
 		
 		[Embed(source = "../media/images/OliLeft.png")]
@@ -56,7 +62,7 @@ package
 		public static const OliRight:Class;
 		
 		[Embed(source = "../media/images/OliJump.png")]
-		public static const OliJump:Class;
+		public static const OliJump:Class;*/
 		
 		public static function getTexture(name:String):Texture 
 		{

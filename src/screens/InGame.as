@@ -1,5 +1,6 @@
 package screens 
 {
+	import flash.events.KeyboardEvent;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -21,6 +22,7 @@ package screens
 		private var CombBar:Image;
 		private var EnergyBar:Image;
 		private var CurrentCharIcon:Image;
+		private var PauseKey:starling.events.KeyboardEvent;
 		
 		// llamar a los objetos a crear
 		

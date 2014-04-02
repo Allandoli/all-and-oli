@@ -12,7 +12,7 @@ package
 	
 	/**
 	 * ...
-	 * @author argrwhrh
+	 * @author 
 	 */
 	
 	public class MainMenu extends Sprite 

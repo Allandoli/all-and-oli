@@ -35,12 +35,13 @@ package objects
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this._energyAll = 100;
+			/*this._energyAll = 100;
 			this._energyOli = 100;
 			this._exhaustionAll = 100;
 			this._exhaustionOli = 100;
 			this._collectibleCounter = 0;
 			this._screwCounter = 0;
+			*/
 			
 		}
 		
@@ -73,6 +74,7 @@ package objects
 				this.addChild(characterImage);
 			}
 		}
+		
 		private function swapCharacter():void //cambio de caracter condicionado a si el otro tiene vida o no
 		{
 			if (currentChar=="all") 

@@ -1,10 +1,12 @@
 package screens 
 {
+	import events.CharacterEvent;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import events.NavigationEvent;
+	import objects.Character;
 	
 	/**
 	 * ...
@@ -13,6 +15,7 @@ package screens
 	
 	 public class Welcome extends Sprite 
 	{
+		
 		private var welcomeBg:Image;
 		private var welcomeTitle:Image;
 		//private var welcomeAll:Image;
@@ -20,14 +23,17 @@ package screens
 		
 		private var welcomePlayBtn:Button;
 		private var welcomeCreditsBtn:Button;
+		private var welcomeAllBtn:Button;
+		private var welcomeOliBtn:Button;
 		
 		public function Welcome() 
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
 		}
 		
-				private function onAddedToStage(event:Event):void 
+		private function onAddedToStage(event:Event):void 
 		{
 			trace("pantalla inicio");
 			
@@ -43,6 +49,16 @@ package screens
 			welcomePlayBtn.x = 500;
 			welcomePlayBtn.y = 500;
 			this.addChild(welcomePlayBtn);
+			
+			welcomeAllBtn = new Button(Media.getTexture("AllButton"));
+			welcomeAllBtn.x = 300;
+			welcomeAllBtn.y = 300;
+			this.addChild(welcomeAllBtn);
+			
+			welcomeOliBtn = new Button(Media.getTexture("OliButton"));
+			welcomeOliBtn.x = 400;
+			welcomeOliBtn.y = 400;
+			this.addChild(welcomeOliBtn);
 			
 			this.addEventListener(Event.TRIGGERED, onMainMenuClick);
 		}
@@ -64,6 +80,14 @@ package screens
 			if ((buttonClicked as Button) == welcomePlayBtn)
 			{
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+			}
+			if ((buttonClicked as Button) == welcomeAllBtn)
+			{
+				this.dispatchEvent(new CharacterEvent(CharacterEvent.CHANGE_CHAR, { id:"all" }, true));
+			}
+			if ((buttonClicked as Button) == welcomeOliBtn)
+			{
+				this.dispatchEvent(new CharacterEvent(CharacterEvent.CHANGE_CHAR, { id:"oli" }, true));
 			}
 		}
 	}
