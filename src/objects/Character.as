@@ -1,9 +1,11 @@
 package objects 
 {
 	import starling.display.Image;
+	import starling.display.MovieClip;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
+	import Media;
 	
 	/**
 	 * ...
@@ -15,7 +17,8 @@ package objects
 		
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		
-		private var characterImage:Image;
+		public var characterImage:Image;
+		public var characterMovement:MovieClip;
 		public static var currentChar:String;
 		private var key:KeyboardEvent;
 		private var _collectibleCounter:int;
@@ -26,11 +29,12 @@ package objects
 		private var exhaustionOli:int;//max 100%
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
-		private var damage:int = 5;
+		public var damage:int = 5;
 		private var characterX:int;
 		
 		public function Character() 
 		{
+			trace("creo al personaje");
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.energyAll = 100;
@@ -59,21 +63,21 @@ package objects
 			this.visible = true;
 		}
 		
-		private function createCharacter():void 
+		public function createCharacter():void 
 		{
 			if (currentChar == "all")
 			{
-				characterImage = new Image(Media.getTexture("All.png"));
+				trace("creo la imagen del personaje");
+				characterImage = new Image(Media.getTexture("AllLeft"));
 				this.addChild(characterImage);
 			}
-			else
-			{
-				characterImage = new Image(Media.getTexture("Oli.png"));
-				this.addChild(characterImage);
-			}
+			//else
+			//{
+				//characterImage = new Image(Media.getTexture("Oli.png"));
+			//}
 		}
 		
-		private function swapCharacter():void //cambio de caracter condicionado a si el otro tiene vida o no
+		/*private function swapCharacter():void //cambio de caracter condicionado a si el otro tiene vida o no
 		{
 			if (currentChar=="all") 
 			{	if (energyOli>0) 
@@ -136,7 +140,7 @@ package objects
 					}
 					break;
 			}
-		}
+		}*/
 		
 		public function get screwCounter():int 
 		{

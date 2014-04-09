@@ -70,13 +70,16 @@ package screens
 			var buttonClicked:Button = event.target as Button;
 			if ((buttonClicked as Button) == welcomeAllBtn)
 			{
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+				trace("AKI LLEGA ALL");
 				Character.currentChar = "all";
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
 			}
 			if ((buttonClicked as Button) == welcomeOliBtn)
 			{
+				trace("AKI LLEGA OLI");
+				Character.currentChar = "all";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
-				Character.currentChar = "oli";
+				
 			}
 		}
 	}

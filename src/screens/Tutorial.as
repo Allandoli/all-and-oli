@@ -17,7 +17,7 @@ package screens
 		
 		private var Bg:Image;
 		private var Platform:Image;
-		private var Player:Character;
+		public var Player:Character;
 		private var Interface:Image;
 		private var CombBar:Image;
 		private var EnergyBar:Image;
@@ -30,19 +30,22 @@ package screens
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			Player = new Character();
-			this.addChild(Player);
 			
 		}
 		
 		private function onAddedToStage(e:Event):void 
 		{	
 			drawScreen();
+			trace("EMPIEZA EL JUEGO");
+			Player = new Character();
+			Player.x = 250;
+			Player.y = 250;
+			trace("añado al personaje");
+			this.addChild(Player);
 		}
 		
 		private function drawScreen():void
 		{
-			
 			Bg = new Image(Media.getTexture("BgGame"));
 			this.addChild(Bg);
 		}

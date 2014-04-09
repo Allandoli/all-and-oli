@@ -34,22 +34,8 @@ package
 		private function onAddedToStage(event:Event):void 
 		{		
 			this.addEventListener(events.NavigationEvent.CHANGE_SCREEN, onChangeScreen);
-			
-			screenInGame = new Tutorial();
-			screenInGame.disposeTemporarily();
-			this.addChild(screenInGame);
-			
-			screenEnd = new End();
-			screenEnd.disposeTemporarily();
-			this.addChild(screenEnd);
-			
-			screenCredits = new Credits();
-			screenCredits.disposeTemporarily();
-			this.addChild(screenCredits);
-			
 			screenWelcome = new Welcome();
 			this.addChild(screenWelcome);
-			screenWelcome.initialize();
 		}
 		
 		private function onChangeScreen(event:NavigationEvent):void 
@@ -57,20 +43,23 @@ package
 			switch(event.params.id)
 			{
 				case "play":
-					screenWelcome.disposeTemporarily();
+					screenInGame = new Tutorial();
+					this.addChild(screenInGame);
 					screenInGame.initialize();
+					this.removeChild(screenWelcome);
 					break;
 				case "end":
-					screenInGame.disposeTemporarily();
+					screenEnd = new End();
 					screenEnd.initialize();
+					this.addChild(screenEnd);
 					break;
 				case "start":
-					screenEnd.disposeTemporarily();
 					screenWelcome.initialize();
 					break;
 				case "credits":
-					screenEnd.disposeTemporarily();
-					screenCredits.initialize();
+					screenCredits = new Credits();
+					screenCredits.initialize()
+					this.addChild(screenCredits);
 					break;
 			}
 		}
