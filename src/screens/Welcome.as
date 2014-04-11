@@ -76,6 +76,7 @@ package screens
 			}
 			if ((buttonClicked as Button) == welcomeOliBtn)
 			{
+				
 				trace("AKI LLEGA OLI");
 				Character.currentChar = "all";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));

@@ -34,7 +34,6 @@ package objects
 		
 		public function Character() 
 		{
-			trace("creo al personaje");
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.energyAll = 100;
@@ -67,14 +66,14 @@ package objects
 		{
 			if (currentChar == "all")
 			{
-				trace("creo la imagen del personaje");
 				characterImage = new Image(Media.getTexture("AllLeft"));
 				this.addChild(characterImage);
 			}
-			//else
-			//{
-				//characterImage = new Image(Media.getTexture("Oli.png"));
-			//}
+			else
+			{
+				characterImage = new Image(Media.getTexture("Oli.png"));
+				this.addChild(characterImage);
+			}
 		}
 		
 		/*private function swapCharacter():void //cambio de caracter condicionado a si el otro tiene vida o no

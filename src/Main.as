@@ -17,7 +17,7 @@ package
 	 
 	public class Main extends Sprite 
 	{
-		private var myStarling:Starling;
+		public var myStarling:Starling;
 		protected var physics:PhysInjector;
 		
 		public function Main():void 

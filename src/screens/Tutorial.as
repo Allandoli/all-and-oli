@@ -1,11 +1,17 @@
 package screens 
 {
 	import flash.events.KeyboardEvent;
+	import starling.core.Starling;
+	import starling.core.starling_internal;
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import objects.Character;
 	import starling.events.Event;
+	import Box2D.Common.Math.b2Vec2;
+    import com.reyco1.physinjector.PhysInjector;
+    import com.reyco1.physinjector.data.PhysicsObject;
+    import com.reyco1.physinjector.data.PhysicsProperties;
 	
 	/**
 	 * ...
@@ -23,6 +29,7 @@ package screens
 		private var EnergyBar:Image;
 		private var CurrentCharIcon:Image;
 		private var PauseKey:starling.events.KeyboardEvent;
+		protected var physics:PhysInjector;
 		
 		// llamar a los objetos a crear
 		
@@ -33,17 +40,29 @@ package screens
 			
 		}
 		
+		private function injectPhysics():void
+        {
+			PhysInjector.STARLING = true;
+            physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
+            var Playerp:PhysicsObject = physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties({isDynamic:true, friction:0.5, restitution:0.5}));
+		}
+		
 		private function onAddedToStage(e:Event):void 
 		{	
 			drawScreen();
-			trace("EMPIEZA EL JUEGO");
 			Player = new Character();
 			Player.x = 250;
 			Player.y = 250;
-			trace("añado al personaje");
 			this.addChild(Player);
+			injectPhysics();
+			addEventListener(Event.ENTER_FRAME, onUpdate);
 		}
 		
+		  protected function onUpdate(event:Event):void
+        {
+            physics.update();
+        }
+        		
 		private function drawScreen():void
 		{
 			Bg = new Image(Media.getTexture("BgGame"));
@@ -60,6 +79,12 @@ package screens
 			this.visible = true;
 		}
 		
+		public function clear():void
+        {
+            removeEventListener(Event.ENTER_FRAME, onUpdate);
+            physics.dispose();
+            physics = null;
+        }    
 	}
 
 }
