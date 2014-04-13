@@ -78,7 +78,7 @@ package screens
 			{
 				
 				trace("AKI LLEGA OLI");
-				Character.currentChar = "all";
+				Character.currentChar = "oli";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
 				
 			}

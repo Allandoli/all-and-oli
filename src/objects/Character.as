@@ -71,7 +71,7 @@ package objects
 			}
 			else
 			{
-				characterImage = new Image(Media.getTexture("Oli.png"));
+				characterImage = new Image(Media.getTexture("OliEstaticoDer"));
 				this.addChild(characterImage);
 			}
 		}

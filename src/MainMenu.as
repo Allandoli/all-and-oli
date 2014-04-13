@@ -1,5 +1,6 @@
 package  
 {
+	import events.KeyBoardEvent;
 	import events.NavigationEvent;
 	import objects.Character;
 	import starling.display.Sprite;

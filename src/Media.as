@@ -40,10 +40,10 @@ package
 		[Embed(source = "../media/images/AllLeft.png")]
 		public static const AllLeft:Class;
 		
-		/*[Embed(source = "../media/images/All.png")]
-		public static const All:Class;
+		[Embed(source = "../media/images/OliEstaticoDer.png")]
+		public static const OliEstaticoDer:Class;
 		
-		
+		/*
 		[Embed(source = "../media/images/AllRight.png")]
 		public static const AllRight:Class;
 		
