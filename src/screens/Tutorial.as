@@ -1,6 +1,6 @@
 package screens 
 {
-	import flash.events.KeyboardEvent;
+	import objects.Platforms;
 	import starling.core.Starling;
 	import starling.core.starling_internal;
 	import starling.display.Button;
@@ -12,6 +12,7 @@ package screens
     import com.reyco1.physinjector.PhysInjector;
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
+	import starling.events.KeyboardEvent;
 	
 	/**
 	 * ...
@@ -20,9 +21,8 @@ package screens
 	public class Tutorial extends Sprite 
 	{
 		// cambiar de pantalla si la anterior esta superada
-		
+		public var floor:Platforms;
 		private var Bg:Image;
-		private var Platform:Image;
 		public var Player:Character;
 		private var Interface:Image;
 		private var CombBar:Image;
@@ -30,6 +30,8 @@ package screens
 		private var CurrentCharIcon:Image;
 		private var PauseKey:starling.events.KeyboardEvent;
 		protected var physics:PhysInjector;
+		public var Playerp:PhysicsObject;
+		public var Floorp:PhysicsObject;
 		
 		// llamar a los objetos a crear
 		
@@ -44,25 +46,45 @@ package screens
         {
 			PhysInjector.STARLING = true;
             physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
-            var Playerp:PhysicsObject = physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties({isDynamic:true, friction:0.5, restitution:0.5}));
+			Playerp= physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0.5 } ));
+			Floorp= physics.injectPhysics(floor, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
 		}
 		
 		private function onAddedToStage(e:Event):void 
 		{	
 			drawScreen();
+			floor = new Platforms();
+			floor.x = 250;
+			floor.y = 400;
+			this.addChild(floor);
 			Player = new Character();
 			Player.x = 250;
-			Player.y = 250;
+			Player.y = 150;
 			this.addChild(Player);
 			injectPhysics();
-			addEventListener(Event.ENTER_FRAME, onUpdate);
+			this.addEventListener(Event.ENTER_FRAME, onUpdate);
+			this.addEventListener(KeyboardEvent.KEY_DOWN,movement);
 		}
 		
 		  protected function onUpdate(event:Event):void
         {
             physics.update();
+			
         }
-        		
+		public function movement(e:KeyboardEvent):void
+		{
+			switch(String.fromCharCode(e.charCode))//lectura del movimiento 
+			{
+				case "w":
+					Playerp.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Playerp.body.GetPosition().x,Playerp.body.GetPosition().y));
+					break;
+				case "a":
+					break;
+				case "d":
+					break;
+			}
+		}
+	
 		private function drawScreen():void
 		{
 			Bg = new Image(Media.getTexture("BgGame"));

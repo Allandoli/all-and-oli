@@ -1,20 +1,33 @@
 package objects 
 {
+	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.Event;
 	
 	/**
 	 * ...
 	 * @author Adrian
 	 */
-	public class platforms extends Sprite 
+	public class Platforms extends Sprite 
 	{
-		
-		public function platforms() 
+		public var body:Image;
+		private var type:String;
+		public function Platforms() 
 		{
 			super();
-			
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+
 		}
-		
+		private function onAddedToStage(e:Event):void 
+		{
+			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			createPlatform();
+		}
+		public function createPlatform():void 
+		{
+			body = new Image(Media.getTexture("AllLeft"));
+			this.addChild(body);
+		}
 	}
 
 }

@@ -25,9 +25,6 @@ package
 		[Embed(source = "../media/images/BgCredits.jpg")]
 		public static const BgCredits:Class;
 		
-		[Embed(source = "../media/images/StartButton.jpg")]
-		public static const StartButton:Class;
-		
 		[Embed(source = "../media/images/CreditsButton.jpg")]
 		public static const CreditsButton:Class;
 		

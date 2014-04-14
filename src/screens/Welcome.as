@@ -7,6 +7,7 @@ package screens
 	import starling.events.Event;
 	import events.NavigationEvent;
 	import objects.Character;
+	import starling.events.KeyboardEvent;
 	
 	/**
 	 * ...

@@ -1,6 +1,5 @@
 package  
 {
-	import events.KeyBoardEvent;
 	import events.NavigationEvent;
 	import objects.Character;
 	import starling.display.Sprite;
@@ -21,8 +20,6 @@ package
 		private var screenInGame:Tutorial;
 		private var screenEnd:End;
 		private var screenCredits:Credits;
-		private var charAll:Character;
-		private var charOli:Character;
 		
 		
 		public function MainMenu() 
@@ -55,6 +52,8 @@ package
 					this.addChild(screenEnd);
 					break;
 				case "start":
+					screenWelcome = new Welcome();
+					this.addChild(screenWelcome);
 					screenWelcome.initialize();
 					break;
 				case "credits":

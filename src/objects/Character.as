@@ -30,7 +30,7 @@ package objects
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
 		public var damage:int = 5;
-		private var characterX:int;
+		public static var characterX:int;
 		
 		public function Character() 
 		{
