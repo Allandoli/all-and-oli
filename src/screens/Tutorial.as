@@ -153,7 +153,7 @@ package screens
 	
 		private function drawScreen():void
 		{
-			Bg = new Image(Media.getTexture("BgGame"));
+			Bg = new Image(Media.getTexture("BgTutorial"));
 			this.addChild(Bg);
 		}
 		

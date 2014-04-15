@@ -16,8 +16,8 @@ package
 		[Embed(source = "../media/images/BgWelcome.jpg")]
 		public static const BgWelcome:Class;
 		
-		[Embed(source = "../media/images/BgGame.jpg")]
-		public static const BgGame:Class;
+		[Embed(source = "../media/images/BgTutorial.png")]
+		public static const BgTutorial:Class;
 		
 		[Embed(source = "../media/images/BgEnd.jpg")]
 		public static const BgEnd:Class;
