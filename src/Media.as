@@ -40,6 +40,9 @@ package
 		[Embed(source = "../media/images/OliEstaticoDer.png")]
 		public static const OliEstaticoDer:Class;
 		
+		[Embed(source = "../media/images/SueloTutorial.png")]
+		public static const SueloTutorial:Class;
+		
 		/*
 		[Embed(source = "../media/images/AllRight.png")]
 		public static const AllRight:Class;

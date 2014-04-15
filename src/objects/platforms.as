@@ -25,7 +25,7 @@ package objects
 		}
 		public function createPlatform():void 
 		{
-			body = new Image(Media.getTexture("AllLeft"));
+			body = new Image(Media.getTexture("SueloTutorial"));
 			this.addChild(body);
 		}
 	}

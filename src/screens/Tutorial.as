@@ -22,6 +22,7 @@ package screens
 	{
 		// cambiar de pantalla si la anterior esta superada
 		public var floor:Platforms;
+		public var roof:Platforms;
 		private var Bg:Image;
 		public var Player:Character;
 		private var Interface:Image;
@@ -32,6 +33,10 @@ package screens
 		protected var physics:PhysInjector;
 		public var Playerp:PhysicsObject;
 		public var Floorp:PhysicsObject;
+		public var Roofp:PhysicsObject;
+		public var up:Boolean = false;
+		public var left:Boolean = false;
+		public var right:Boolean = false;
 		
 		// llamar a los objetos a crear
 		
@@ -48,41 +53,102 @@ package screens
             physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
 			Playerp= physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0.5 } ));
 			Floorp= physics.injectPhysics(floor, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
+			Roofp = physics.injectPhysics(roof, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
+
 		}
 		
 		private function onAddedToStage(e:Event):void 
 		{	
 			drawScreen();
 			floor = new Platforms();
-			floor.x = 250;
-			floor.y = 400;
+			floor.x = 0;
+			floor.y = 542;
 			this.addChild(floor);
+			roof = new Platforms();
+			roof.x = 0;
+			roof.y = 0;
+			roof.visible = false;
+			this.addChild(roof);
 			Player = new Character();
 			Player.x = 250;
 			Player.y = 150;
 			this.addChild(Player);
 			injectPhysics();
 			this.addEventListener(Event.ENTER_FRAME, onUpdate);
-			this.addEventListener(KeyboardEvent.KEY_DOWN,movement);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
+			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+		}
+		
+		private function movementDeactivation(e:KeyboardEvent):void 
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
+			{
+				up = false;
+			}
+			if (aux == "a" || aux == "A")
+			{
+				left = false;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = false;
+			}
+			movement();
+		}
+		
+		private function movement():void 
+		{
+			if (up)
+			{
+				//fuerza arriba
+				Playerp.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Playerp.body.GetPosition().x, Playerp.body.GetPosition().y));
+				if (left)
+				{
+					//fuerza atras
+					Playerp.body.ApplyForce(new b2Vec2(-80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+				if (right)
+				{
+					//fuerza alante
+					Playerp.body.ApplyForce(new b2Vec2(80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+			}
+			else
+			{
+				if (left)
+				{
+					//fuerza atras
+					Playerp.body.ApplyForce(new b2Vec2(-40, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+				if (right)
+				{
+					//fuerza alante
+					Playerp.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+			}
 		}
 		
 		  protected function onUpdate(event:Event):void
         {
             physics.update();
-			
         }
-		public function movement(e:KeyboardEvent):void
+		public function movementActivation(e:KeyboardEvent):void
 		{
-			switch(String.fromCharCode(e.charCode))//lectura del movimiento 
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
 			{
-				case "w":
-					Playerp.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Playerp.body.GetPosition().x,Playerp.body.GetPosition().y));
-					break;
-				case "a":
-					break;
-				case "d":
-					break;
+				up = true;
 			}
+			if (aux == "a" || aux == "A")
+			{
+				left = true;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = true;
+			}
+			movement();
 		}
 	
 		private function drawScreen():void
