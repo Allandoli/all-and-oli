@@ -66,7 +66,7 @@ package objects
 		{
 			if (currentChar == "all")
 			{
-				characterImage = new Image(Media.getTexture("AllLeft"));
+				characterImage = new Image(Media.getTexture("AllRight"));
 				this.addChild(characterImage);
 			}
 			else

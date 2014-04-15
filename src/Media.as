@@ -34,8 +34,8 @@ package
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
 		
-		[Embed(source = "../media/images/AllLeft.png")]
-		public static const AllLeft:Class;
+		[Embed(source = "../media/images/AllRight.png")]
+		public static const AllRight:Class;
 		
 		[Embed(source = "../media/images/OliEstaticoDer.png")]
 		public static const OliEstaticoDer:Class;

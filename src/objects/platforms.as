@@ -3,6 +3,7 @@ package objects
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
+
 	
 	/**
 	 * ...
@@ -12,6 +13,7 @@ package objects
 	{
 		public var body:Image;
 		private var type:String;
+		
 		public function Platforms() 
 		{
 			super();
@@ -20,7 +22,8 @@ package objects
 		}
 		private function onAddedToStage(e:Event):void 
 		{
-			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
 			createPlatform();
 		}
 		public function createPlatform():void 

@@ -1,5 +1,6 @@
 package screens 
 {
+	import objects.Background;
 	import objects.Platforms;
 	import starling.core.Starling;
 	import starling.core.starling_internal;
@@ -13,6 +14,8 @@ package screens
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
 	import starling.events.KeyboardEvent;
+	import starling.events.EnterFrameEvent;
+
 	
 	/**
 	 * ...
@@ -23,7 +26,7 @@ package screens
 		// cambiar de pantalla si la anterior esta superada
 		public var floor:Platforms;
 		public var roof:Platforms;
-		private var Bg:Image;
+		private var Bg:Background;
 		public var Player:Character;
 		private var Interface:Image;
 		private var CombBar:Image;
@@ -51,8 +54,8 @@ package screens
         {
 			PhysInjector.STARLING = true;
             physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
-			Playerp= physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0.5 } ));
-			Floorp= physics.injectPhysics(floor, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
+			Playerp = physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0.5 } ));
+			Floorp = physics.injectPhysics(floor, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
 			Roofp = physics.injectPhysics(roof, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
 
 		}
@@ -102,20 +105,7 @@ package screens
 			if (up)
 			{
 				//fuerza arriba
-				Playerp.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Playerp.body.GetPosition().x, Playerp.body.GetPosition().y));
-				if (left)
-				{
-					//fuerza atras
-					Playerp.body.ApplyForce(new b2Vec2(-80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-				if (right)
-				{
-					//fuerza alante
-					Playerp.body.ApplyForce(new b2Vec2(80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-			}
-			else
-			{
+				Playerp.body.ApplyImpulse(new b2Vec2(0, -2), new b2Vec2(Playerp.body.GetPosition().x, Playerp.body.GetPosition().y));
 				if (left)
 				{
 					//fuerza atras
@@ -125,6 +115,19 @@ package screens
 				{
 					//fuerza alante
 					Playerp.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+			}
+			else
+			{
+				if (left)
+				{
+					//fuerza atras
+					Playerp.body.ApplyForce(new b2Vec2(-80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
+				}
+				if (right)
+				{
+					//fuerza alante
+					Playerp.body.ApplyForce(new b2Vec2(80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
 				}
 			}
 		}
@@ -153,7 +156,7 @@ package screens
 	
 		private function drawScreen():void
 		{
-			Bg = new Image(Media.getTexture("BgTutorial"));
+			Bg = new Background();
 			this.addChild(Bg);
 		}
 		
