@@ -31,9 +31,7 @@ package screens
 		}
 		
 		private function onAddedToStage(event:Event):void 
-		{
-			trace("pantalla inicio");
-			
+		{			
 			drawScreen();
 		}
 		
@@ -71,14 +69,11 @@ package screens
 			var buttonClicked:Button = event.target as Button;
 			if ((buttonClicked as Button) == welcomeAllBtn)
 			{
-				trace("AKI LLEGA ALL");
 				Character.currentChar = "all";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
 			}
 			if ((buttonClicked as Button) == welcomeOliBtn)
 			{
-				
-				trace("AKI LLEGA OLI");
 				Character.currentChar = "oli";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
 				

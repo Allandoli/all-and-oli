@@ -1,5 +1,10 @@
 package objects 
 {
+	import Box2D.Common.Math.b2Vec2;
+	import com.reyco1.physinjector.PhysInjector;
+    import com.reyco1.physinjector.data.PhysicsObject;
+    import com.reyco1.physinjector.data.PhysicsProperties;
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -7,19 +12,20 @@ package objects
 	import starling.events.KeyboardEvent;
 	import Media;
 	
+	
 	/**
 	 * ...
-	 * @author Vicent
+	 * @author All & oli
 	 */
 	public class Character extends Sprite 
 	{
-		// KeyboardEvent -> click derecho -> Find all references
-		
+		protected var physics:PhysInjector;
+		private var Actual:PhysicsObject;
+		private var Desactivado:PhysicsObject;
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
-		
-		public var characterImage:Image;
-		public var characterMovement:MovieClip;
 		public static var currentChar:String;
+		private var characterImage:Image;
+		private var characterMovement:MovieClip;
 		private var key:KeyboardEvent;
 		private var _collectibleCounter:int;
 		private var _screwCounter:int;
@@ -30,12 +36,16 @@ package objects
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
 		public var damage:int = 5;
-		public static var characterX:int;
+		public var up:Boolean = false;
+		public var left:Boolean = false;
+		public var right:Boolean = false;
 		
-		public function Character() 
+
+		
+		public function Character(p:PhysInjector) 
 		{
+			this.physics = p;
 			super();
-			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.energyAll = 100;
 			this.energyOli = 100;
 			this.exhaustionAll = 100;
@@ -44,12 +54,58 @@ package objects
 			this._screwCounter = 0;
 			this._energyChar = 100;
 			this._exhaustionChar = 100;
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, onSwapCharacter);//evento de cambio de personaje
 		}
 		
 		private function onAddedToStage(e:Event):void 
 		{
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			createCharacter();
+			injectPhysics();
+			this.addEventListener(Event.ENTER_FRAME, onUpdate);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
+			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+		}
+		
+		private function injectPhysics():void
+        {
+			Actual = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
+			Desactivado = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
+			Actual.body.SetFixedRotation(true);
+			Desactivado.body.SetFixedRotation(true);
+		}
+		
+		private function onSwapCharacter(e:KeyboardEvent):void 
+		{
+			if (String.fromCharCode(e.charCode)=="q") 
+			{
+				if (currentChar=="all") 
+				{	if (energyOli>0) 
+					{
+						energyAll = this._energyChar;
+						exhaustionAll = this._exhaustionChar;
+						currentChar = "oli";
+						this._energyChar = energyOli;
+						this._exhaustionChar = exhaustionOli;
+						characterImage.texture = Media.getTexture("OliEstaticoDer");
+						this.addChild(characterImage);
+					}
+				}
+				else 
+				{
+					if (energyAll>0) 
+					{
+						energyOli = this._energyChar;
+						exhaustionOli = this._exhaustionChar;
+						currentChar = "all";
+						this._energyChar = energyAll;
+						this._exhaustionChar = exhaustionAll;
+						characterImage.texture = Media.getTexture("AllRight");
+						this.addChild(characterImage);
+					}
+				}
+			}
 		}
 		
 		public function disposeTemporarily():void 
@@ -75,72 +131,7 @@ package objects
 				this.addChild(characterImage);
 			}
 		}
-		
-		/*private function swapCharacter():void //cambio de caracter condicionado a si el otro tiene vida o no
-		{
-			if (currentChar=="all") 
-			{	if (energyOli>0) 
-				{
-					energyAll = this._energyChar;
-					exhaustionAll = this._exhaustionChar;
-					currentChar = "oli";
-					this._energyChar = energyOli;
-					this._exhaustionChar = exhaustionOli;
-				}
-			}
-			else 
-			{
-				if (energyAll>0) 
-				{
-					energyOli = this._energyChar;
-					exhaustionOli = this._exhaustionChar;
-					currentChar = "all";
-					this._energyChar = energyAll;
-					this._exhaustionChar = exhaustionAll;
-				}
-			}
-		}
-		
-		private function charMovement(charCode):void
-		{
-			key = new KeyboardEvent(null);
-			switch (charCode) 
-			{
-				case "all":	
-					switch (key) 
-					{
-					case "keyRight":
-						characterImage = new Image(Media.getTexture("AllRight.png"));
-						characterX++;
-						break;
-					case "keyUp":
-						characterImage = new Image(Media.getTexture("AllJump.png"));
-						break;
-					case "keyLeft":
-						characterImage = new Image(Media.getTexture("AllLeft.png"));
-						characterX--;
-						break;
-					}
-					break;
-				case "oli":	
-					switch (key) 
-					{
-					case "keyRight":
-						characterImage = new Image(Media.getTexture("OliRight.png"));
-						characterX++;
-						break;
-					case "keyUp":
-						characterImage = new Image(Media.getTexture("OliJump.png"));
-						break;
-					case "keyLeft":
-						characterImage = new Image(Media.getTexture("OliLeft.png"));
-						characterX--;
-						break;
-					}
-					break;
-			}
-		}*/
-		
+			
 		public function get screwCounter():int 
 		{
 			return _screwCounter;
@@ -180,5 +171,87 @@ package objects
 		{
 			_energyChar -=value;
 		}
+		
+		protected function onUpdate(event:Event):void
+        {
+            physics.update();
+        }
+		
+		public function clear():void
+        {
+            removeEventListener(Event.ENTER_FRAME, onUpdate);
+            physics.dispose();
+            physics = null;
+        }
+		private function movementDeactivation(e:KeyboardEvent):void 
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
+			{
+				up = false;
+			}
+			if (aux == "a" || aux == "A")
+			{
+				left = false;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = false;
+			}
+			movement();
+		}
+		
+		private function movement():void 
+		{
+			if (up)
+			{
+				//fuerza arriba
+				Actual.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
+				if (left)
+				{
+					//fuerza atras
+					Actual.body.ApplyForce(new b2Vec2(-40, 0), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
+				}
+				if (right)
+				{
+					//fuerza alante
+					Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
+				}
+			}
+			else
+			{
+				if (left)
+				{
+					//fuerza atras
+					Actual.body.ApplyForce(new b2Vec2(-40, 0), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
+				}
+				if (right)
+				{
+					//fuerza alante
+					Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
+				}
+			}
+		}
+		
+		
+		public function movementActivation(e:KeyboardEvent):void
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
+			{
+				up = true;
+			}
+			if (aux == "a" || aux == "A")
+			{
+				left = true;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = true;
+			}
+			movement();
+		}
+		
+		
 	}
 }

@@ -1,9 +1,13 @@
 package objects 
 {
+	import starling.core.Starling;
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.Event;
-
+	import Box2D.Common.Math.b2Vec2;
+	import com.reyco1.physinjector.PhysInjector;
+    import com.reyco1.physinjector.data.PhysicsObject;
+    import com.reyco1.physinjector.data.PhysicsProperties;
 	
 	/**
 	 * ...
@@ -11,11 +15,14 @@ package objects
 	 */
 	public class Platforms extends Sprite 
 	{
-		public var body:Image;
+		protected var physics:PhysInjector;
+		private var Actual:PhysicsObject;
+		public var cuerpo:Image;
 		private var type:String;
 		
-		public function Platforms() 
+		public function Platforms(p:PhysInjector) 
 		{
+			this.physics = p;
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
@@ -23,14 +30,36 @@ package objects
 		private function onAddedToStage(e:Event):void 
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			
 			createPlatform();
+			injectPhysics();
+			this.addEventListener(Event.ENTER_FRAME, onUpdate);
+
 		}
 		public function createPlatform():void 
 		{
-			body = new Image(Media.getTexture("SueloTutorial"));
-			this.addChild(body);
+			cuerpo = new Image(Media.getTexture("SueloTutorial"));
+			this.addChild(cuerpo);
 		}
+		
+		private function injectPhysics():void
+        {
+			physics.allowDrag = false;
+			Actual = physics.injectPhysics(cuerpo, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0 } ));
+		}
+		
+		protected function onUpdate(event:Event):void
+        {
+            physics.update();
+        }
+		
+		public function clear():void
+        {
+            removeEventListener(Event.ENTER_FRAME, onUpdate);
+            physics.dispose();
+            physics = null;
+        }
+		
+		
 	}
 
 }

@@ -1,5 +1,6 @@
 package screens 
 {
+	import objects.Character;
 	import objects.Background;
 	import objects.Platforms;
 	import starling.core.Starling;
@@ -7,22 +8,24 @@ package screens
 	import starling.display.Button;
 	import starling.display.Image;
 	import starling.display.Sprite;
-	import objects.Character;
 	import starling.events.Event;
-	import Box2D.Common.Math.b2Vec2;
-    import com.reyco1.physinjector.PhysInjector;
-    import com.reyco1.physinjector.data.PhysicsObject;
-    import com.reyco1.physinjector.data.PhysicsProperties;
 	import starling.events.KeyboardEvent;
 	import starling.events.EnterFrameEvent;
-
+	import Box2D.Common.Math.b2Vec2;
+	import com.reyco1.physinjector.PhysInjector;
+    import com.reyco1.physinjector.data.PhysicsObject;
+    import com.reyco1.physinjector.data.PhysicsProperties;
 	
 	/**
 	 * ...
-	 * @author Vicent
+	 * @author All & oli
 	 */
+	
+	
 	public class Tutorial extends Sprite 
 	{
+		protected var physics:PhysInjector;
+
 		// cambiar de pantalla si la anterior esta superada
 		public var floor:Platforms;
 		public var roof:Platforms;
@@ -32,11 +35,6 @@ package screens
 		private var CombBar:Image;
 		private var EnergyBar:Image;
 		private var CurrentCharIcon:Image;
-		private var PauseKey:starling.events.KeyboardEvent;
-		protected var physics:PhysInjector;
-		public var Playerp:PhysicsObject;
-		public var Floorp:PhysicsObject;
-		public var Roofp:PhysicsObject;
 		public var up:Boolean = false;
 		public var left:Boolean = false;
 		public var right:Boolean = false;
@@ -54,104 +52,27 @@ package screens
         {
 			PhysInjector.STARLING = true;
             physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
-			Playerp = physics.injectPhysics(Player, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0.5 } ));
-			Floorp = physics.injectPhysics(floor, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
-			Roofp = physics.injectPhysics(roof, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0.5 } ));
-
+			physics.allowDrag = false;
+			
 		}
 		
 		private function onAddedToStage(e:Event):void 
 		{	
+			injectPhysics();
 			drawScreen();
-			floor = new Platforms();
+			floor = new Platforms(physics);
 			floor.x = 0;
 			floor.y = 542;
 			this.addChild(floor);
-			roof = new Platforms();
+			roof = new Platforms(physics);
 			roof.x = 0;
 			roof.y = 0;
 			roof.visible = false;
 			this.addChild(roof);
-			Player = new Character();
+			Player = new Character(physics);
 			Player.x = 250;
 			Player.y = 150;
 			this.addChild(Player);
-			injectPhysics();
-			this.addEventListener(Event.ENTER_FRAME, onUpdate);
-			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
-			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
-		}
-		
-		private function movementDeactivation(e:KeyboardEvent):void 
-		{
-			var aux:String =  String.fromCharCode(e.charCode);
-			if ( aux == "w" || aux == "W")
-			{
-				up = false;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = false;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = false;
-			}
-			movement();
-		}
-		
-		private function movement():void 
-		{
-			if (up)
-			{
-				//fuerza arriba
-				Playerp.body.ApplyImpulse(new b2Vec2(0, -2), new b2Vec2(Playerp.body.GetPosition().x, Playerp.body.GetPosition().y));
-				if (left)
-				{
-					//fuerza atras
-					Playerp.body.ApplyForce(new b2Vec2(-40, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-				if (right)
-				{
-					//fuerza alante
-					Playerp.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-			}
-			else
-			{
-				if (left)
-				{
-					//fuerza atras
-					Playerp.body.ApplyForce(new b2Vec2(-80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-				if (right)
-				{
-					//fuerza alante
-					Playerp.body.ApplyForce(new b2Vec2(80, 0), new b2Vec2(Playerp.body.GetWorldCenter().x,Playerp.body.GetWorldCenter().y));
-				}
-			}
-		}
-		
-		  protected function onUpdate(event:Event):void
-        {
-            physics.update();
-        }
-		public function movementActivation(e:KeyboardEvent):void
-		{
-			var aux:String =  String.fromCharCode(e.charCode);
-			if ( aux == "w" || aux == "W")
-			{
-				up = true;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = true;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = true;
-			}
-			movement();
 		}
 	
 		private function drawScreen():void
@@ -169,13 +90,7 @@ package screens
 		{
 			this.visible = true;
 		}
-		
-		public function clear():void
-        {
-            removeEventListener(Event.ENTER_FRAME, onUpdate);
-            physics.dispose();
-            physics = null;
-        }    
+	    
 	}
 
 }
