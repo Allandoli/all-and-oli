@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:a745f5627b9f7e242d25b421b1f16d43:8d21e05d89f56531e28b30cc88232f1c:2ef67ba674d24f371fe504d249ddd5aa$ -->
+<TextureAtlas imagePath="OliSheet.png">
+    <SubTexture name="OliAreaDer" x="0" y="0" width="57" height="65"/>
+    <SubTexture name="OliAreaIzq" x="58" y="0" width="57" height="65"/>
+    <SubTexture name="OliDisp1Der" x="116" y="0" width="60" height="67"/>
+    <SubTexture name="OliDisp2Der" x="0" y="68" width="59" height="67"/>
+    <SubTexture name="OliDispIzq1" x="60" y="68" width="60" height="67"/>
+    <SubTexture name="OliDispIzq2" x="121" y="68" width="60" height="67"/>
+    <SubTexture name="OliEstaticoDer" x="0" y="136" width="57" height="65"/>
+    <SubTexture name="OliEstaticoIzq" x="58" y="136" width="57" height="65"/>
+    <SubTexture name="OliUltiDer" x="116" y="136" width="57" height="65"/>
+    <SubTexture name="OliUltiIzq" x="174" y="136" width="57" height="65"/>
+</TextureAtlas>

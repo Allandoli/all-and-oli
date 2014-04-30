@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:bb6116919f1ce8eb457b8c96045b1371:da70a11e92783a997978998648bfd26b:7b0c364ca2b296ee67f78125ecdd42c4$ -->
+<TextureAtlas imagePath="AllSheet.png">
+    <SubTexture name="AllDer1" x="0" y="0" width="33" height="91"/>
+    <SubTexture name="AllDer2" x="34" y="0" width="33" height="91"/>
+    <SubTexture name="AllDer3" x="68" y="0" width="31" height="90"/>
+    <SubTexture name="AllDer4" x="100" y="0" width="33" height="89"/>
+    <SubTexture name="AllDer5" x="134" y="0" width="33" height="89"/>
+    <SubTexture name="AllFrontal" x="168" y="0" width="44" height="90"/>
+    <SubTexture name="AllIzq1" x="213" y="0" width="33" height="91"/>
+    <SubTexture name="AllIzq2" x="247" y="0" width="33" height="91"/>
+    <SubTexture name="AllIzq3" x="281" y="0" width="24" height="90"/>
+    <SubTexture name="AllIzq4" x="306" y="0" width="33" height="90"/>
+    <SubTexture name="AllIzq5" x="340" y="0" width="33" height="89"/>
+    <SubTexture name="AllPunDer1" x="0" y="92" width="50" height="89"/>
+    <SubTexture name="AllPunDer2" x="51" y="92" width="80" height="90"/>
+    <SubTexture name="AllPunIzq1" x="132" y="92" width="50" height="89"/>
+    <SubTexture name="AllPunIzq2" x="183" y="92" width="80" height="90"/>
+    <SubTexture name="AllSaltoDer" x="264" y="92" width="46" height="83"/>
+    <SubTexture name="AllSaltoIzq" x="311" y="92" width="46" height="83"/>
+</TextureAtlas>

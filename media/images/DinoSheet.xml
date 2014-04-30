@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:e2ee21dd13b92e747b276f011b8d5f23:38e228cac9ffd0428ec364c3b66898db:0b0290b5f48f9f2889473945066a91dc$ -->
+<TextureAtlas imagePath="DinoSheet.png">
+    <SubTexture name="DinoAtDer1" x="0" y="0" width="124" height="141"/>
+    <SubTexture name="DinoAtDer2" x="125" y="0" width="114" height="136"/>
+    <SubTexture name="DinoAtDer3" x="240" y="0" width="123" height="141"/>
+    <SubTexture name="DinoAtDer4" x="364" y="0" width="115" height="136"/>
+    <SubTexture name="DinoAtIzq1" x="480" y="0" width="124" height="141"/>
+    <SubTexture name="DinoAtIzq2" x="605" y="0" width="114" height="136"/>
+    <SubTexture name="DinoAtIzq3" x="720" y="0" width="123" height="141"/>
+    <SubTexture name="DinoAtIzq4" x="844" y="0" width="115" height="136"/>
+    <SubTexture name="DinoDer1" x="0" y="142" width="123" height="131"/>
+    <SubTexture name="DinoDer2" x="124" y="142" width="113" height="126"/>
+    <SubTexture name="DinoDer3" x="238" y="142" width="122" height="131"/>
+    <SubTexture name="DinoDer4" x="361" y="142" width="113" height="126"/>
+    <SubTexture name="DinoIzq1" x="475" y="142" width="123" height="131"/>
+    <SubTexture name="DinoIzq2" x="599" y="142" width="113" height="126"/>
+    <SubTexture name="DinoIzq3" x="713" y="142" width="122" height="131"/>
+    <SubTexture name="DinoIzq4" x="836" y="142" width="113" height="126"/>
+</TextureAtlas>
