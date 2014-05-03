@@ -5,9 +5,6 @@ package objects
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.events.EnterFrameEvent;
-	import com.reyco1.physinjector.PhysInjector;
-    import com.reyco1.physinjector.data.PhysicsObject;
-    import com.reyco1.physinjector.data.PhysicsProperties;
 	
 	/**
 	 * ...
@@ -49,17 +46,9 @@ package objects
 				
 		}
 		
-		public function injectPhysics():void
-        {
-			Actual = physics.injectPhysics(Character.currentChar.characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
-			Desactivado = physics.injectPhysics(Character.currentChar.characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
-			Actual.body.SetFixedRotation(true);
-			Desactivado.body.SetFixedRotation(true);
-		}
-		
 		private function onEnterFrame(e:EnterFrameEvent):void 
 		{
-			Fondo1.x -= Character.charPosition(currentChar).X;
+			Fondo1.x -= Math.ceil(speed * parallax);
 			if (Fondo1.x < -stage.stageWidth) Fondo1.x = 0;
 			
 			Fondo2.x -= Math.ceil(speed * parallax);

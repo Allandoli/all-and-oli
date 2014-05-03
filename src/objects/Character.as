@@ -19,7 +19,7 @@ package objects
 	 */
 	public class Character extends Sprite 
 	{
-		public var physics:PhysInjector;
+		protected var physics:PhysInjector;
 		private var Actual:PhysicsObject;
 		private var Desactivado:PhysicsObject;
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
@@ -39,7 +39,6 @@ package objects
 		public var up:Boolean = false;
 		public var left:Boolean = false;
 		public var right:Boolean = false;
-		private var X:Number;
 		
 
 		
@@ -69,7 +68,7 @@ package objects
 			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
 		}
 		
-		public function injectPhysics():void
+		private function injectPhysics():void
         {
 			Actual = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Desactivado = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
@@ -202,12 +201,7 @@ package objects
 			movement();
 		}
 		
-		public function charPosition(currentChar:String):int
-		{
-			return X = Actual.body.GetLocalCenter().x
-		}
-		
-		public function movement():void 
+		private function movement():void 
 		{
 			if (up)
 			{
@@ -238,6 +232,7 @@ package objects
 				}
 			}
 		}
+		
 		
 		public function movementActivation(e:KeyboardEvent):void
 		{
