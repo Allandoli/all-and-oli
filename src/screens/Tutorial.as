@@ -45,7 +45,7 @@ package screens
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			
+			this.addEventListener(Event.ENTER_FRAME, onUpdate);
 		}
 		
 		private function injectPhysics():void
@@ -90,7 +90,17 @@ package screens
 		{
 			this.visible = true;
 		}
-	    
+	  protected function onUpdate(event:Event):void
+        {
+            physics.update();
+        }
+		
+		public function clear():void
+        {
+            removeEventListener(Event.ENTER_FRAME, onUpdate);
+            physics.dispose();
+            physics = null;
+        }
 	}
 
 }

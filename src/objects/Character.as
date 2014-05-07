@@ -20,9 +20,8 @@ package objects
 	public class Character extends Sprite 
 	{
 		protected var physics:PhysInjector;
-		private var Actual:PhysicsObject;
+		public var Actual:PhysicsObject;
 		private var Desactivado:PhysicsObject;
-		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		public static var currentChar:String;
 		private var characterImage:Image;
 		private var characterMovement:MovieClip;
@@ -36,6 +35,7 @@ package objects
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
 		public var damage:int = 5;
+		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
 		public var up:Boolean = false;
 		public var left:Boolean = false;
 		public var right:Boolean = false;
@@ -63,17 +63,52 @@ package objects
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			createCharacter();
 			injectPhysics();
-			this.addEventListener(Event.ENTER_FRAME, onUpdate);
 			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
 			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+		}
+		
+		private function movementDeactivation(e:KeyboardEvent):void 
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
+			{
+				up = false;
+			}
+			if (aux == "a" || aux == "A")
+			{
+				left = false;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = false;
+			}
+			movement();
+		}
+		
+		private function movementActivation(e:KeyboardEvent):void 
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if ( aux == "w" || aux == "W")
+			{
+				up = true;
+			}
+			if (aux == "a" || aux == "A")
+			{
+				left = true;
+			}
+			if( aux == "d" || aux == "D")
+			{
+				right = true;
+			}
+			movement();
 		}
 		
 		private function injectPhysics():void
         {
 			Actual = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
-			Desactivado = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Actual.body.SetFixedRotation(true);
-			Desactivado.body.SetFixedRotation(true);
+			//Desactivado = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0, restitution:0 } ));
+			//Desactivado.body.SetFixedRotation(true);
 		}
 		
 		private function onSwapCharacter(e:KeyboardEvent):void 
@@ -172,35 +207,6 @@ package objects
 			_energyChar -=value;
 		}
 		
-		protected function onUpdate(event:Event):void
-        {
-            physics.update();
-        }
-		
-		public function clear():void
-        {
-            removeEventListener(Event.ENTER_FRAME, onUpdate);
-            physics.dispose();
-            physics = null;
-        }
-		private function movementDeactivation(e:KeyboardEvent):void 
-		{
-			var aux:String =  String.fromCharCode(e.charCode);
-			if ( aux == "w" || aux == "W")
-			{
-				up = false;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = false;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = false;
-			}
-			movement();
-		}
-		
 		private function movement():void 
 		{
 			if (up)
@@ -231,27 +237,7 @@ package objects
 					Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x,Actual.body.GetLocalCenter().y));
 				}
 			}
-		}
-		
-		
-		public function movementActivation(e:KeyboardEvent):void
-		{
-			var aux:String =  String.fromCharCode(e.charCode);
-			if ( aux == "w" || aux == "W")
-			{
-				up = true;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = true;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = true;
-			}
-			movement();
-		}
-		
+		}		
 		
 	}
 }

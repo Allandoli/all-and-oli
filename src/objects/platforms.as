@@ -32,8 +32,6 @@ package objects
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			createPlatform();
 			injectPhysics();
-			this.addEventListener(Event.ENTER_FRAME, onUpdate);
-
 		}
 		public function createPlatform():void 
 		{
@@ -43,23 +41,7 @@ package objects
 		
 		private function injectPhysics():void
         {
-			physics.allowDrag = false;
 			Actual = physics.injectPhysics(cuerpo, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0 } ));
 		}
-		
-		protected function onUpdate(event:Event):void
-        {
-            physics.update();
-        }
-		
-		public function clear():void
-        {
-            removeEventListener(Event.ENTER_FRAME, onUpdate);
-            physics.dispose();
-            physics = null;
-        }
-		
-		
 	}
-
 }
