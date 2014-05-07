@@ -4,6 +4,7 @@ package
 	import flash.utils.Dictionary;
 	import starling.textures.Texture;
 	import flash.display.BitmapData;
+	import starling.textures.TextureAtlas;
 	
 	/**
 	 * ...
@@ -34,33 +35,30 @@ package
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
 		
-		[Embed(source = "../media/images/AllRight.png")]
-		public static const AllRight:Class;
-		
 		[Embed(source = "../media/images/OliEstaticoDer.png")]
 		public static const OliEstaticoDer:Class;
 		
 		[Embed(source = "../media/images/SueloTutorial.png")]
 		public static const SueloTutorial:Class;
 		
-		/*
-		[Embed(source = "../media/images/AllRight.png")]
-		public static const AllRight:Class;
+		public static var gameTextureAtlas:TextureAtlas;
 		
-		[Embed(source = "../media/images/AllJump.png")]
-		public static const AllJump:Class;
+		[Embed(source = ".../media/spritesheets/CharSheet.png")]
+		public static const AtlasChar:Class;
 		
-		[Embed(source = "../media/images/Oli.png")]
-		public static const Oli:Class;
+		[Embed(source = ".../media/spritesheets/CharSheet.xml", mymeType="application/octet-stream")]
+		public static const AtlasXMLChar:Class;
 		
-		[Embed(source = "../media/images/OliLeft.png")]
-		public static const OliLeft:Class;
-		
-		[Embed(source = "../media/images/OliRight.png")]
-		public static const OliRight:Class;
-		
-		[Embed(source = "../media/images/OliJump.png")]
-		public static const OliJump:Class;*/
+		public static function getAtlas():TextureAtlas
+		{
+			if (gameTextureAtlas = null)
+			{
+				var texture:Texture = getTexture("AtlasChar");
+				var xml:XML = XML(new AtlasXMLChar());
+				gameTextureAtlas = new TextureAtlas(texture, xml);
+			}
+			return gameTextureAtlas;
+		}
 		
 		public static function getTexture(name:String):Texture 
 		{

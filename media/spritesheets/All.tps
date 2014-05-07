@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.3.3</string>
         <key>fileName</key>
-        <string>C:/Users/Vicent/Documents/GitHub/ALL&amp;OLI BETA/Spritesheets/All.tps</string>
+        <string>C:/Users/Vicent/Documents/GitHub/all-and-oli/media/spritesheets/All.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -32,7 +32,7 @@
         <key>premultiplyAlpha</key>
         <false/>
         <key>shapeDebug</key>
-        <true/>
+        <false/>
         <key>dpi</key>
         <uint>72</uint>
         <key>dataFormat</key>
@@ -56,7 +56,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>1</uint>
+        <uint>3</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -68,7 +68,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>0</uint>
+        <uint>4</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -172,23 +172,23 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../PNGs/AllSheet/AllDer1.png</filename>
-            <filename>../PNGs/AllSheet/AllDer2.png</filename>
-            <filename>../PNGs/AllSheet/AllDer3.png</filename>
-            <filename>../PNGs/AllSheet/AllDer4.png</filename>
-            <filename>../PNGs/AllSheet/AllDer5.png</filename>
-            <filename>../PNGs/AllSheet/AllFrontal.png</filename>
-            <filename>../PNGs/AllSheet/AllIzq1.png</filename>
-            <filename>../PNGs/AllSheet/AllIzq2.png</filename>
-            <filename>../PNGs/AllSheet/AllIzq3.png</filename>
-            <filename>../PNGs/AllSheet/AllIzq4.png</filename>
-            <filename>../PNGs/AllSheet/AllIzq5.png</filename>
-            <filename>../PNGs/AllSheet/AllPunDer1.png</filename>
-            <filename>../PNGs/AllSheet/AllPunDer2.png</filename>
-            <filename>../PNGs/AllSheet/AllPunIzq1.png</filename>
-            <filename>../PNGs/AllSheet/AllPunIzq2.png</filename>
-            <filename>../PNGs/AllSheet/AllSaltoDer.png</filename>
-            <filename>../PNGs/AllSheet/AllSaltoIzq.png</filename>
+            <filename>../images/AllDer1.png</filename>
+            <filename>../images/AllDer2.png</filename>
+            <filename>../images/AllDer3.png</filename>
+            <filename>../images/AllDer4.png</filename>
+            <filename>../images/AllDer5.png</filename>
+            <filename>../images/AllIzq1.png</filename>
+            <filename>../images/AllIzq2.png</filename>
+            <filename>../images/AllIzq3.png</filename>
+            <filename>../images/AllIzq4.png</filename>
+            <filename>../images/AllIzq5.png</filename>
+            <filename>../images/AllFrontal.png</filename>
+            <filename>../images/AllPunDer1.png</filename>
+            <filename>../images/AllPunDer2.png</filename>
+            <filename>../images/AllPunIzq1.png</filename>
+            <filename>../images/AllPunIzq2.png</filename>
+            <filename>../images/AllSaltoDer.png</filename>
+            <filename>../images/AllSaltoIzq.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

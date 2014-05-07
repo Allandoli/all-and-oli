@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.3.3</string>
         <key>fileName</key>
-        <string>C:/Users/Vicent/Documents/GitHub/ALL&amp;OLI BETA/Spritesheets/Oli.tps</string>
+        <string>C:/Users/Vicent/Documents/GitHub/all-and-oli/media/spritesheets/Char.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>sparrow</string>
         <key>textureFileName</key>
-        <filename>OliSheet.png</filename>
+        <filename>CharSheet.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -56,7 +56,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>1</uint>
+        <uint>2</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -68,7 +68,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>0</uint>
+        <uint>1</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>OliSheet.xml</filename>
+                <filename>CharSheet.xml</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -172,16 +172,63 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../PNGs/OliDispIzq2.png</filename>
-            <filename>../PNGs/OliEstaticoDer.png</filename>
-            <filename>../PNGs/OliEstaticoIzq.png</filename>
-            <filename>../PNGs/OliUltiDer.png</filename>
-            <filename>../PNGs/OliUltiIzq.png</filename>
-            <filename>../PNGs/OliAreaDer.png</filename>
-            <filename>../PNGs/OliAreaIzq.png</filename>
-            <filename>../PNGs/OliDisp1Der.png</filename>
-            <filename>../PNGs/OliDisp2Der.png</filename>
-            <filename>../PNGs/OliDispIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer5.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq5.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllSaltoDer.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllSaltoIzq.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllFrontal.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliDer.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliIzq.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliDispDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliDispDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliDispIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliDispIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliAreaDer.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliAreaIzq.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliUltiDer.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliUltiIzq.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloDer.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloIzq.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilA1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilA2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR5.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR6.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarIzq2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
