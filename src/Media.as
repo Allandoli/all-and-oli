@@ -35,29 +35,27 @@ package
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
 		
-		[Embed(source = "../media/images/OliEstaticoDer.png")]
-		public static const OliEstaticoDer:Class;
-		
 		[Embed(source = "../media/images/SueloTutorial.png")]
 		public static const SueloTutorial:Class;
 		
-		public static var gameTextureAtlas:TextureAtlas;
+		public static var CharTextureAtlas:TextureAtlas;
+		public static var CharTexture:Dictionary = new Dictionary();
 		
-		[Embed(source = ".../media/spritesheets/CharSheet.png")]
+		[Embed(source = "../media/spritesheets/CharSheet.png")]
 		public static const AtlasChar:Class;
 		
-		[Embed(source = ".../media/spritesheets/CharSheet.xml", mymeType="application/octet-stream")]
-		public static const AtlasXMLChar:Class;
+		[Embed(source = "../media/spritesheets/CharSheet.xml", mimeType="application/octet-stream")]
+		public static const AtlasCharXML:Class;
 		
 		public static function getAtlas():TextureAtlas
 		{
-			if (gameTextureAtlas = null)
+			if (CharTextureAtlas == null)
 			{
 				var texture:Texture = getTexture("AtlasChar");
-				var xml:XML = XML(new AtlasXMLChar());
-				gameTextureAtlas = new TextureAtlas(texture, xml);
+				var xml:XML = XML(new AtlasCharXML());
+				CharTextureAtlas = new TextureAtlas(texture, xml);
 			}
-			return gameTextureAtlas;
+			return CharTextureAtlas;
 		}
 		
 		public static function getTexture(name:String):Texture 
