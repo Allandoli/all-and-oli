@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.3.3</string>
         <key>fileName</key>
-        <string>C:/Users/Vicent/Documents/GitHub/ALL&amp;OLI BETA/Spritesheets/Dino.tps</string>
+        <string>C:/Users/Vicent/Documents/GitHub/all-and-oli/media/spritesheets/Oli.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>sparrow</string>
         <key>textureFileName</key>
-        <filename>DinoSheet.png</filename>
+        <filename>OliSheet.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>DinoSheet.xml</filename>
+                <filename>OliSheet.xml</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -172,22 +172,16 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../PNGs/DinoSheet/DinoAtIzq3.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtIzq4.png</filename>
-            <filename>../PNGs/DinoSheet/DinoDer1.png</filename>
-            <filename>../PNGs/DinoSheet/DinoDer2.png</filename>
-            <filename>../PNGs/DinoSheet/DinoDer3.png</filename>
-            <filename>../PNGs/DinoSheet/DinoDer4.png</filename>
-            <filename>../PNGs/DinoSheet/DinoIzq1.png</filename>
-            <filename>../PNGs/DinoSheet/DinoIzq2.png</filename>
-            <filename>../PNGs/DinoSheet/DinoIzq3.png</filename>
-            <filename>../PNGs/DinoSheet/DinoIzq4.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtDer1.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtDer2.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtDer3.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtDer4.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtIzq1.png</filename>
-            <filename>../PNGs/DinoSheet/DinoAtIzq2.png</filename>
+            <filename>../images/OliDer.png</filename>
+            <filename>../images/OliIzq.png</filename>
+            <filename>../images/OliDispDer1.png</filename>
+            <filename>../images/OliDispDer2.png</filename>
+            <filename>../images/OliDispIzq1.png</filename>
+            <filename>../images/OliDispIzq2.png</filename>
+            <filename>../images/OliAreaDer.png</filename>
+            <filename>../images/OliAreaIzq.png</filename>
+            <filename>../images/OliUltiDer.png</filename>
+            <filename>../images/OliUltiIzq.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
