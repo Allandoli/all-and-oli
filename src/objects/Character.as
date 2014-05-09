@@ -56,13 +56,15 @@ package objects
 			this._energyChar = 100;
 			this._exhaustionChar = 100;
 			this.animaciones = new Animations(Media.getAtlas());
-			animaciones.addAnimation("AllDer", 3, true);
-			animaciones.addAnimation("AllIzq", 3, true);
-			animaciones.addAnimation("AllSaltoDer", 3, false);
-			animaciones.addAnimation("AllSaltoIzq", 3, false);
-			animaciones.addAnimation("AllPunDer", 3, true);
-			animaciones.addAnimation("AllPunIzq", 3, true);
+			animaciones.addAnimation("AllDer", 6, true);
+			animaciones.addAnimation("AllIzq", 6, true);
+			animaciones.addAnimation("AllSaltoDer", 6, false);
+			animaciones.addAnimation("AllSaltoIzq", 6, false);
+			animaciones.addAnimation("AllPunDer", 6, true);
+			animaciones.addAnimation("AllPunIzq", 6, true);
 			animaciones.addAnimation("AllFrontal", 1, false);
+			animaciones.addAnimation("AllEstaticoDer", 1, false);
+			animaciones.addAnimation("AllEstaticoIzq",1,false);
 			animaciones.addAnimation("OliDer", 1, false);
 			animaciones.addAnimation("OliIzq", 1, false);
 			animaciones.addAnimation("OliDispDer", 5, true);
@@ -97,7 +99,7 @@ package objects
 		
 		private function movementDeactivation(e:KeyboardEvent):void 
 		{
-			var aux:String =  String.fromCharCode(e.charCode);
+			var aux:String =  String.fromCharCode(e.charCode); 
 			if ( aux == "w" || aux == "W")
 			{
 				up = false;
@@ -111,6 +113,17 @@ package objects
 				right = false;
 			}
 			movement();
+			if (currentChar == "all")
+			{
+				if ( aux == "d" || aux == "D")
+				{
+					characterMovement = animaciones.play("AllEstaticoDer");
+				}
+				if ( aux == "a" || aux == "A")
+				{
+					characterMovement = animaciones.play("AllEstaticoIzq");
+				}
+			}
 		}
 		
 		private function movementActivation(e:KeyboardEvent):void 
@@ -177,24 +190,21 @@ package objects
 					//fuerza arriba
 					Actual.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 					this.removeChild(characterMovement);
-					characterMovement = new MovieClip(Media.getAtlas().getTextures("OliDer"), 1);
-					this.addChild(characterMovement);
-					
+					characterMovement = animaciones.play("OliDer");					
 					if (left)
 					{
 						//fuerza atras
 						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
-						characterMovement = new MovieClip(Media.getAtlas().getTextures("OliIzq"), 1);
-						this.addChild(characterMovement);
+						characterMovement = animaciones.play("OliIzq");					
+
 					}
 					if (right)
 					{
 						//fuerza alante
 						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
-						characterMovement = new MovieClip(Media.getAtlas().getTextures("OliDer"), 1);
-						this.addChild(characterMovement);
+						characterMovement = animaciones.play("OliDer");	
 					}
 				}
 				else
@@ -204,16 +214,14 @@ package objects
 						//fuerza atras
 						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
-						characterMovement = new MovieClip(Media.getAtlas().getTextures("OliIzq"), 1);
-						this.addChild(characterMovement);
+						characterMovement = animaciones.play("OliDer");					
 					}
 					if (right)
 					{
 						//fuerza alante
 						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
-						characterMovement = new MovieClip(Media.getAtlas().getTextures("OliDer"), 1);
-						this.addChild(characterMovement);
+						characterMovement = animaciones.play("OliIzq");	
 					}
 				}
 			}
@@ -223,13 +231,11 @@ package objects
         {
 			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Actual.body.SetFixedRotation(true);
-			//Desactivado = physics.injectPhysics(characterImage, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0, restitution:0 } ));
-			//Desactivado.body.SetFixedRotation(true);
 		}
 		
 		private function onSwapCharacter(e:KeyboardEvent):void 
 		{
-			/*if (String.fromCharCode(e.charCode)=="q") 
+			if (String.fromCharCode(e.charCode)=="q") 
 			{
 				if (currentChar=="all") 
 				{	
@@ -240,8 +246,7 @@ package objects
 						currentChar = "oli";
 						this._energyChar = energyOli;
 						this._exhaustionChar = exhaustionOli;
-						characterImage.texture = Media.getTexture("OliDer");
-						this.addChild(characterImage);
+						characterImage = animaciones.play("OliDer");
 					}
 				}
 				else 
@@ -253,11 +258,10 @@ package objects
 						currentChar = "all";
 						this._energyChar = energyAll;
 						this._exhaustionChar = exhaustionAll;
-						characterImage.texture = Media.getTexture("AllDer1");
-						this.addChild(characterImage);
+						characterImage = animaciones.play("AllEstaticoDer");
 					}
 				}
-			}*/
+			}
 		}
 		
 		public function disposeTemporarily():void 

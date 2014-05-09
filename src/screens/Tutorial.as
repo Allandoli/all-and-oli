@@ -67,7 +67,7 @@ package screens
 			this.addChild(floor);
 			roof = new Platforms(physics);
 			roof.x = 0;
-			roof.y = 0;
+			roof.y = -59;
 			roof.visible = false;
 			this.addChild(roof);
 			Player = new Character(physics);
