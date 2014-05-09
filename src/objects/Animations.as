@@ -61,6 +61,11 @@ package objects
 			return (_animations[name] as MovieClip).isPlaying;
 		}
 		
+		public function get currentAnimation():String 
+		{
+			return _currentAnimation;
+		}
+		
 	}
 
 }

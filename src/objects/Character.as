@@ -81,36 +81,65 @@ package objects
 			injectPhysics();
 			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
 			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, skills);
+		}
+
+		private function skills(e:KeyboardEvent):void 
+		{
+			var aux:String =  String.fromCharCode(e.charCode);
+			if (currentChar=="all") 
+			{
+				switch (aux.toLowerCase())
+				{
+					case "j":
+						break;
+					case "k":
+						break;
+					case "l":
+						break;
+				}
+			}
+			else 
+			{
+				switch (aux.toLowerCase())
+				{
+					case "j":
+						break;
+					case "k":
+						break;
+					case "l":
+						break;
+				}
+			}
+			
 		}
 		
 		public function createCharacter():void 
 		{
 			if (currentChar == "all")
 			{
-				characterMovement = animaciones.play("AllFrontal");
-				
+				characterMovement = animaciones.play("AllEstaticoDer");
 			}
 			else
 			{
-				characterMovement = new MovieClip(Media.getAtlas().getTextures("OliDer"), 1);
-				this.addChild(characterMovement);
+				characterMovement = animaciones.play("OliDer");
 			}
 		}
 		
 		private function movementDeactivation(e:KeyboardEvent):void 
 		{
-			var aux:String =  String.fromCharCode(e.charCode); 
-			if ( aux == "w" || aux == "W")
+			var aux:String = String.fromCharCode(e.charCode);
+			switch(aux.toLowerCase())
 			{
-				up = false;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = false;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = false;
+				case "w":
+					up = false;
+					break;
+				case "a":
+					left = false;
+					break;
+				case "d":
+					right = false;
+					break;
 			}
 			movement();
 			if (currentChar == "all")
@@ -123,23 +152,31 @@ package objects
 				{
 					characterMovement = animaciones.play("AllEstaticoIzq");
 				}
+				if (animaciones.currentAnimation =="AllSaltoDer") //cambiar a cuando toca el "suelo"
+				{
+					characterMovement = animaciones.play("AllEstaticoDer");
+				}
+				if (animaciones.currentAnimation =="AllSaltoIzq") 
+				{
+					characterMovement = animaciones.play("AllEstaticoIzq");
+				}
 			}
 		}
 		
 		private function movementActivation(e:KeyboardEvent):void 
 		{
-			var aux:String =  String.fromCharCode(e.charCode);
-			if ( aux == "w" || aux == "W")
+			var aux:String = String.fromCharCode(e.charCode);
+			switch(aux.toLowerCase())
 			{
-				up = true;
-			}
-			if (aux == "a" || aux == "A")
-			{
-				left = true;
-			}
-			if( aux == "d" || aux == "D")
-			{
-				right = true;
+				case "w":
+					up = true;
+					break;
+				case "a":
+					left = true;
+					break;
+				case "d":
+					right = true;
+					break;
 			}
 			movement();
 		}
@@ -152,7 +189,7 @@ package objects
 				{
 					//fuerza arriba
 					Actual.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-					characterMovement = animaciones.play("AllSaltoDer");
+					//characterMovement = animaciones.play("AllSaltoDer");
 					
 					if (left)
 					{
@@ -172,13 +209,13 @@ package objects
 					if (left)
 					{
 						//fuerza atras
-						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyForce(new b2Vec2( -60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllIzq");
 					}
 					if (right)
 					{
 						//fuerza alante
-						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyForce(new b2Vec2(60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllDer");
 					}
 				}
@@ -212,14 +249,14 @@ package objects
 					if (left)
 					{
 						//fuerza atras
-						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyForce(new b2Vec2( -60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
 						characterMovement = animaciones.play("OliDer");					
 					}
 					if (right)
 					{
 						//fuerza alante
-						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyForce(new b2Vec2(60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						this.removeChild(characterMovement);
 						characterMovement = animaciones.play("OliIzq");	
 					}
@@ -235,7 +272,7 @@ package objects
 		
 		private function onSwapCharacter(e:KeyboardEvent):void 
 		{
-			if (String.fromCharCode(e.charCode)=="q") 
+			if (String.fromCharCode(e.charCode)=="q" ||String.fromCharCode(e.charCode)=="Q") 
 			{
 				if (currentChar=="all") 
 				{	
@@ -313,6 +350,5 @@ package objects
 		{
 			_energyChar -=value;
 		}	
-		
 	}
 }

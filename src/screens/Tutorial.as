@@ -92,19 +92,17 @@ package screens
 			this.visible = true;
 		}
 	  protected function onUpdate(event:Event):void
-        {
-		//	var p:Point = localToGlobal(new Point(Player.x, Player.y));
-			
-			if (Player.x > stage.stageWidth-300-x)
+        {			
+			if (Player.x > stage.stageWidth-400-x)
 			{
-				x -= 1;
-				physics.globalOffsetX -= 1;
+				x -= 2;
+				physics.globalOffsetX -= 2;
 			}
-			if (Player.x < 300-x)
+			/*if (Player.x < 300-x)
 			{
 				x += 1;
 				physics.globalOffsetX += 1;
-			}
+			}*/
             physics.update();
         }
 		
