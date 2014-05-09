@@ -19,16 +19,16 @@ package objects
 		private var _atlas:TextureAtlas;
 		private var _currentAnimation:String;
  
-		public function Animation(atlas:TextureAtlas)
+		public function Animations(atlas:TextureAtlas):void
 		{
             _animations = new Dictionary();
             _atlas = atlas;
 		}
  
-		public function play(name:String):void
+		public function play(name:String):MovieClip
 		{
             if (_currentAnimation == name)
-                return;
+                return _animations[_currentAnimation];
  
             if (!_animations[name])
                 throw new Error("No animation called " + name);
@@ -44,6 +44,8 @@ package objects
 			addChild(_animations[name]);
 			Starling.juggler.add(_animations[name]);
             _currentAnimation = name;
+			
+			return _animations[_currentAnimation];
 		}
  
 		public function addAnimation(name:String, frameRate:int,loop:Boolean):void

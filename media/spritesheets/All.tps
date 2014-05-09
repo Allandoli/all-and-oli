@@ -179,7 +179,6 @@
             <filename>../images/AllDer5.png</filename>
             <filename>../images/AllIzq1.png</filename>
             <filename>../images/AllIzq2.png</filename>
-            <filename>../images/AllIzq3.png</filename>
             <filename>../images/AllIzq4.png</filename>
             <filename>../images/AllIzq5.png</filename>
             <filename>../images/AllFrontal.png</filename>
@@ -189,6 +188,7 @@
             <filename>../images/AllPunIzq2.png</filename>
             <filename>../images/AllSaltoDer.png</filename>
             <filename>../images/AllSaltoIzq.png</filename>
+            <filename>../images/AllIzq3.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

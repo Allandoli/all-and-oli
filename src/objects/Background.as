@@ -42,7 +42,7 @@ package objects
 			
 			parallax = 0.02;
 			
-			this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
+		//	this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
 				
 		}
 		

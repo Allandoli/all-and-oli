@@ -12,7 +12,6 @@ package
 	 */
 	public class Media 
 	{
-		static private var gameTextures:Dictionary = new Dictionary();
 		
 		[Embed(source = "../media/images/BgWelcome.jpg")]
 		public static const BgWelcome:Class;
@@ -39,7 +38,7 @@ package
 		public static const SueloTutorial:Class;
 		
 		public static var CharTextureAtlas:TextureAtlas;
-		public static var CharTexture:Dictionary = new Dictionary();
+		static private var gameTextures:Dictionary = new Dictionary();
 		
 		[Embed(source = "../media/spritesheets/CharSheet.png")]
 		public static const AtlasChar:Class;
@@ -67,8 +66,7 @@ package
 			}
 			
 			return gameTextures[name];
-		}
-		
+		}	
 		
 		public function Media() 
 		{

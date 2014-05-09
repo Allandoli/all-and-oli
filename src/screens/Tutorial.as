@@ -1,5 +1,6 @@
 package screens 
 {
+	import flash.geom.Point;
 	import objects.Character;
 	import objects.Background;
 	import objects.Platforms;
@@ -92,6 +93,18 @@ package screens
 		}
 	  protected function onUpdate(event:Event):void
         {
+		//	var p:Point = localToGlobal(new Point(Player.x, Player.y));
+			
+			if (Player.x > stage.stageWidth-300-x)
+			{
+				x -= 1;
+				physics.globalOffsetX -= 1;
+			}
+			if (Player.x < 300-x)
+			{
+				x += 1;
+				physics.globalOffsetX += 1;
+			}
             physics.update();
         }
 		
