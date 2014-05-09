@@ -142,6 +142,7 @@ package objects
 					break;
 			}
 			movement();
+			
 			if (currentChar == "all")
 			{
 				if ( aux == "d" || aux == "D")
