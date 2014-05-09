@@ -172,20 +172,6 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer4.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllDer5.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq4.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllIzq5.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunDer1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunDer2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunIzq1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllPunIzq2.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllSaltoDer.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllSaltoIzq.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/AllSheet/AllFrontal.png</filename>
@@ -229,6 +215,22 @@
             <filename>../../../ALL&amp;OLI BETA/PNGs/Proyectiles/ProyectilR6.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarIzq1.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarIzq2.png</filename>
+            <filename>../images/AllDer1.png</filename>
+            <filename>../images/AllDer2.png</filename>
+            <filename>../images/AllDer4.png</filename>
+            <filename>../images/AllDer5.png</filename>
+            <filename>../images/AllEstaticoDer.png</filename>
+            <filename>../images/AllEstaticoIzq.png</filename>
+            <filename>../images/AllIzq1.png</filename>
+            <filename>../images/AllIzq2.png</filename>
+            <filename>../images/AllIzq4.png</filename>
+            <filename>../images/AllIzq5.png</filename>
+            <filename>../images/AllDer3.png</filename>
+            <filename>../images/AllIzq3.png</filename>
+            <filename>../images/AllPunDer1.png</filename>
+            <filename>../images/AllPunDer2.png</filename>
+            <filename>../images/AllPunIzq1.png</filename>
+            <filename>../images/AllPunIzq2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

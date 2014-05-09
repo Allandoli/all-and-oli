@@ -56,17 +56,17 @@ package objects
 			this._energyChar = 100;
 			this._exhaustionChar = 100;
 			this.animaciones = new Animations(Media.getAtlas());
-			animaciones.addAnimation("AllDer_", 3, true);
-			animaciones.addAnimation("AllIzq_", 3, true);
+			animaciones.addAnimation("AllDer", 3, true);
+			animaciones.addAnimation("AllIzq", 3, true);
 			animaciones.addAnimation("AllSaltoDer", 3, false);
 			animaciones.addAnimation("AllSaltoIzq", 3, false);
-			animaciones.addAnimation("AllPunDer_", 3, true);
-			animaciones.addAnimation("AllPunIzq_", 3, true);
+			animaciones.addAnimation("AllPunDer", 3, true);
+			animaciones.addAnimation("AllPunIzq", 3, true);
 			animaciones.addAnimation("AllFrontal", 1, false);
 			animaciones.addAnimation("OliDer", 1, false);
 			animaciones.addAnimation("OliIzq", 1, false);
-			animaciones.addAnimation("OliDispDer_", 5, true);
-			animaciones.addAnimation("OliDispIzq_", 5, true);
+			animaciones.addAnimation("OliDispDer", 5, true);
+			animaciones.addAnimation("OliDispIzq", 5, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.addEventListener(KeyboardEvent.KEY_DOWN, onSwapCharacter);//evento de cambio de personaje
 		}
@@ -160,13 +160,13 @@ package objects
 					{
 						//fuerza atras
 						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-						characterMovement = animaciones.play("AllIzq_");
+						characterMovement = animaciones.play("AllIzq");
 					}
 					if (right)
 					{
 						//fuerza alante
 						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-						characterMovement = animaciones.play("AllDer_");
+						characterMovement = animaciones.play("AllDer");
 					}
 				}
 			}
