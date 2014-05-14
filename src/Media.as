@@ -37,6 +37,15 @@ package
 		[Embed(source = "../media/images/SueloTutorial.png")]
 		public static const SueloTutorial:Class;
 		
+		[Embed(source = "../media/images/PlatTutoA2.png")]
+		public static const PlatTutoA2:Class;
+		
+		[Embed(source = "../media/images/PlatTutoS1.png")]
+		public static const PlatTutoS1:Class;
+		
+		[Embed(source = "../media/images/PlatTutoS2.png")]
+		public static const PlatTutoS2:Class;
+		
 		public static var CharTextureAtlas:TextureAtlas;
 		static private var gameTextures:Dictionary = new Dictionary();
 		
@@ -72,7 +81,5 @@ package
 		{
 			
 		}
-		
 	}
-
 }

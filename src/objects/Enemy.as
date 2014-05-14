@@ -23,7 +23,7 @@ package objects
 			enemyType = type;
 		}
 		
-		public function follow():void // posible idea para que los enemigos te sigan
+		/*public function follow():void // posible idea para que los enemigos te sigan
 		{
 			if (this.positionX-Character.positionx>150) 
 			{
@@ -37,7 +37,7 @@ package objects
 					this.positionX++;
 				}
 			}
-		}
+		}*/
 		private function atack():void
 		{
 			//cambio de imagen

@@ -24,7 +24,7 @@ package objects
 		public var Actual:PhysicsObject;
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
-		private var characterImage:Image;
+		private var brazo:Image;
 		private var characterMovement:MovieClip;
 		private var key:KeyboardEvent;
 		private var _collectibleCounter:int;
@@ -60,8 +60,6 @@ package objects
 			animaciones.addAnimation("AllIzq", 6, true);
 			animaciones.addAnimation("AllSaltoDer", 6, false);
 			animaciones.addAnimation("AllSaltoIzq", 6, false);
-			animaciones.addAnimation("AllPunDer", 6, true);
-			animaciones.addAnimation("AllPunIzq", 6, true);
 			animaciones.addAnimation("AllFrontal", 1, false);
 			animaciones.addAnimation("AllEstaticoDer", 1, false);
 			animaciones.addAnimation("AllEstaticoIzq",1,false);
@@ -92,6 +90,7 @@ package objects
 				switch (aux.toLowerCase())
 				{
 					case "j":
+						characterMovement = animaciones.play("AllPunDer");
 						break;
 					case "k":
 						break;
@@ -145,11 +144,11 @@ package objects
 			
 			if (currentChar == "all")
 			{
-				if ( aux == "d" || aux == "D")
+				if ( aux.toLowerCase() == "d" )
 				{
 					characterMovement = animaciones.play("AllEstaticoDer");
 				}
-				if ( aux == "a" || aux == "A")
+				if ( aux.toLowerCase() == "a")
 				{
 					characterMovement = animaciones.play("AllEstaticoIzq");
 				}
@@ -189,7 +188,7 @@ package objects
 				if (up)
 				{
 					//fuerza arriba
-					Actual.body.ApplyImpulse(new b2Vec2(0, -10), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 					//characterMovement = animaciones.play("AllSaltoDer");
 					
 					if (left)
@@ -201,7 +200,7 @@ package objects
 					if (right)
 					{
 						//fuerza der
-						Actual.body.ApplyForce(new b2Vec2(40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyForce(new b2Vec2( 40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllSaltoDer");
 					}
 				}
@@ -210,13 +209,13 @@ package objects
 					if (left)
 					{
 						//fuerza atras
-						Actual.body.ApplyForce(new b2Vec2( -60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyImpulse(new b2Vec2(-1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllIzq");
 					}
 					if (right)
 					{
 						//fuerza alante
-						Actual.body.ApplyForce(new b2Vec2(60, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+						Actual.body.ApplyImpulse(new b2Vec2(1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllDer");
 					}
 				}
@@ -284,7 +283,7 @@ package objects
 						currentChar = "oli";
 						this._energyChar = energyOli;
 						this._exhaustionChar = exhaustionOli;
-						characterImage = animaciones.play("OliDer");
+						characterMovement = animaciones.play("OliDer");
 					}
 				}
 				else 
@@ -296,7 +295,7 @@ package objects
 						currentChar = "all";
 						this._energyChar = energyAll;
 						this._exhaustionChar = exhaustionAll;
-						characterImage = animaciones.play("AllEstaticoDer");
+						characterMovement = animaciones.play("AllEstaticoDer");
 					}
 				}
 			}
