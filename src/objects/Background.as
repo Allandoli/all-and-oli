@@ -15,8 +15,12 @@ package objects
 		
 		private var Fondo1:Image;
 		private var Fondo2:Image;
-		private var parallax:Number;
-		private var speed:Number = 10;
+		private var Fondo3:Image;
+		private var Fondo4:Image;
+		private var Fondo5:Image;
+		private var Fondo6:Image;
+		private var Fondo7:Image;
+		private var Fondo8:Image;
 		
 		public function Background() 
 		{
@@ -30,6 +34,12 @@ package objects
 				
 			Fondo1 = new Image(Media.getTexture("BgTutorial"));
 			Fondo2 = new Image(Media.getTexture("BgTutorial"));
+			Fondo3 = new Image(Media.getTexture("BgTutorial"));
+			Fondo4 = new Image(Media.getTexture("BgTutorial"));
+			Fondo5 = new Image(Media.getTexture("BgTutorial"));
+			Fondo6 = new Image(Media.getTexture("BgTutorial"));
+			Fondo7 = new Image(Media.getTexture("BgTutorial"));
+			Fondo8 = new Image(Media.getTexture("BgTutorial"));
 			
 			Fondo1.x = 0;
 			Fondo1.y = stage.stageHeight - Fondo1.height;
@@ -37,22 +47,40 @@ package objects
 			Fondo2.x = Fondo1.width;
 			Fondo2.y = Fondo1.y;
 			
+			Fondo3.x = Fondo1.width * 2;
+			Fondo3.y = Fondo2.y;
+			
+			Fondo4.x = Fondo1.width * 3;
+			Fondo4.y = Fondo3.y;
+			
+			Fondo5.x = Fondo1.width * 4;
+			Fondo5.y = Fondo4.y;
+			
+			Fondo6.x = Fondo1.width * 5;
+			Fondo6.y = Fondo5.y;
+			
+			Fondo7.x = Fondo1.width * 6;
+			Fondo7.y = Fondo6.y;
+			
+			Fondo8.x = Fondo1.width * 7;
+			Fondo8.y = Fondo7.y;
+			
 			this.addChild(Fondo1);
 			this.addChild(Fondo2);
+			this.addChild(Fondo3);
+			this.addChild(Fondo4);
+			this.addChild(Fondo5);
+			this.addChild(Fondo6);
+			this.addChild(Fondo7);
+			this.addChild(Fondo8);
 			
-			parallax = 0.02;
-			
-		//	this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
+			this.addEventListener(EnterFrameEvent.ENTER_FRAME, onEnterFrame);
 				
 		}
 		
 		private function onEnterFrame(e:EnterFrameEvent):void 
 		{
-			Fondo1.x -= Math.ceil(speed * parallax);
-			if (Fondo1.x < -stage.stageWidth) Fondo1.x = 0;
-			
-			Fondo2.x -= Math.ceil(speed * parallax);
-			if (Fondo2.x < 0) Fondo2.x = Fondo1.width;
+
 		}
 				
 	}
