@@ -227,10 +227,14 @@
             <filename>../images/AllIzq5.png</filename>
             <filename>../images/AllDer3.png</filename>
             <filename>../images/AllIzq3.png</filename>
-            <filename>../images/AllPunDer1.png</filename>
-            <filename>../images/AllPunDer2.png</filename>
-            <filename>../images/AllPunIzq1.png</filename>
-            <filename>../images/AllPunIzq2.png</filename>
+            <filename>../images/AllBrazoDer1.png</filename>
+            <filename>../images/AllBrazoDer2.png</filename>
+            <filename>../images/AllBrazoDer3.png</filename>
+            <filename>../images/AllBrazoDerA.png</filename>
+            <filename>../images/AllBrazoIzq1.png</filename>
+            <filename>../images/AllBrazoIzq2.png</filename>
+            <filename>../images/AllBrazoIzq3.png</filename>
+            <filename>../images/AllBrazoIzqA.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
