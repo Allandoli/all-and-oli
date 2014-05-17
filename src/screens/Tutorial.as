@@ -114,13 +114,12 @@ package screens
 		
 		private function createScrews():void 
 		{
-			if (Math.random() > 0.95)
-			{
-				var screwToTrack:Screw = new Screw(Math.ceil(Math.random() * 4));
-				screwToTrack.x = Player.x + stage.stageWidth/2;
-				screwToTrack.y = 100;
-				this.addChild(screwToTrack);
-			}
+			
+			var screwToTrack:Screw = new Screw(Math.ceil(Math.random() * 4));
+			screwToTrack.x = Player.x + stage.stageWidth/2;
+			screwToTrack.y = 150;
+			this.addChild(screwToTrack);
+			
 		}
 	
 		private function drawScreen():void

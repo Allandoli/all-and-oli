@@ -46,6 +46,18 @@ package
 		[Embed(source = "../media/images/PlatTutoS2.png")]
 		public static const PlatTutoS2:Class;
 		
+		[Embed(source = "../media/images/Screw1.png")]
+		public static const Screw1:Class;
+		
+		[Embed(source = "../media/images/Screw2.png")]
+		public static const Screw2:Class;
+		
+		[Embed(source = "../media/images/Screw3.png")]
+		public static const Screw3:Class;
+		
+		[Embed(source = "../media/images/Screw4.png")]
+		public static const Screw4:Class;
+		
 		public static var CharTextureAtlas:TextureAtlas;
 		static private var gameTextures:Dictionary = new Dictionary();
 		
