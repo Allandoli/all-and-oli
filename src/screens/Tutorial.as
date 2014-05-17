@@ -4,6 +4,7 @@ package screens
 	import objects.Character;
 	import objects.Background;
 	import objects.Platforms;
+	import objects.Screw;
 	import starling.core.Starling;
 	import starling.core.starling_internal;
 	import starling.display.Button;
@@ -69,40 +70,57 @@ package screens
 		private function spawn():void 
 		{
 			var newLevel:Array = [new Platforms(this.physics, 1, 0),
-new Platforms(this.physics, 2, 0),
-new Platforms(this.physics, 1, 1024),
-new Platforms(this.physics, 2, 1024),
-new Platforms(this.physics, 1, 2048),
-new Platforms(this.physics, 2, 2048),
-new Platforms(this.physics, 1, 3272),
-new Platforms(this.physics, 2, 3272),
-new Platforms(this.physics, 6, 280),
-new Platforms(this.physics, 6, 450),
-new Platforms(this.physics, 6, 520),
-new Platforms(this.physics, 7, 520),
-new Platforms(this.physics, 6, 650),
-new Platforms(this.physics, 6, 720),
-new Platforms(this.physics, 3, 820),
-new Platforms(this.physics, 4, 950),
-new Platforms(this.physics, 6, 1150),
-new Platforms(this.physics, 6, 1480),
-new Platforms(this.physics, 3, 1580),
-new Platforms(this.physics, 6, 1880),
-new Platforms(this.physics, 6, 2210),
-new Platforms(this.physics, 6, 2280),
-new Platforms(this.physics, 7, 2280),
-new Platforms(this.physics, 6, 2350),
-new Platforms(this.physics, 6, 2870),
-new Platforms(this.physics, 3, 3000),
-new Platforms(this.physics, 4, 3120)];
+				new Platforms(this.physics, 2, 0),
+				new Platforms(this.physics, 1, 1024),
+				new Platforms(this.physics, 2, 1024),
+				new Platforms(this.physics, 1, 2048),
+				new Platforms(this.physics, 2, 2048),
+				new Platforms(this.physics, 1, 3272),
+				new Platforms(this.physics, 2, 3272),
+				new Platforms(this.physics, 6, 280),
+				new Platforms(this.physics, 6, 450),
+				new Platforms(this.physics, 6, 520),
+				new Platforms(this.physics, 7, 520),
+				new Platforms(this.physics, 6, 650),
+				new Platforms(this.physics, 6, 720),
+				new Platforms(this.physics, 3, 820),
+				new Platforms(this.physics, 4, 950),
+				new Platforms(this.physics, 6, 1150),
+				new Platforms(this.physics, 6, 1480),
+				new Platforms(this.physics, 3, 1580),
+				new Platforms(this.physics, 6, 1880),
+				new Platforms(this.physics, 6, 2210),
+				new Platforms(this.physics, 6, 2280),
+				new Platforms(this.physics, 7, 2280),
+				new Platforms(this.physics, 6, 2350),
+				new Platforms(this.physics, 6, 2870),
+				new Platforms(this.physics, 3, 3000),
+				new Platforms(this.physics, 4, 3120)];
+
 			for (var i:int = 0; i < newLevel.length; i++) 
 			{
 				addChild(newLevel[i]);
 			}
+			
 			Player = new Character(physics);
 			Player.x = 200;
 			Player.y = 150;
 			this.addChild(Player);
+			
+			//var newScrew:Array = [new Screw()];
+			
+			createScrews();
+		}
+		
+		private function createScrews():void 
+		{
+			if (Math.random() > 0.95)
+			{
+				var screwToTrack:Screw = new Screw(Math.ceil(Math.random() * 4));
+				screwToTrack.x = Player.x + stage.stageWidth/2;
+				screwToTrack.y = 100;
+				this.addChild(screwToTrack);
+			}
 		}
 	
 		private function drawScreen():void
@@ -122,10 +140,10 @@ new Platforms(this.physics, 4, 3120)];
 		}
 	  protected function onUpdate(event:Event):void
         {			
-			if (Player.x > stage.stageWidth-400-x)
+			if (Player.x > stage.stageWidth-600-x)
 			{
-				x -= 2;
-				physics.globalOffsetX -= 2;
+				x -= 4;
+				physics.globalOffsetX -= 4;
 			}
 			/*if (Player.x < 300-x)
 			{
