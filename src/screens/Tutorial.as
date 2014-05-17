@@ -122,10 +122,10 @@ new Platforms(this.physics, 4, 3120)];
 		}
 	  protected function onUpdate(event:Event):void
         {			
-			if (Player.x > stage.stageWidth-400-x)
+			if (Player.x > stage.stageWidth-600-x)
 			{
-				x -= 2;
-				physics.globalOffsetX -= 2;
+				x -= 3;
+				physics.globalOffsetX -= 3;
 			}
 			/*if (Player.x < 300-x)
 			{
