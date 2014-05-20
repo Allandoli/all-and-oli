@@ -102,26 +102,33 @@ package screens
 				addChild(newLevel[i]);
 			}
 			
+			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 400), 
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 600),		
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 900),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1100),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1350),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1750),		
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1900),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2100),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2300),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2550),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2800)];
+				
+			
+			for (var j:int = 0; j < arrayScrew.length; j++)
+			{
+				addChild(arrayScrew[j]);
+			}
+			
+			
 			Player = new Character(physics);
 			Player.x = 200;
-			Player.y = 150;
+			Player.y = 100;
 			this.addChild(Player);
 			
-			//var newScrew:Array = [new Screw()];
-			
-			createScrews();
 		}
 		
-		private function createScrews():void 
-		{
-			
-			var screwToTrack:Screw = new Screw(Math.ceil(Math.random() * 4));
-			screwToTrack.x = Player.x + stage.stageWidth/2;
-			screwToTrack.y = 150;
-			this.addChild(screwToTrack);
-			
-		}
-	
 		private function drawScreen():void
 		{
 			Bg = new Background();

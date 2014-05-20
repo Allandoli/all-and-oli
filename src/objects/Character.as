@@ -37,7 +37,7 @@ package objects
 		private var _energyChar:int;//max 100%
 		public var damage:int = 5;
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
-		private var up:Boolean = false;
+		public var up:Boolean = false;
 		private var left:Boolean = false;
 		private var right:Boolean = false;
 		private var animaciones:Animations;
@@ -58,8 +58,8 @@ package objects
 			this.animaciones = new Animations(Media.getAtlas());
 			animaciones.addAnimation("AllDer", 6, true);
 			animaciones.addAnimation("AllIzq", 6, true);
-			animaciones.addAnimation("AllSaltoDer", 6, false);
-			animaciones.addAnimation("AllSaltoIzq", 6, false);
+			animaciones.addAnimation("AllSaltoDer", 2, false);
+			animaciones.addAnimation("AllSaltoIzq", 2, false);
 			animaciones.addAnimation("AllFrontal", 1, false);
 			animaciones.addAnimation("AllEstaticoDer", 1, false);
 			animaciones.addAnimation("AllEstaticoIzq",1,false);
@@ -85,6 +85,7 @@ package objects
 		private function skills(e:KeyboardEvent):void 
 		{
 			var aux:String =  String.fromCharCode(e.charCode);
+			
 			if (currentChar=="all") 
 			{
 				switch (aux.toLowerCase())
@@ -140,7 +141,6 @@ package objects
 					right = false;
 					break;
 			}
-			movement();
 			
 			if (currentChar == "all")
 			{
@@ -169,58 +169,56 @@ package objects
 			switch(aux.toLowerCase())
 			{
 				case "w":
+					var saltar:Boolean = !up;
 					up = true;
+					if (currentChar == "all") 
+					{
+						if (saltar)
+						{
+							//fuerza arriba
+							Actual.body.ApplyImpulse(new b2Vec2(0, -9), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+							//characterMovement = animaciones.play("AllSaltoDer");
+							
+							if (left)
+							{
+								//fuerza izq
+								Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+								characterMovement = animaciones.play("AllSaltoIzq");
+								
+							}
+							if (right)
+							{
+								//fuerza der
+								Actual.body.ApplyForce(new b2Vec2( 40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+								characterMovement = animaciones.play("AllSaltoDer");
+								
+							}
+						}
+					}
 					break;
 				case "a":
 					left = true;
-					break;
-				case "d":
-					right = true;
-					break;
-			}
-			movement();
-		}
-		
-		private function movement():void 
-		{
-			if (currentChar == "all") 
-			{
-				if (up)
-				{
-					//fuerza arriba
-					Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-					//characterMovement = animaciones.play("AllSaltoDer");
-					
-					if (left)
-					{
-						//fuerza izq
-						Actual.body.ApplyForce(new b2Vec2( -40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-						characterMovement = animaciones.play("AllSaltoIzq");
-					}
-					if (right)
-					{
-						//fuerza der
-						Actual.body.ApplyForce(new b2Vec2( 40, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-						characterMovement = animaciones.play("AllSaltoDer");
-					}
-				}
-				else
-				{
 					if (left)
 					{
 						//fuerza atras
 						Actual.body.ApplyImpulse(new b2Vec2(-1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 						characterMovement = animaciones.play("AllIzq");
 					}
+					break;
+				case "d":
+					right = true;
 					if (right)
-					{
-						//fuerza alante
-						Actual.body.ApplyImpulse(new b2Vec2(1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-						characterMovement = animaciones.play("AllDer");
-					}
-				}
+							{
+								//fuerza alante
+								Actual.body.ApplyImpulse(new b2Vec2(1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+								characterMovement = animaciones.play("AllDer");
+							}
+					break;
 			}
-			else 
+		}
+		
+		
+			/*else 
 			{
 				if (up)
 				{
@@ -262,7 +260,7 @@ package objects
 					}
 				}
 			}
-		}	
+		}	*/
 		
 		private function injectPhysics():void
         {
