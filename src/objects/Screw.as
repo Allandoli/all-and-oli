@@ -67,6 +67,7 @@ package objects
         {
 			Tornillo = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Tornillo.body.SetFixedRotation(false);
+			Tornillo.physicsProperties.contactGroup = "Tornillo";
 		}
 		
 	}

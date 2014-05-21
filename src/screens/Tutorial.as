@@ -18,6 +18,8 @@ package screens
 	import com.reyco1.physinjector.PhysInjector;
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
+	import Box2D.Dynamics.Contacts.b2Contact;
+	import com.reyco1.physinjector.contact.ContactManager;
 	
 	/**
 	 * ...
@@ -57,7 +59,21 @@ package screens
 			PhysInjector.STARLING = true;
             physics = new PhysInjector(Starling.current.nativeStage, new b2Vec2(0, 60), true);
 			physics.allowDrag = false;
-			
+			ContactManager.onContactBegin("Jugador", "Tornillo", puntos, true);
+			ContactManager.onContactBegin("Jugador", "Plataforma", saltar, true);
+		}
+		
+		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
+		{
+			Player.salto = true;
+		}
+		
+		private function puntos(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
+		{
+			trace("choque");
+			Player.screwCounter = Player.screwCounter + 1;
+			trace (Player.screwCounter);
+			physics.removePhysics(objectB.displayObject, true);
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -122,9 +138,9 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
-			var enemy:Enemy = new Enemy(1, physics, 500);
+			/*var enemy:Enemy = new Enemy(1, physics, 500);
 			this.addChild(enemy);
-			
+			*/
 			Player = new Character(physics);
 			Player.x = 200;
 			Player.y = 100;

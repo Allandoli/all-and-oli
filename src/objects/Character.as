@@ -45,6 +45,7 @@ package objects
 		private var left:Boolean = false;
 		private var right:Boolean = false;
 		private var animaciones:Animations;
+		public var salto:Boolean=true;
 
 
 		public function Character(p:PhysInjector) 
@@ -88,10 +89,9 @@ package objects
 		
 		private function movement(e:EnterFrameEvent):void 
 		{
-			var salto:Boolean = !up;
-			up = true;
-			if (salto) 
+			if (salto&&up) 
 			{
+				salto = false;
 				Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				if (left) 
 				{
@@ -106,19 +106,23 @@ package objects
 			}
 			else 
 			{
-				brazo.visible = true;
-				brazo.width = 10;
-				brazo.height = 25;
+				
 				if (left) 
 				{
 					characterMovement = animaciones.play("AllIzq");
 					brazo.texture = atlas.getTexture("AllBrazoIzqA");
 					brazo.x = 10;
+					brazo.visible = true;
+					brazo.width = 10;
+					brazo.height = 25;
 					Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 				if (right) 
 				{
-					brazo.x = 10
+					brazo.x = 8
+					brazo.visible = true;
+					brazo.width = 10;
+					brazo.height = 25;
 					characterMovement = animaciones.play("AllDer");
 					brazo.texture = atlas.getTexture("AllBrazoDerA");
 					Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
@@ -303,6 +307,7 @@ package objects
         {
 			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Actual.body.SetFixedRotation(true);
+			Actual.physicsProperties.contactGroup = "Jugador";
 		}
 	}
 }

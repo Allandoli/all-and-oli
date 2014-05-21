@@ -81,6 +81,7 @@ package objects
 		private function injectPhysics():void
         {
 			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0 } ));
+			Actual.physicsProperties.contactGroup = "Plataforma";
 		}
 	}
 }
