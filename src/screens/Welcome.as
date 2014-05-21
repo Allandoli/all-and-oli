@@ -19,9 +19,10 @@ package screens
 		
 		private var welcomeBg:Image;
 		private var welcomeTitle:Image;
+		private var olimenu:Image;
+		private var allmenu:Image;
 		private var welcomeCreditsBtn:Button;
 		private var welcomeAllBtn:Button;
-		private var welcomeOliBtn:Button;
 		
 		public function Welcome() 
 		{
@@ -37,7 +38,7 @@ package screens
 		
 		private function drawScreen():void 
 		{
-			welcomeBg = new Image(Media.getTexture("BgWelcome"));
+			welcomeBg = new Image(Media.getTexture("fondomenu"));
 			this.addChild(welcomeBg);
 			
 			welcomeAllBtn = new Button(Media.getTexture("AllButton"));
@@ -45,10 +46,7 @@ package screens
 			welcomeAllBtn.y = 300;
 			this.addChild(welcomeAllBtn);
 			
-			welcomeOliBtn = new Button(Media.getTexture("OliButton"));
-			welcomeOliBtn.x = 400;
-			welcomeOliBtn.y = 400;
-			this.addChild(welcomeOliBtn);
+			
 			
 			this.addEventListener(Event.TRIGGERED, onMainMenuClick);
 		}
@@ -72,12 +70,7 @@ package screens
 				Character.currentChar = "all";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
 			}
-			if ((buttonClicked as Button) == welcomeOliBtn)
-			{
-				Character.currentChar = "oli";
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
-				
-			}
+			
 		}
 	}
 

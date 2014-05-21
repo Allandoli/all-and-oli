@@ -138,9 +138,9 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
-			/*var enemy:Enemy = new Enemy(1, physics, 500);
+			var enemy:Enemy = new Enemy(1, physics, 500);
 			this.addChild(enemy);
-			*/
+			
 			Player = new Character(physics);
 			Player.x = 200;
 			Player.y = 100;

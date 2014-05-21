@@ -46,6 +46,27 @@ package
 		[Embed(source = "../media/images/PlatTutoS2.png")]
 		public static const PlatTutoS2:Class;
 		
+		[Embed(source = "../media/images/chapaoli.png")]
+		public static const chapaoli:Class;		
+		
+		[Embed(source = "../media/images/chapaall.png")]
+		public static const chapaall:Class;		
+		
+		[Embed(source = "../media/images/creditos.png")]
+		public static const creditos:Class;		
+		
+		[Embed(source = "../media/images/fondomenu.png")]
+		public static const fondomenu:Class;		
+		
+		[Embed(source = "../media/images/allmenu.png")]
+		public static const allmenu:Class;		
+		
+		[Embed(source = "../media/images/olimenu.png")]
+		public static const olimenu:Class;		
+		
+		[Embed(source = "../media/images/jugar.png")]
+		public static const jugar:Class;
+		
 		[Embed(source = "../media/images/Screw1.png")]
 		public static const Screw1:Class;
 		
