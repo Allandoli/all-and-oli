@@ -185,22 +185,6 @@
             <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliAreaIzq.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliUltiDer.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OliSheet/OliUltiIzq.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer4.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer4.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq4.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloDer.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloIzq.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/OiloSheet/OiloSoltarDer1.png</filename>
@@ -227,6 +211,22 @@
             <filename>../images/AllIzq5.png</filename>
             <filename>../images/AllDer3.png</filename>
             <filename>../images/AllIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtIzq4.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer4.png</filename>
             <filename>../images/AllBrazoDer1.png</filename>
             <filename>../images/AllBrazoDer2.png</filename>
             <filename>../images/AllBrazoDer3.png</filename>
