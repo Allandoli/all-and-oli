@@ -8,6 +8,7 @@ package objects
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
+	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
 	import Media;
@@ -40,7 +41,9 @@ package objects
 		private var _energyChar:int;//max 100%
 		public var damage:int = 5;
 		// HABILIDADES ?????????? KeyboardEvent(j/k/l) ??????????
-		private var suelo:Boolean = false;
+		private var up:Boolean = false;
+		private var left:Boolean = false;
+		private var right:Boolean = false;
 		private var animaciones:Animations;
 
 
@@ -69,7 +72,6 @@ package objects
 			animaciones.addAnimation("OliDispDer", 5, true);
 			animaciones.addAnimation("OliDispIzq", 5, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.addEventListener(KeyboardEvent.KEY_DOWN, onSwapCharacter);//evento de cambio de personaje
 		}
 
 		private function onAddedToStage(e:Event):void 
@@ -80,6 +82,67 @@ package objects
 			injectPhysics();
 			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
 			this.addEventListener(KeyboardEvent.KEY_DOWN, skills);
+			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+			this.addEventListener(EnterFrameEvent.ENTER_FRAME,movement);
+		}
+		
+		private function movement(e:EnterFrameEvent):void 
+		{
+			var salto:Boolean = !up;
+			up = true;
+			if (salto) 
+			{
+				Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+				if (left) 
+				{
+					brazo.visible = false;
+					characterMovement = animaciones.play("AllSaltoIzq");
+				}
+				if (right) 
+				{
+					characterMovement = animaciones.play("AllSaltoDer");
+					brazo.visible = false;
+				}
+			}
+			else 
+			{
+				brazo.visible = true;
+				brazo.width = 10;
+				brazo.height = 25;
+				if (left) 
+				{
+					characterMovement = animaciones.play("AllIzq");
+					brazo.texture = atlas.getTexture("AllBrazoIzqA");
+					brazo.x = 10;
+					Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+				}
+				if (right) 
+				{
+					brazo.x = 10
+					characterMovement = animaciones.play("AllDer");
+					brazo.texture = atlas.getTexture("AllBrazoDerA");
+					Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+				}
+			}
+		}
+		
+		private function movementDeactivation(e:KeyboardEvent):void 
+		{
+			var aux:String = String.fromCharCode(e.charCode);
+			switch(aux.toLowerCase())
+			{
+				case "w":
+					up = false;
+					break;
+				case "a":
+					left = false;
+					characterMovement = animaciones.play("AllEstaticoIzq");
+					break;
+				case "d":
+					right = false;
+					characterMovement = animaciones.play("AllEstaticoDer");
+					break;
+			}
 		}
 
 		private function skills(e:KeyboardEvent):void 
@@ -176,111 +239,14 @@ package objects
 			switch(aux.toLowerCase())
 			{
 				case "w":
-					if (currentChar=="all") 
-					{
-						if(lastmove=="a") 
-						{
-							brazo.visible = false;
-							characterMovement = animaciones.play("AllSaltoIzq");
-						}
-						else 
-						{
-							if (lastmove=="d") 
-							{
-								brazo.visible = false;
-								characterMovement = animaciones.play("AllSaltoDer");
-							}
-						}
-					}
-					else 
-					{
-						if(lastmove=="a") 
-						{
-							characterMovement = animaciones.play("OliIzq");
-						}
-						else 
-						{
-							if (lastmove=="d") 
-							{
-								characterMovement = animaciones.play("OliDer");
-							}
-						}
-					}
-					Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-					 break;
+					up = true;
+					break;
 				case "a":
-					if (currentChar=="all") 
-					{
-						brazo.x = 12;
-						brazo.width = 10;
-						brazo.height = 25;
-						brazo.visible = true;
-						brazo.texture = atlas.getTexture("AllBrazoIzqA");
-						characterMovement = animaciones.play("AllIzq");
-					}
-					else 
-					{
-						characterMovement = animaciones.play("OliIzq")
-					}
-					Actual.body.ApplyImpulse(new b2Vec2( -1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					left = true;
 					break;
 				case "d":
-					if (currentChar=="all") 
-					{
-						brazo.x = 8;
-						brazo.width = 10;
-						brazo.height = 25;
-						brazo.visible = true;
-						brazo.texture = atlas.getTexture("AllBrazoDerA");
-						characterMovement = animaciones.play("AllDer");
-					}
-					else 
-					{
-						characterMovement = animaciones.play("OliDer")
-					}
-					Actual.body.ApplyImpulse(new b2Vec2(1, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					right = true;
 					break;
-			}
-			lastmove = aux.toLowerCase();
-			trace(lastmove);
-		}
-
-		private function injectPhysics():void
-        {
-			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
-			Actual.body.SetFixedRotation(true);
-		}
-
-		private function onSwapCharacter(e:KeyboardEvent):void 
-		{
-			if (String.fromCharCode(e.charCode)=="q" ||String.fromCharCode(e.charCode)=="Q") 
-			{
-				if (currentChar=="all") 
-				{	
-					if (energyOli>0) 
-					{
-						brazo.visible = false;
-						energyAll = this._energyChar;
-						exhaustionAll = this._exhaustionChar;
-						currentChar = "oli";
-						this._energyChar = energyOli;
-						this._exhaustionChar = exhaustionOli;
-						characterMovement = animaciones.play("OliDer");
-					}
-				}
-				else 
-				{
-					if (energyAll>0) 
-					{
-						brazo.visible = true;
-						energyOli = this._energyChar;
-						exhaustionOli = this._exhaustionChar;
-						currentChar = "all";
-						this._energyChar = energyAll;
-						this._exhaustionChar = exhaustionAll;
-						characterMovement = animaciones.play("AllEstaticoDer");
-					}
-				}
 			}
 		}
 
@@ -333,5 +299,10 @@ package objects
 		{
 			_energyChar -=value;
 		}	
+		private function injectPhysics():void
+        {
+			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
+			Actual.body.SetFixedRotation(true);
+		}
 	}
 }
