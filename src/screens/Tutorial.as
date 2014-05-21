@@ -3,6 +3,7 @@ package screens
 	import flash.geom.Point;
 	import objects.Character;
 	import objects.Background;
+	import objects.Enemy;
 	import objects.Platforms;
 	import objects.Screw;
 	import starling.core.Starling;
@@ -121,6 +122,8 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
+			var enemy:Enemy = new Enemy(1, physics, 500);
+			this.addChild(enemy);
 			
 			Player = new Character(physics);
 			Player.x = 200;
