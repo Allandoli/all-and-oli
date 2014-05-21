@@ -211,10 +211,14 @@
             <filename>../images/AllIzq5.png</filename>
             <filename>../images/AllDer3.png</filename>
             <filename>../images/AllIzq3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq1.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
-            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
+            <filename>../images/AllBrazoDer1.png</filename>
+            <filename>../images/AllBrazoDer2.png</filename>
+            <filename>../images/AllBrazoDer3.png</filename>
+            <filename>../images/AllBrazoDerA.png</filename>
+            <filename>../images/AllBrazoIzq1.png</filename>
+            <filename>../images/AllBrazoIzq2.png</filename>
+            <filename>../images/AllBrazoIzq3.png</filename>
+            <filename>../images/AllBrazoIzqA.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer1.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer2.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoAtDer3.png</filename>
@@ -227,14 +231,10 @@
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer2.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer3.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoDer4.png</filename>
-            <filename>../images/AllBrazoDer1.png</filename>
-            <filename>../images/AllBrazoDer2.png</filename>
-            <filename>../images/AllBrazoDer3.png</filename>
-            <filename>../images/AllBrazoDerA.png</filename>
-            <filename>../images/AllBrazoIzq1.png</filename>
-            <filename>../images/AllBrazoIzq2.png</filename>
-            <filename>../images/AllBrazoIzq3.png</filename>
-            <filename>../images/AllBrazoIzqA.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq1.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
+            <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

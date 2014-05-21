@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:499e4eb6737de9b5b50c600ff4c79825:4886642da4ef6091f82dbf055ce0ab27:1bfc566b6fa5635faf0a9b460b784989$ -->
+<!-- $TexturePacker:SmartUpdate:fbd8460cb2eee8b74ba90bced11f0bc4:747edbd31ef38b4d412112cf948c7b04:1bfc566b6fa5635faf0a9b460b784989$ -->
 <TextureAtlas imagePath="CharSheet.png">
     <SubTexture name="AllBrazoDer1" x="45" y="13" width="25" height="10"/>
     <SubTexture name="AllBrazoDer2" x="1" y="13" width="42" height="10"/>
