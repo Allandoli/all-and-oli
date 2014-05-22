@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
-<!-- $TexturePacker:SmartUpdate:fbd8460cb2eee8b74ba90bced11f0bc4:747edbd31ef38b4d412112cf948c7b04:1bfc566b6fa5635faf0a9b460b784989$ -->
+<!-- $TexturePacker:SmartUpdate:e0829d783325fc947be95bf29c44b60d:74f8dcfb31300981aea3ec41cb01c15a:1bfc566b6fa5635faf0a9b460b784989$ -->
 <TextureAtlas imagePath="CharSheet.png">
     <SubTexture name="AllBrazoDer1" x="45" y="13" width="25" height="10"/>
     <SubTexture name="AllBrazoDer2" x="1" y="13" width="42" height="10"/>
@@ -21,42 +21,42 @@
     <SubTexture name="AllIzq1" x="197" y="381" width="28" height="90"/>
     <SubTexture name="AllIzq2" x="167" y="381" width="28" height="90"/>
     <SubTexture name="AllIzq3" x="77" y="381" width="28" height="90"/>
-    <SubTexture name="AllIzq4" x="47" y="381" width="28" height="90"/>
-    <SubTexture name="AllIzq5" x="107" y="381" width="28" height="90"/>
+    <SubTexture name="AllIzq4" x="107" y="381" width="28" height="90"/>
+    <SubTexture name="AllIzq5" x="47" y="381" width="28" height="90"/>
     <SubTexture name="AllSaltoDer" x="186" y="204" width="46" height="83"/>
     <SubTexture name="AllSaltoIzq" x="1" y="289" width="46" height="83"/>
-    <SubTexture name="DinoAtDer1" x="127" y="616" width="124" height="141"/>
-    <SubTexture name="DinoAtDer2" x="1" y="759" width="124" height="141"/>
-    <SubTexture name="DinoAtDer3" x="1" y="616" width="124" height="141"/>
-    <SubTexture name="DinoAtDer4" x="1" y="473" width="124" height="141"/>
-    <SubTexture name="DinoAtIzq1" x="127" y="759" width="124" height="141"/>
-    <SubTexture name="DinoAtIzq2" x="1" y="902" width="124" height="141"/>
-    <SubTexture name="DinoAtIzq3" x="127" y="1188" width="124" height="141"/>
-    <SubTexture name="DinoAtIzq4" x="127" y="1331" width="124" height="141"/>
-    <SubTexture name="DinoDer1" x="127" y="1474" width="124" height="141"/>
-    <SubTexture name="DinoDer2" x="1" y="1474" width="124" height="141"/>
-    <SubTexture name="DinoDer3" x="1" y="1331" width="124" height="141"/>
-    <SubTexture name="DinoDer4" x="1" y="1188" width="124" height="141"/>
-    <SubTexture name="DinoIzq1" x="127" y="902" width="124" height="141"/>
-    <SubTexture name="DinoIzq2" x="127" y="1045" width="124" height="141"/>
-    <SubTexture name="DinoIzq3" x="1" y="1045" width="124" height="141"/>
-    <SubTexture name="DinoIzq4" x="127" y="473" width="124" height="141"/>
-    <SubTexture name="OiloDer" x="1" y="68" width="24" height="34"/>
-    <SubTexture name="OiloIzq" x="209" y="32" width="24" height="34"/>
-    <SubTexture name="OiloSoltarDer1" x="145" y="32" width="30" height="34"/>
-    <SubTexture name="OiloSoltarDer2" x="113" y="32" width="30" height="34"/>
-    <SubTexture name="OiloSoltarIzq1" x="81" y="32" width="30" height="34"/>
-    <SubTexture name="OiloSoltarIzq2" x="177" y="32" width="30" height="34"/>
+    <SubTexture name="DinoAtDer1" x="1" y="616" width="124" height="141"/>
+    <SubTexture name="DinoAtDer2" x="127" y="473" width="124" height="141"/>
+    <SubTexture name="DinoAtDer3" x="127" y="616" width="124" height="141"/>
+    <SubTexture name="DinoAtDer4" x="1" y="902" width="124" height="141"/>
+    <SubTexture name="DinoAtIzq1" x="127" y="1045" width="124" height="141"/>
+    <SubTexture name="DinoAtIzq2" x="127" y="1188" width="124" height="141"/>
+    <SubTexture name="DinoAtIzq3" x="1" y="1188" width="124" height="141"/>
+    <SubTexture name="DinoAtIzq4" x="127" y="1188" width="124" height="141"/>
+    <SubTexture name="DinoDer1" x="1" y="1045" width="124" height="141"/>
+    <SubTexture name="DinoDer2" x="127" y="473" width="124" height="141"/>
+    <SubTexture name="DinoDer3" x="127" y="902" width="124" height="141"/>
+    <SubTexture name="DinoDer4" x="1" y="902" width="124" height="141"/>
+    <SubTexture name="DinoIzq1" x="127" y="759" width="124" height="141"/>
+    <SubTexture name="DinoIzq2" x="1" y="759" width="124" height="141"/>
+    <SubTexture name="DinoIzq3" x="1" y="473" width="124" height="141"/>
+    <SubTexture name="DinoIzq4" x="127" y="1188" width="124" height="141"/>
+    <SubTexture name="OiloDer" x="171" y="32" width="24" height="34"/>
+    <SubTexture name="OiloIzq" x="81" y="32" width="24" height="34"/>
+    <SubTexture name="OiloSoltarDer1" x="1" y="68" width="30" height="34"/>
+    <SubTexture name="OiloSoltarDer2" x="139" y="32" width="30" height="34"/>
+    <SubTexture name="OiloSoltarIzq1" x="197" y="32" width="30" height="34"/>
+    <SubTexture name="OiloSoltarIzq2" x="107" y="32" width="30" height="34"/>
     <SubTexture name="OliAreaDer" x="1" y="135" width="57" height="65"/>
     <SubTexture name="OliAreaIzq" x="119" y="135" width="57" height="65"/>
-    <SubTexture name="OliDer" x="86" y="68" width="57" height="65"/>
+    <SubTexture name="OliDer" x="92" y="68" width="57" height="65"/>
     <SubTexture name="OliDispDer1" x="62" y="204" width="60" height="67"/>
     <SubTexture name="OliDispDer2" x="1" y="204" width="59" height="67"/>
     <SubTexture name="OliDispIzq1" x="178" y="135" width="60" height="67"/>
     <SubTexture name="OliDispIzq2" x="124" y="204" width="60" height="67"/>
-    <SubTexture name="OliIzq" x="27" y="68" width="57" height="65"/>
+    <SubTexture name="OliIzq" x="33" y="68" width="57" height="65"/>
     <SubTexture name="OliUltiDer" x="60" y="135" width="57" height="65"/>
-    <SubTexture name="OliUltiIzq" x="145" y="68" width="57" height="65"/>
+    <SubTexture name="OliUltiIzq" x="151" y="68" width="57" height="65"/>
     <SubTexture name="ProyectilA1" x="243" y="13" width="9" height="17"/>
     <SubTexture name="ProyectilA2" x="1" y="1" width="22" height="9"/>
     <SubTexture name="ProyectilR1" x="173" y="13" width="42" height="14"/>
