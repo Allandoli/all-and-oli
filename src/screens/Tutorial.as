@@ -3,6 +3,7 @@ package screens
 	import flash.geom.Point;
 	import objects.Character;
 	import objects.Background;
+	import objects.Collectible;
 	import objects.Enemy;
 	import objects.Platforms;
 	import objects.Screw;
@@ -78,6 +79,7 @@ package screens
 			trace (Player.screwCounter);
 			physics.removePhysics(objectB.displayObject, true);
 		}
+		
 		private function colisionMonstruoPlataforma(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
 		{
 			if ((objectB.displayObject as Platforms).type != 1)
@@ -146,6 +148,16 @@ package screens
 			for (var j:int = 0; j < arrayScrew.length; j++)
 			{
 				addChild(arrayScrew[j]);
+			}
+			
+			var arrayOliParts:Array = [new Collectible(this.physics, Math.ceil(Math.random() * 4), 550), 
+			new Collectible(this.physics, Math.ceil(Math.random() * 4), 850),		
+			new Collectible(this.physics, Math.ceil(Math.random() * 4), 1610),
+			new Collectible(this.physics, Math.ceil(Math.random() * 4), 2310)];
+			
+			for (var k:int = 0; k < arrayOliParts.length; k++)
+			{
+				addChild(arrayOliParts[k]);
 			}
 			
 			var enemy:Enemy = new Enemy(1, physics, 850);

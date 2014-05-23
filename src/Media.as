@@ -76,6 +76,18 @@ package
 		[Embed(source = "../media/images/Screw4.png")]
 		public static const Screw4:Class;
 		
+		[Embed(source = "../media/images/OliCollect1.png")]
+		public static const OliCollect1:Class;
+		
+		[Embed(source = "../media/images/OliCollect2.png")]
+		public static const OliCollect2:Class;
+		
+		[Embed(source = "../media/images/OliCollect3.png")]
+		public static const OliCollect3:Class;
+		
+		[Embed(source = "../media/images/OliCollect4.png")]
+		public static const OliCollect4:Class;
+		
 		public static var CharTextureAtlas:TextureAtlas;
 		static private var gameTextures:Dictionary = new Dictionary();
 		

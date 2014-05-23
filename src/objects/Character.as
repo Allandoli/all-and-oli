@@ -110,34 +110,25 @@ package objects
 			}
 			else 
 			{
-				brazo.visible = true;
-				
-				if (left&&salto) 
-				{
-					characterMovement = animaciones.play("AllIzq");
-					brazo.texture = atlas.getTexture("AllBrazoIzqA");
-					brazo.x = 10;
-					brazo.width = 10;
-					brazo.height = 25;
-					Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-				}
-				else 
-				{
-
-				}
-				if (right&&salto) 
-				{
-					brazo.x = 8
-					brazo.width = 10;
-					brazo.height = 25;
-					characterMovement = animaciones.play("AllDer");
-					brazo.texture = atlas.getTexture("AllBrazoDerA");
-					Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-				}
-				else 
-				{
-					
-				}
+					brazo.visible = true;
+					if (left) 
+					{
+						characterMovement = animaciones.play("AllIzq");
+						brazo.texture = atlas.getTexture("AllBrazoIzqA");
+						brazo.x = 10;
+						brazo.width = 10;
+						brazo.height = 25;
+						Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					}
+					if (right) 
+					{
+						brazo.x = 8
+						brazo.width = 10;
+						brazo.height = 25;
+						characterMovement = animaciones.play("AllDer");
+						brazo.texture = atlas.getTexture("AllBrazoDerA");
+						Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					}
 			}
 			CheckColisionBrazo();
 		}
