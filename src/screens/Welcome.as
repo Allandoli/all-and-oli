@@ -19,10 +19,10 @@ package screens
 		
 		private var welcomeBg:Image;
 		private var welcomeTitle:Image;
-		private var olimenu:Image;
-		private var allmenu:Image;
-		private var welcomeCreditsBtn:Button;
-		private var welcomeAllBtn:Button;
+		private var welcomeAll:Image;
+		private var welcomeOli:Image;
+		private var welcomeCreBtn:Button;
+		private var welcomePlayBtn:Button;
 		
 		public function Welcome() 
 		{
@@ -41,13 +41,26 @@ package screens
 			welcomeBg = new Image(Media.getTexture("fondomenu"));
 			this.addChild(welcomeBg);
 			
-			welcomeAllBtn = new Button(Media.getTexture("AllButton"));
-			welcomeAllBtn.x = 300;
-			welcomeAllBtn.y = 300;
-			this.addChild(welcomeAllBtn);
+			welcomePlayBtn = new Button(Media.getTexture("PlayButton"));
+			welcomePlayBtn.x = 450;
+			welcomePlayBtn.y = 150;
+			this.addChild(welcomePlayBtn);
 			
+			welcomeCreBtn = new Button(Media.getTexture("CreditsButton"));
+			welcomeCreBtn.x = 450;
+			welcomeCreBtn.y = 350;
+			this.addChild(welcomeCreBtn);
 			
+			welcomeAll = new Image(Media.getTexture("allmenu"));
+			welcomeAll.x = 20;
+			welcomeAll.y = 100;
+			this.addChild(welcomeAll);
 			
+			welcomeOli = new Image(Media.getTexture("olimenu"));
+			welcomeOli.x = 670;
+			welcomeOli.y = 40;
+			this.addChild(welcomeOli);
+
 			this.addEventListener(Event.TRIGGERED, onMainMenuClick);
 		}
 		
@@ -65,10 +78,15 @@ package screens
 		{	
 			
 			var buttonClicked:Button = event.target as Button;
-			if ((buttonClicked as Button) == welcomeAllBtn)
+			if ((buttonClicked as Button) == welcomePlayBtn)
 			{
 				Character.currentChar = "all";
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+			}
+			
+			if ((buttonClicked as Button) == welcomeCreBtn)
+			{
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"credits" }, true));
 			}
 			
 		}

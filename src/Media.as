@@ -25,11 +25,11 @@ package
 		[Embed(source = "../media/images/BgCredits.jpg")]
 		public static const BgCredits:Class;
 		
-		[Embed(source = "../media/images/CreditsButton.jpg")]
+		[Embed(source = "../media/images/CreditsButton.png")]
 		public static const CreditsButton:Class;
 		
-		[Embed(source = "../media/images/AllButton.png")]
-		public static const AllButton:Class;
+		[Embed(source = "../media/images/PlayButton.png")]
+		public static const PlayButton:Class;
 		
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
@@ -50,10 +50,7 @@ package
 		public static const chapaoli:Class;		
 		
 		[Embed(source = "../media/images/chapaall.png")]
-		public static const chapaall:Class;		
-		
-		[Embed(source = "../media/images/creditos.png")]
-		public static const creditos:Class;		
+		public static const chapaall:Class;			
 		
 		[Embed(source = "../media/images/fondomenu.png")]
 		public static const fondomenu:Class;		
@@ -62,10 +59,7 @@ package
 		public static const allmenu:Class;		
 		
 		[Embed(source = "../media/images/olimenu.png")]
-		public static const olimenu:Class;		
-		
-		[Embed(source = "../media/images/jugar.png")]
-		public static const jugar:Class;
+		public static const olimenu:Class;
 		
 		[Embed(source = "../media/images/Screw1.png")]
 		public static const Screw1:Class;
