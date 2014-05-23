@@ -28,7 +28,7 @@ package objects
 		private var origen:int;
 		private	var atlas:TextureAtlas = Media.getAtlas();
 		private var atacando:Boolean;
-		private var vel:Number = -300;
+		private var vel:Number = -140;
 
 		
 		public function Enemy(type:int,p:PhysInjector, x:int) 
@@ -108,6 +108,17 @@ package objects
 		public function invertirMov():void
 		{
 			vel *= -1;
+			if (animaciones.currentAnimation == "DinoDer") 
+			{
+				movement = animaciones.play("DinoIzq");
+			}
+			else 
+			{
+				 if(animaciones.currentAnimation == "DinoIzq") 
+				{
+					movement = animaciones.play("DinoDer");
+				}
+			}
 		}
 		
 		private function injectPhysics():void

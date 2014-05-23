@@ -99,18 +99,20 @@ package objects
 				{
 					brazo.visible = false;
 					characterMovement = animaciones.play("AllSaltoIzq");
+				Actual.body.ApplyImpulse(new b2Vec2(-2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 				if (right) 
 				{
 					characterMovement = animaciones.play("AllSaltoDer");
 					brazo.visible = false;
+					Actual.body.ApplyImpulse(new b2Vec2(2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 			}
 			else 
 			{
 				brazo.visible = true;
 				
-				if (left) 
+				if (left&&salto) 
 				{
 					characterMovement = animaciones.play("AllIzq");
 					brazo.texture = atlas.getTexture("AllBrazoIzqA");
@@ -119,7 +121,11 @@ package objects
 					brazo.height = 25;
 					Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
-				if (right) 
+				else 
+				{
+
+				}
+				if (right&&salto) 
 				{
 					brazo.x = 8
 					brazo.width = 10;
@@ -127,6 +133,10 @@ package objects
 					characterMovement = animaciones.play("AllDer");
 					brazo.texture = atlas.getTexture("AllBrazoDerA");
 					Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+				}
+				else 
+				{
+					
 				}
 			}
 			CheckColisionBrazo();
@@ -327,23 +337,5 @@ package objects
 				}
 			}
 		}
-		
-	/*	private function injectPhysicsBrazo():void
-        {
-			if (ActualBrazo == null)
-			{
-				ActualBrazo = physics.injectPhysics(brazo, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0 } ));
-				ActualBrazo.body.SetFixedRotation(true);
-				ActualBrazo.physicsProperties.contactGroup = "Brazo";
-			}
-		}	
-		private function removePhysicsBrazo():void
-		{
-			if (ActualBrazo != null)
-			{
-				physics.removePhysics(brazo);
-				ActualBrazo = null;
-			}
-		}*/
 	}
 }

@@ -32,8 +32,6 @@ package screens
 		protected var physics:PhysInjector;
 
 		// cambiar de pantalla si la anterior esta superada
-		public var floor:Platforms;
-		public var roof:Platforms;
 		public var plat:Platforms;
 		private var Bg:Background;
 		public var Player:Character;
@@ -66,12 +64,16 @@ package screens
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
 		{
-			Player.salto = true;
+			trace(Player.y);
+			trace((objectB.displayObject as Platforms).y);
+			if (Player.y+(objectB.displayObject as Platforms).height  <= (objectB.displayObject as Platforms).y ) 
+			{
+				Player.salto = true;
+			}
 		}
 		
 		private function puntos(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
 		{
-			trace("choque");
 			Player.screwCounter = Player.screwCounter + 1;
 			trace (Player.screwCounter);
 			physics.removePhysics(objectB.displayObject, true);
@@ -80,7 +82,6 @@ package screens
 		{
 			if ((objectB.displayObject as Platforms).type != 1)
 			{
-				trace("CHOCA");
 				(objectA.displayObject as Enemy).invertirMov();
 			}
 		}
@@ -131,7 +132,7 @@ package screens
 			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 400), 
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 600),		
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 900),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1100),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1150),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1350),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1750),		
