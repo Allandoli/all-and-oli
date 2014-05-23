@@ -61,6 +61,7 @@ package screens
 			physics.allowDrag = false;
 			ContactManager.onContactBegin("Jugador", "Tornillo", puntos, true);
 			ContactManager.onContactBegin("Jugador", "Plataforma", saltar, true);
+			ContactManager.onContactBegin("Enemigo", "Plataforma", colisionMonstruoPlataforma, true);
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -75,7 +76,15 @@ package screens
 			trace (Player.screwCounter);
 			physics.removePhysics(objectB.displayObject, true);
 		}
-		
+		private function colisionMonstruoPlataforma(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
+		{
+			if ((objectB.displayObject as Platforms).type != 1)
+			{
+				trace("CHOCA");
+				(objectA.displayObject as Enemy).invertirMov();
+			}
+		}
+	
 		private function onAddedToStage(e:Event):void 
 		{	
 			injectPhysics();
@@ -138,7 +147,7 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
-			var enemy:Enemy = new Enemy(1, physics, 500);
+			var enemy:Enemy = new Enemy(1, physics, 850);
 			this.addChild(enemy);
 			
 			Player = new Character(physics);

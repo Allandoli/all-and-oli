@@ -4,6 +4,7 @@ package objects
 	import com.reyco1.physinjector.PhysInjector;
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
+	import events.Animations;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -24,8 +25,10 @@ package objects
 		private var Cuerpo:PhysicsObject;
 		private var animaciones:Animations;
 		private var enemigo:Image;
-		
+		private var origen:int;
 		private	var atlas:TextureAtlas = Media.getAtlas();
+		private var atacando:Boolean;
+		private var vel:Number = -300;
 
 		
 		public function Enemy(type:int,p:PhysInjector, x:int) 
@@ -34,12 +37,39 @@ package objects
 			this.physics = p;
 			this.x = x;
 			enemyType = type;
+			this.origen = x;
 			this.animaciones = new Animations(Media.getAtlas());
 			animaciones.addAnimation("DinoDer", 4, true);
 			animaciones.addAnimation("DinoIzq", 4, true);
 			animaciones.addAnimation("DinoAtDer", 4, true);
 			animaciones.addAnimation("DinoAtIzq", 4, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.ENTER_FRAME, onRango);
+		}
+		
+		private function onRango(e:Event):void 
+		{
+			//trace(Cuerpo.body.GetLinearVelocity().x);
+		/*	switch (this.enemyType) 
+			{
+				case 1:
+					
+					if (this.x >= this.origen + 150)
+					{
+						vel = -10;
+					}
+					else 
+					{
+						if (this.x <= this.origen - 150)
+						{
+							vel = 10;
+						}
+					}
+					
+				break;
+			}*/
+			
+			Cuerpo.body.ApplyForce(new b2Vec2(vel, 0),new b2Vec2(Cuerpo.body.GetLocalCenter().x, Cuerpo.body.GetLocalCenter().y));
 		}
 		
 		private function onAddedToStage(e:Event):void 
@@ -52,22 +82,39 @@ package objects
 		
 		private function createEnemy():void 
 		{
-			switch (enemyType) 
+			switch (this.enemyType) 
 			{
 				case 1:
 					
 					movement = animaciones.play("DinoIzq");
-					
 					this.y = 300;
 				break;
 				
 			}
 		}
 		
+		private function attackMode(pj:Character):void
+		{
+			if (pj.x <= this.x - 300)
+			{
+				movement = animaciones.play("DinoAtIzq");
+			}
+			if (pj.x >= this.x && pj.x <= this.x + 300)
+			{
+				movement = animaciones.play("DinoAtDer");
+			}
+		}
+		
+		public function invertirMov():void
+		{
+			vel *= -1;
+		}
+		
 		private function injectPhysics():void
         {
 			Cuerpo = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Cuerpo.body.SetFixedRotation(true);
+			Cuerpo.physicsProperties.contactGroup = "Enemigo";
 		}
 		/*public function follow():void // posible idea para que los enemigos te sigan
 		{

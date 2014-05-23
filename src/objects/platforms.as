@@ -18,7 +18,7 @@ package objects
 		protected var physics:PhysInjector;
 		private var Actual:PhysicsObject;
 		public var cuerpo:Image;
-		private var type:int;
+		public var type:int;
 		
 		public function Platforms(p:PhysInjector, t:int, x:int) 
 		{
@@ -53,12 +53,12 @@ package objects
 				case 3:
 					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Baja
 					this.addChild(cuerpo);
-					y = 400;
+					y = 350;
 					break;
 				case 4:
 					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Media
 					this.addChild(cuerpo);
-					y = 330;
+					y = 280;
 					break;
 				case 5:
 					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Alta

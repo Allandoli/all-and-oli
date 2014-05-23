@@ -5,6 +5,7 @@ package objects
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
 	import starling.core.Starling;
+	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.MovieClip;
 	import starling.display.Sprite;
@@ -12,7 +13,7 @@ package objects
 	import starling.events.Event;
 	import starling.events.KeyboardEvent;
 	import Media;
-	import objects.Animations;
+	import events.Animations;
 	import starling.textures.TextureAtlas;
 
 
@@ -24,6 +25,7 @@ package objects
 	{
 		protected var physics:PhysInjector;
 		public var Actual:PhysicsObject;
+	//	public var ActualBrazo:PhysicsObject = null;
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
 		private var lastmove:String;
@@ -44,7 +46,7 @@ package objects
 		private var up:Boolean = false;
 		private var left:Boolean = false;
 		private var right:Boolean = false;
-		private var animaciones:Animations;
+		private var animaciones:events.Animations;
 		public var salto:Boolean=true;
 
 
@@ -106,13 +108,13 @@ package objects
 			}
 			else 
 			{
+				brazo.visible = true;
 				
 				if (left) 
 				{
 					characterMovement = animaciones.play("AllIzq");
 					brazo.texture = atlas.getTexture("AllBrazoIzqA");
 					brazo.x = 10;
-					brazo.visible = true;
 					brazo.width = 10;
 					brazo.height = 25;
 					Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
@@ -120,7 +122,6 @@ package objects
 				if (right) 
 				{
 					brazo.x = 8
-					brazo.visible = true;
 					brazo.width = 10;
 					brazo.height = 25;
 					characterMovement = animaciones.play("AllDer");
@@ -128,6 +129,7 @@ package objects
 					Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 			}
+			CheckColisionBrazo();
 		}
 		
 		private function movementDeactivation(e:KeyboardEvent):void 
@@ -309,5 +311,39 @@ package objects
 			Actual.body.SetFixedRotation(true);
 			Actual.physicsProperties.contactGroup = "Jugador";
 		}
+		
+		private function CheckColisionBrazo():void
+		{
+			for (var i:int = 0; i < parent.numChildren; i++)
+			{
+				var obj:DisplayObject = parent.getChildAt(i);
+				var enemy:Enemy = (obj as Enemy);
+				if (enemy != null)
+				{
+					if (bounds.intersects(obj.bounds)) {
+						trace("CHOCA BRAZO ENEMIGO");
+					}
+					
+				}
+			}
+		}
+		
+	/*	private function injectPhysicsBrazo():void
+        {
+			if (ActualBrazo == null)
+			{
+				ActualBrazo = physics.injectPhysics(brazo, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:false, friction:0.5, restitution:0 } ));
+				ActualBrazo.body.SetFixedRotation(true);
+				ActualBrazo.physicsProperties.contactGroup = "Brazo";
+			}
+		}	
+		private function removePhysicsBrazo():void
+		{
+			if (ActualBrazo != null)
+			{
+				physics.removePhysics(brazo);
+				ActualBrazo = null;
+			}
+		}*/
 	}
 }

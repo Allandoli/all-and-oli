@@ -1,4 +1,4 @@
-package objects 
+package events 
 {
 	import starling.display.Sprite;
 	import flash.utils.Dictionary;
