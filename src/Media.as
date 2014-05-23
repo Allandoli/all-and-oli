@@ -34,6 +34,9 @@ package
 		[Embed(source = "../media/images/OliButton.png")]
 		public static const OliButton:Class;
 		
+		[Embed(source = "../media/images/titulo.png")]
+		public static const titulo:Class;
+		
 		[Embed(source = "../media/images/SueloTutorial.png")]
 		public static const SueloTutorial:Class;
 		
