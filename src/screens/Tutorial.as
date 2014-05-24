@@ -61,33 +61,64 @@ package screens
 			ContactManager.onContactBegin("Jugador", "Tornillo", puntos, true);
 			ContactManager.onContactBegin("Jugador", "Plataforma", saltar, true);
 			ContactManager.onContactBegin("Enemigo", "Plataforma", colisionMonstruoPlataforma, true);
+			ContactManager.onContactBegin("Jugador", "ParteOli", coleccionables, true);
+			ContactManager.onContactBegin("Enemigo", "Tornillo", colisionMonstruoTornillo, true);
+			ContactManager.onContactBegin("Jugador", "Enemigo", daño, true);
+
+
+		}
+		
+		private function daño(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
+		{
+			Player.energyAll -= 10;
+			(objectB.displayObject as Enemy).Cuerpo.body.ApplyImpulse(new b2Vec2(60, 0), new b2Vec2((objectB.displayObject as Enemy).Cuerpo.body.GetLocalCenter().x, (objectB.displayObject as Enemy).Cuerpo.body.GetLocalCenter().y));
+			if (Player.energyAll == 0) 
+			{
+				physics.removePhysics(objectA.displayObject, true);
+			}
+		}
+		
+		private function coleccionables(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
+		{
+			Player.collectibleCounter = Player.collectibleCounter + 1;
+			physics.removePhysics(objectB.displayObject, true);
+			
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
 		{
-			trace(Player.y);
-			trace((objectB.displayObject as Platforms).y);
-			if (Player.y+(objectB.displayObject as Platforms).height  <= (objectB.displayObject as Platforms).y ) 
+			
+			if ((objectB.displayObject as Platforms).y-Player.y >=90 ) 
 			{
+				Player.lastX = Player.x;
+				Player.lastY = Player.y;
 				Player.salto = true;
 			}
+
 		}
 		
 		private function puntos(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
 		{
 			Player.screwCounter = Player.screwCounter + 1;
-			trace (Player.screwCounter);
 			physics.removePhysics(objectB.displayObject, true);
 		}
 		
 		private function colisionMonstruoPlataforma(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
 		{
-			if ((objectB.displayObject as Platforms).type != 1)
+			if ((objectB.displayObject as Platforms).type != 1 )
 			{
 				(objectA.displayObject as Enemy).invertirMov();
 			}
 		}
-	
+		
+		private function colisionMonstruoTornillo(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
+		{
+			if ((objectB.displayObject as Screw).screwType < 5 )
+			{
+				(objectA.displayObject as Enemy).invertirMov();
+			}
+		}
+		
 		private function onAddedToStage(e:Event):void 
 		{	
 			injectPhysics();
@@ -134,7 +165,7 @@ package screens
 			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 400), 
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 600),		
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 900),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1150),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1175),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1350),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1750),		
@@ -192,7 +223,13 @@ package screens
 				x -= 4;
 				physics.globalOffsetX -= 4;
 			}
-			/*if (Player.x < 300-x)
+			/*if (Player.y > 600) 
+			{
+				Player.x = Player.lastX;
+				Player.y = Player.lastY;
+				Player.energyAll -= 10;
+			}
+			if (Player.x < 300-x)
 			{
 				x += 1;
 				physics.globalOffsetX += 1;

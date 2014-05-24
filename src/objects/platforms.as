@@ -53,7 +53,7 @@ package objects
 				case 3:
 					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Baja
 					this.addChild(cuerpo);
-					y = 350;
+					y = 360;
 					break;
 				case 4:
 					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Media

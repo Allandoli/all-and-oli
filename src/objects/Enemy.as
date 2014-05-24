@@ -22,7 +22,7 @@ package objects
 		private var health:int;
 		private var movement:MovieClip;//animacionas para andar
 		private var enemyType:int;//1 mordedor, 2 volador, 3 aspiradora, 4 olla, 5 robot imanes
-		private var Cuerpo:PhysicsObject;
+		public var Cuerpo:PhysicsObject;
 		private var animaciones:Animations;
 		private var enemigo:Image;
 		private var origen:int;
@@ -49,26 +49,6 @@ package objects
 		
 		private function onRango(e:Event):void 
 		{
-			//trace(Cuerpo.body.GetLinearVelocity().x);
-		/*	switch (this.enemyType) 
-			{
-				case 1:
-					
-					if (this.x >= this.origen + 150)
-					{
-						vel = -10;
-					}
-					else 
-					{
-						if (this.x <= this.origen - 150)
-						{
-							vel = 10;
-						}
-					}
-					
-				break;
-			}*/
-			
 			Cuerpo.body.ApplyForce(new b2Vec2(vel, 0),new b2Vec2(Cuerpo.body.GetLocalCenter().x, Cuerpo.body.GetLocalCenter().y));
 		}
 		
@@ -86,8 +66,9 @@ package objects
 			{
 				case 1:
 					
-					movement = animaciones.play("DinoIzq");
+					this.movement = animaciones.play("DinoIzq");
 					this.y = 300;
+					this.health = 150;
 				break;
 				
 			}
@@ -97,11 +78,11 @@ package objects
 		{
 			if (pj.x <= this.x - 300)
 			{
-				movement = animaciones.play("DinoAtIzq");
+				this.movement = animaciones.play("DinoAtIzq");
 			}
 			if (pj.x >= this.x && pj.x <= this.x + 300)
 			{
-				movement = animaciones.play("DinoAtDer");
+				this.movement = animaciones.play("DinoAtDer");
 			}
 		}
 		
@@ -110,22 +91,22 @@ package objects
 			vel *= -1;
 			if (animaciones.currentAnimation == "DinoDer") 
 			{
-				movement = animaciones.play("DinoIzq");
+				this.movement = animaciones.play("DinoIzq");
 			}
 			else 
 			{
 				 if(animaciones.currentAnimation == "DinoIzq") 
 				{
-					movement = animaciones.play("DinoDer");
+					this.movement = animaciones.play("DinoDer");
 				}
 			}
 		}
 		
 		private function injectPhysics():void
         {
-			Cuerpo = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
-			Cuerpo.body.SetFixedRotation(true);
-			Cuerpo.physicsProperties.contactGroup = "Enemigo";
+			this.Cuerpo = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
+			this.Cuerpo.body.SetFixedRotation(true);
+			this.Cuerpo.physicsProperties.contactGroup = "Enemigo";
 		}
 		/*public function follow():void // posible idea para que los enemigos te sigan
 		{

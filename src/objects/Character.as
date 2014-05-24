@@ -25,6 +25,8 @@ package objects
 	{
 		protected var physics:PhysInjector;
 		public var Actual:PhysicsObject;
+		public var lastX:int;
+		public var lastY:int;
 	//	public var ActualBrazo:PhysicsObject = null;
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
@@ -35,7 +37,7 @@ package objects
 		private var key:KeyboardEvent;
 		private var _collectibleCounter:int;
 		private var _screwCounter:int;
-		private var energyAll:int;//max 100%
+		public var energyAll:int;//max 100%
 		private var energyOli:int;//max 100%
 		private var exhaustionAll:int;//max 100%
 		private var exhaustionOli:int;//max 100%
@@ -321,7 +323,7 @@ package objects
 				var enemy:Enemy = (obj as Enemy);
 				if (enemy != null)
 				{
-					if (bounds.intersects(obj.bounds)) {
+					if (brazo.bounds.intersects(obj.bounds)) {
 						trace("CHOCA BRAZO ENEMIGO");
 					}
 					

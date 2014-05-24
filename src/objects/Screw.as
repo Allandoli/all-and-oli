@@ -16,7 +16,7 @@ package objects
 	public class Screw extends Sprite
 	{
 		protected var physics:PhysInjector;
-		private var screwType:int;
+		public var screwType:int;
 		private var torn:Image;
 		public var Tornillo:PhysicsObject;
 		
@@ -36,7 +36,7 @@ package objects
 			injectPhysics();
 		}
 		
-		public function createScrew():void 
+		private function createScrew():void 
 		{
 			switch(screwType)
 			{
