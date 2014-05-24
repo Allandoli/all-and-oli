@@ -1,5 +1,6 @@
 package screens 
 {
+	import flash.display.DisplayObject;
 	import flash.geom.Point;
 	import objects.Character;
 	import objects.Background;
@@ -216,13 +217,31 @@ package screens
 		{
 			this.visible = true;
 		}
-	  protected function onUpdate(event:Event):void
+		
+		private function colisionBrazo():void
+		{
+			for (var i:int = 0; i < this.numChildren; i++)
+			{
+				var obj:starling.display.DisplayObject = this.getChildAt(i);
+				var enemy:Enemy = (obj as Enemy);
+				if (enemy != null)
+				{
+					if (Player.brazo.bounds.intersects(obj.bounds)) {
+						trace("CHOCA BRAZO ENEMIGO");
+					}
+					
+				}
+			}
+		}
+		
+		protected function onUpdate(event:Event):void
         {			
 			if (Player.x > stage.stageWidth-600-x)
 			{
 				x -= 4;
 				physics.globalOffsetX -= 4;
 			}
+			colisionBrazo()
 			/*if (Player.y > 600) 
 			{
 				Player.x = Player.lastX;

@@ -31,7 +31,7 @@ package objects
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
 		private var lastmove:String;
-		private var brazo:Image;
+		public var brazo:Image;
 		private	var atlas:TextureAtlas = Media.getAtlas();
 		private var characterMovement:MovieClip;
 		private var key:KeyboardEvent;
@@ -88,7 +88,28 @@ package objects
 			this.addEventListener(KeyboardEvent.KEY_DOWN, movementActivation);
 			this.addEventListener(KeyboardEvent.KEY_DOWN, skills);
 			this.addEventListener(KeyboardEvent.KEY_UP, movementDeactivation);
+			this.addEventListener(KeyboardEvent.KEY_UP, skillDeactivation);
 			this.addEventListener(EnterFrameEvent.ENTER_FRAME,movement);
+		}
+		
+		private function skillDeactivation(e:KeyboardEvent):void 
+		{
+			var aux:String = String.fromCharCode(e.charCode);
+			if (aux.toLowerCase() == "j" || aux.toLowerCase() == "k" || aux.toLowerCase() == "l" || aux.toLowerCase() == "a" || aux.toLowerCase() == "d") 
+			{
+				if (animaciones.currentAnimation == "AllDer" || animaciones.currentAnimation == "AllEstaticoDer")
+				{
+					brazo.x = 8;
+					brazo.texture = atlas.getTexture("AllBrazoDerA");
+					brazo.readjustSize();
+				}
+				if (animaciones.currentAnimation == "AllIzq" || animaciones.currentAnimation == "AllEstaticoIzq")
+				{
+					brazo.x = 10;
+					brazo.texture = atlas.getTexture("AllBrazoIzqA");
+					brazo.readjustSize();
+				}
+			}
 		}
 		
 		private function movement(e:EnterFrameEvent):void 
@@ -101,7 +122,7 @@ package objects
 				{
 					brazo.visible = false;
 					characterMovement = animaciones.play("AllSaltoIzq");
-				Actual.body.ApplyImpulse(new b2Vec2(-2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
+					Actual.body.ApplyImpulse(new b2Vec2(-2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 				if (right) 
 				{
@@ -116,23 +137,14 @@ package objects
 					if (left) 
 					{
 						characterMovement = animaciones.play("AllIzq");
-						brazo.texture = atlas.getTexture("AllBrazoIzqA");
-						brazo.x = 10;
-						brazo.width = 10;
-						brazo.height = 25;
 						Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 					}
 					if (right) 
 					{
-						brazo.x = 8
-						brazo.width = 10;
-						brazo.height = 25;
 						characterMovement = animaciones.play("AllDer");
-						brazo.texture = atlas.getTexture("AllBrazoDerA");
 						Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 					}
 			}
-			CheckColisionBrazo();
 		}
 		
 		private function movementDeactivation(e:KeyboardEvent):void 
@@ -164,50 +176,41 @@ package objects
 					case "j":
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
-							brazo.width = 25;
-							brazo.height = 10;
 							brazo.x = 10;
 							brazo.texture = atlas.getTexture("AllBrazoDer1");
 						}
 						if (animaciones.currentAnimation=="AllIzq"||animaciones.currentAnimation=="AllEstaticoIzq") 
 						{
-							brazo.width = 25;
-							brazo.height = 10;
 							brazo.x = -5;
 							brazo.texture = atlas.getTexture("AllBrazoIzq1");
 						}
+						brazo.readjustSize();
 						break;
 					case "k":
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
-							brazo.width = 42;
-							brazo.height = 10;
 							brazo.x = 10;
 							brazo.texture = atlas.getTexture("AllBrazoDer2");
 						}
 						if (animaciones.currentAnimation=="AllIzq"||animaciones.currentAnimation=="AllEstaticoIzq") 
 						{
-							brazo.width = 42;
-							brazo.height = 10;
 							brazo.x = -22;
 							brazo.texture = atlas.getTexture("AllBrazoIzq2");
 						}
+						brazo.readjustSize();
 						break;
 					case "l":
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
-							brazo.width = 72;
-							brazo.height = 10;
 							brazo.x = 10;
 							brazo.texture = atlas.getTexture("AllBrazoDer3");
 						}
 						if (animaciones.currentAnimation=="AllIzq"||animaciones.currentAnimation=="AllEstaticoIzq") 
 						{
-							brazo.width = 72;
-							brazo.height = 10;
 							brazo.x = -52;
 							brazo.texture = atlas.getTexture("AllBrazoIzq3");
 						}
+						brazo.readjustSize();
 						break;
 				}
 			}
@@ -313,22 +316,6 @@ package objects
 			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Actual.body.SetFixedRotation(true);
 			Actual.physicsProperties.contactGroup = "Jugador";
-		}
-		
-		private function CheckColisionBrazo():void
-		{
-			for (var i:int = 0; i < parent.numChildren; i++)
-			{
-				var obj:DisplayObject = parent.getChildAt(i);
-				var enemy:Enemy = (obj as Enemy);
-				if (enemy != null)
-				{
-					if (brazo.bounds.intersects(obj.bounds)) {
-						trace("CHOCA BRAZO ENEMIGO");
-					}
-					
-				}
-			}
 		}
 	}
 }
