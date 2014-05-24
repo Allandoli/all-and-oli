@@ -22,6 +22,7 @@ package screens
     import com.reyco1.physinjector.data.PhysicsProperties;
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import com.reyco1.physinjector.contact.ContactManager;
+	import events.NavigationEvent;
 	
 	/**
 	 * ...
@@ -73,9 +74,10 @@ package screens
 		{
 			Player.energyAll -= 10;
 			(objectB.displayObject as Enemy).Cuerpo.body.ApplyImpulse(new b2Vec2(60, 0), new b2Vec2((objectB.displayObject as Enemy).Cuerpo.body.GetLocalCenter().x, (objectB.displayObject as Enemy).Cuerpo.body.GetLocalCenter().y));
-			if (Player.energyAll == 0) 
+			if (Player.energyAll <= 0) 
 			{
 				physics.removePhysics(objectA.displayObject, true);
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"start" }, true));
 			}
 		}
 		
@@ -125,7 +127,6 @@ package screens
 			injectPhysics();
 			drawScreen();
 			spawn();
-			
 		}
 		
 		private function spawn():void 
@@ -136,8 +137,8 @@ package screens
 				new Platforms(this.physics, 2, 1024),
 				new Platforms(this.physics, 1, 2048),
 				new Platforms(this.physics, 2, 2048),
-				new Platforms(this.physics, 1, 3272),
-				new Platforms(this.physics, 2, 3272),
+				new Platforms(this.physics, 1, 3800),
+				new Platforms(this.physics, 2, 3800),
 				new Platforms(this.physics, 6, 280),
 				new Platforms(this.physics, 6, 450),
 				new Platforms(this.physics, 6, 520),
@@ -156,7 +157,21 @@ package screens
 				new Platforms(this.physics, 6, 2350),
 				new Platforms(this.physics, 6, 2870),
 				new Platforms(this.physics, 3, 3000),
-				new Platforms(this.physics, 4, 3120)];
+				new Platforms(this.physics, 4, 3120),
+				new Platforms(this.physics, 4, 3220),
+				new Platforms(this.physics, 3, 3350),
+				new Platforms(this.physics, 4, 3550),
+				new Platforms(this.physics, 6, 3830),
+				new Platforms(this.physics, 7, 3830),
+				new Platforms(this.physics, 3, 3980),
+				new Platforms(this.physics, 3, 4080),
+				new Platforms(this.physics, 4, 4280),
+				new Platforms(this.physics, 6, 4430),
+				new Platforms(this.physics, 6, 4500),
+				new Platforms(this.physics, 3, 4650),
+				new Platforms(this.physics, 4, 4800),
+				new Platforms(this.physics, 4, 4900),
+				new Platforms(this.physics, 4, 5000),];
 
 			for (var i:int = 0; i < newLevel.length; i++) 
 			{
@@ -165,16 +180,22 @@ package screens
 			
 			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 400), 
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 600),		
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 900),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 870),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1175),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1350),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1750),		
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),		
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 1900),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 2100),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 2300),
 			new Screw(this.physics, Math.ceil(Math.random() * 4), 2550),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 2800)];
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2980),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3100),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3270),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3560),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3940),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4100),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4330),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4570),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4820),];
 				
 			
 			for (var j:int = 0; j < arrayScrew.length; j++)
@@ -182,10 +203,10 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
-			var arrayOliParts:Array = [new Collectible(this.physics, Math.ceil(Math.random() * 4), 550), 
-			new Collectible(this.physics, Math.ceil(Math.random() * 4), 850),		
-			new Collectible(this.physics, Math.ceil(Math.random() * 4), 1610),
-			new Collectible(this.physics, Math.ceil(Math.random() * 4), 2310)];
+			var arrayOliParts:Array = [new Collectible(this.physics, 4, 1000), 
+			new Collectible(this.physics, 2, 2300),		
+			new Collectible(this.physics, 3, 3380),
+			new Collectible(this.physics, 1, 5050)];
 			
 			for (var k:int = 0; k < arrayOliParts.length; k++)
 			{
