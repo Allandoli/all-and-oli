@@ -52,6 +52,12 @@ package
 		[Embed(source = "../media/images/chapaoli.png")]
 		public static const chapaoli:Class;		
 		
+		[Embed(source = "../media/images/bateria.png")]
+		public static const bateria:Class;		
+		
+		[Embed(source = "../media/images/litio.png")]
+		public static const litio:Class;
+		
 		[Embed(source = "../media/images/chapaall.png")]
 		public static const chapaall:Class;			
 		

@@ -8,15 +8,15 @@
   <compiler>
     <define append="true">
       <name>CONFIG::debug</name>
-      <value>false</value>
-    </define>
-    <define append="true">
-      <name>CONFIG::release</name>
       <value>true</value>
     </define>
     <define append="true">
+      <name>CONFIG::release</name>
+      <value>false</value>
+    </define>
+    <define append="true">
       <name>CONFIG::timeStamp</name>
-      <value>'23/05/2014'</value>
+      <value>'25/05/2014'</value>
     </define>
     <define append="true">
       <name>CONFIG::air</name>
@@ -30,17 +30,15 @@
       <name>CONFIG::desktop</name>
       <value>false</value>
     </define>
-    <optimize>true</optimize>
-    <omit-trace-statements>true</omit-trace-statements>
-    <verbose-stacktraces>false</verbose-stacktraces>
+    <verbose-stacktraces>true</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\Vicent\Documents\GitHub\all-and-oli\src</path-element>
-      <path-element>C:\Users\Vicent\Documents\GitHub\PrimaryFeather-Starling-Framework-1a50854\starling\src</path-element>
-      <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
+      <path-element>C:\Users\Edgar\Documents\GitHub\all-and-oli\src</path-element>
+      <path-element>C:\Users\Edgar\Desktop\PrimaryFeather-Starling-Framework-a499d39\starling\src</path-element>
+      <path-element>F:\Archivos de Programa\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\Vicent\Documents\GitHub\all-and-oli\src\Main.as</path-element>
+    <path-element>C:\Users\Edgar\Documents\GitHub\all-and-oli\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#FFFFFF</default-background-color>
   <default-frame-rate>30</default-frame-rate>

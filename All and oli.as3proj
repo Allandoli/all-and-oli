@@ -17,6 +17,7 @@
   <classpaths>
     <class path="src" />
     <class path="..\PrimaryFeather-Starling-Framework-1a50854\starling\src" />
+    <class path="..\..\..\Desktop\PrimaryFeather-Starling-Framework-a499d39\starling\src" />
   </classpaths>
   <!-- Build options -->
   <build>

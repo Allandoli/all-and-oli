@@ -27,7 +27,7 @@ package objects
 		public var Actual:PhysicsObject;
 		public var lastX:int;
 		public var lastY:int;
-	//	public var ActualBrazo:PhysicsObject = null;
+		//	public var ActualBrazo:PhysicsObject = null;
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
 		private var lastmove:String;

@@ -23,6 +23,7 @@ package screens
 	import Box2D.Dynamics.Contacts.b2Contact;
 	import com.reyco1.physinjector.contact.ContactManager;
 	import events.NavigationEvent;
+	import objects.GUI;
 	
 	/**
 	 * ...
@@ -37,6 +38,7 @@ package screens
 		// cambiar de pantalla si la anterior esta superada
 		public var plat:Platforms;
 		private var Bg:Background;
+		private var gui:GUI;
 		public var Player:Character;
 		private var Interface:Image;
 		private var CombBar:Image;
@@ -45,6 +47,8 @@ package screens
 		public var up:Boolean = false;
 		public var left:Boolean = false;
 		public var right:Boolean = false;
+		public var chapaposicion:int;
+		
 		
 		// llamar a los objetos a crear
 		
@@ -124,9 +128,16 @@ package screens
 		
 		private function onAddedToStage(e:Event):void 
 		{	
+			chapaposicion = 20;
 			injectPhysics();
 			drawScreen();
 			spawn();
+			drawGui();
+		}
+		
+		private function drawGui():void {
+			gui = new GUI();
+			this.addChild(gui);
 		}
 		
 		private function spawn():void 
@@ -257,10 +268,14 @@ package screens
 		
 		protected function onUpdate(event:Event):void
         {			
+			
+			
 			if (Player.x > stage.stageWidth-600-x)
 			{
 				x -= 4;
 				physics.globalOffsetX -= 4;
+				chapaposicion += 4;
+				gui.update(chapaposicion);
 			}
 			colisionBrazo()
 			/*if (Player.y > 600) 
@@ -275,6 +290,7 @@ package screens
 				physics.globalOffsetX += 1;
 			}*/
             physics.update();
+			
         }
 		
 		public function clear():void
