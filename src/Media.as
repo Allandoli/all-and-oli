@@ -55,8 +55,26 @@ package
 		[Embed(source = "../media/images/bateria.png")]
 		public static const bateria:Class;		
 		
+		[Embed(source = "../media/images/carburador.png")]
+		public static const carburador:Class;		
+		
+		[Embed(source = "../media/images/gasoil.png")]
+		public static const gasoil:Class;		
+		
 		[Embed(source = "../media/images/litio.png")]
 		public static const litio:Class;
+		
+		[Embed(source = "../media/images/exhaustionfondo.png")]
+		public static const exhaustionfondo:Class;
+		
+		[Embed(source = "../media/images/exhaustionbarra.png")]
+		public static const exhaustionbarra:Class;
+		
+		[Embed(source = "../media/images/exhaustiontri.png")]
+		public static const exhaustiontri:Class;
+		
+		[Embed(source = "../media/images/portachapas.png")]
+		public static const portachapas:Class;	
 		
 		[Embed(source = "../media/images/chapaall.png")]
 		public static const chapaall:Class;			
