@@ -88,6 +88,21 @@ package
 		[Embed(source = "../media/images/OliCollect4.png")]
 		public static const OliCollect4:Class;
 		
+		[Embed(source = "../media/images/OliPiezas1.png")]
+		public static const OliPiezas1:Class;
+		
+		[Embed(source = "../media/images/OliPiezas2.png")]
+		public static const OliPiezas2:Class;
+		
+		[Embed(source = "../media/images/OliPiezas3.png")]
+		public static const OliPiezas3:Class;
+		
+		[Embed(source = "../media/images/OliPiezas4.png")]
+		public static const OliPiezas4:Class;
+		
+		[Embed(source = "../media/images/OliPiezas5.png")]
+		public static const OliPiezas5:Class;
+		
 		public static var CharTextureAtlas:TextureAtlas;
 		static private var gameTextures:Dictionary = new Dictionary();
 		
