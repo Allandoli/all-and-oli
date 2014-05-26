@@ -4,6 +4,7 @@ package objects
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.text.TextField;
+	import objects.Character;
 	
 	import starling.utils.HAlign;
 	
@@ -27,6 +28,8 @@ package objects
 		
 		public var portaChapas:Image;
 		public var screwText:TextField;
+		
+		public var contadorPiezasOli:Image;
 		
 		public function GUI() 
 		{
@@ -94,6 +97,33 @@ package objects
 			screwText.hAlign = HAlign.RIGHT;
 			this.addChild(screwImage);
 			this.addChild(screwText);
+			
+			// llamar a collectiblecounter desde character o tutorial con lo de parent
+			
+			/*contadorPiezasOli.x = 1024 - contadorPiezasOli.width;
+			contadorPiezasOli.y = 160;
+			this.addChild(contadorPiezasOli);
+			
+			if (Character.collectibleCounter == 0) 
+			{ 
+				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
+			}
+			if (Character.collectibleCounter == 1) 
+			{ 
+				contadorPiezasOli = new Image(Media.getTexture("OliCollect2")); 
+			}
+			if (Character.collectibleCounter == 2) 
+			{ 
+				contadorPiezasOli = new Image(Media.getTexture("OliCollect3")); 
+			}
+			if (Character.collectibleCounter == 3) 
+			{ 
+				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
+			}
+			if (Character.collectibleCounter == 4) 
+			{ 
+				contadorPiezasOli = new Image(Media.getTexture("OliCollect5")); 
+			}*/
 		}
 		
 		public function update(x:int):void 
