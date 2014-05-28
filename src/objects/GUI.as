@@ -55,7 +55,6 @@ package objects
 			exhaustionTri = new Image (Media.getTexture("exhaustiontri"));
 			portaChapas = new Image (Media.getTexture("portachapas"));
 			screwImage = new Image (Media.getTexture("Screw4"));
-			
 			screwText = new TextField(58, 30, screws.toString(), "Arial", 20, 0x0, false);
 			createChapas();
 			
@@ -97,36 +96,33 @@ package objects
 			screwText.hAlign = HAlign.RIGHT;
 			this.addChild(screwImage);
 			this.addChild(screwText);
-			
+			contadorPiezasOli = new Image(Media.getTexture("OliPiezas1"));
+			contadorPiezasOli.x = 1004 - contadorPiezasOli.width + 50;
+			this.addChild(contadorPiezasOli);
 		}
 		
-		public function contadorPiezas(char:Character):Image
+		public function contadorPiezas(char:Character):void
 		{
-			contadorPiezasOli.x = 1024 - contadorPiezasOli.width;
-			contadorPiezasOli.y = 160;
-			this.addChild(contadorPiezasOli);
-			
 			if (char.collectibleCounter == 0) 
 			{ 
-				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
+				contadorPiezasOli.texture = Media.getTexture("OliPiezas1"); 
 			}
 			if (char.collectibleCounter == 1) 
 			{ 
-				contadorPiezasOli = new Image(Media.getTexture("OliCollect2")); 
+				contadorPiezasOli.texture = Media.getTexture("OliPiezas2"); 
 			}
 			if (char.collectibleCounter == 2) 
 			{ 
-				contadorPiezasOli = new Image(Media.getTexture("OliCollect3")); 
+				contadorPiezasOli.texture = Media.getTexture("OliPiezas3"); 
 			}
 			if (char.collectibleCounter == 3) 
 			{ 
-				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
+				contadorPiezasOli.texture =  Media.getTexture("OliPiezas4"); 
 			}
 			if (char.collectibleCounter == 4) 
 			{ 
-				contadorPiezasOli = new Image(Media.getTexture("OliCollect5")); 
+				contadorPiezasOli.texture = Media.getTexture("OliPiezas5"); 
 			}
-			return contadorPiezasOli;
 		}
 		
 		public function update(x:int):void 
@@ -141,6 +137,7 @@ package objects
 			//Para añadir mas objetos, basta con poner x + la posicion suya original - 20 
 			screwImage.x = x + 1004 - portaChapas.width + 40;
 			screwText.x = x + 1004 - portaChapas.width + 50;
+			contadorPiezasOli.x = x + 1004 - contadorPiezasOli.width + 50;
 		}
 		
 		

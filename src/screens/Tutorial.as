@@ -89,10 +89,7 @@ package screens
 		private function coleccionables(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
 		{
 			Player.collectibleCounter = Player.collectibleCounter + 1;
-			pie = gui.contadorPiezas(Player);
-			this.addChild(pie);
 			physics.removePhysics(objectB.displayObject, true);
-			
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -272,9 +269,9 @@ package screens
 		protected function onUpdate(event:Event):void
         {			
 			
-			
 			if (Player.x > stage.stageWidth-600-x)
 			{
+				gui.contadorPiezas(Player);
 				x -= 4;
 				physics.globalOffsetX -= 4;
 				chapaposicion += 4;
