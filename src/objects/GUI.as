@@ -97,7 +97,8 @@ package objects
 			this.addChild(screwImage);
 			this.addChild(screwText);
 			contadorPiezasOli = new Image(Media.getTexture("OliPiezas1"));
-			contadorPiezasOli.x = 1004 - contadorPiezasOli.width + 50;
+			contadorPiezasOli.x = 750;
+			contadorPiezasOli.y = 80;
 			this.addChild(contadorPiezasOli);
 		}
 		
