@@ -98,32 +98,35 @@ package objects
 			this.addChild(screwImage);
 			this.addChild(screwText);
 			
-			// llamar a collectiblecounter desde character o tutorial con lo de parent
-			
-			/*contadorPiezasOli.x = 1024 - contadorPiezasOli.width;
+		}
+		
+		public function contadorPiezas(char:Character):Image
+		{
+			contadorPiezasOli.x = 1024 - contadorPiezasOli.width;
 			contadorPiezasOli.y = 160;
 			this.addChild(contadorPiezasOli);
 			
-			if (Character.collectibleCounter == 0) 
+			if (char.collectibleCounter == 0) 
 			{ 
 				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
 			}
-			if (Character.collectibleCounter == 1) 
+			if (char.collectibleCounter == 1) 
 			{ 
 				contadorPiezasOli = new Image(Media.getTexture("OliCollect2")); 
 			}
-			if (Character.collectibleCounter == 2) 
+			if (char.collectibleCounter == 2) 
 			{ 
 				contadorPiezasOli = new Image(Media.getTexture("OliCollect3")); 
 			}
-			if (Character.collectibleCounter == 3) 
+			if (char.collectibleCounter == 3) 
 			{ 
 				contadorPiezasOli = new Image(Media.getTexture("OliCollect1")); 
 			}
-			if (Character.collectibleCounter == 4) 
+			if (char.collectibleCounter == 4) 
 			{ 
 				contadorPiezasOli = new Image(Media.getTexture("OliCollect5")); 
-			}*/
+			}
+			return contadorPiezasOli;
 		}
 		
 		public function update(x:int):void 

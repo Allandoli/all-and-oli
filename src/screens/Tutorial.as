@@ -48,6 +48,7 @@ package screens
 		public var left:Boolean = false;
 		public var right:Boolean = false;
 		public var chapaposicion:int;
+		public var pie:Image;
 		
 		
 		// llamar a los objetos a crear
@@ -88,6 +89,8 @@ package screens
 		private function coleccionables(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
 		{
 			Player.collectibleCounter = Player.collectibleCounter + 1;
+			pie = gui.contadorPiezas(Player);
+			this.addChild(pie);
 			physics.removePhysics(objectB.displayObject, true);
 			
 		}
