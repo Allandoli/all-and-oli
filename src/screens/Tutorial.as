@@ -258,7 +258,8 @@ package screens
 				var enemy:Enemy = (obj as Enemy);
 				if (enemy != null)
 				{
-					if (Player.brazo.bounds.intersects(obj.bounds)) {
+					trace("brazo b:"+Player.getBoundsBrazo());
+					if (Player.getBoundsBrazo().intersects(obj.bounds)) {
 						trace("CHOCA BRAZO ENEMIGO");
 					}
 					

@@ -1,9 +1,11 @@
 package objects 
 {
 	import Box2D.Common.Math.b2Vec2;
+	import com.greensock.motionPaths.RectanglePath2D;
 	import com.reyco1.physinjector.PhysInjector;
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
+	import flash.geom.Rectangle;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -316,6 +318,11 @@ package objects
 			Actual = physics.injectPhysics(this, PhysInjector.SQUARE, new PhysicsProperties( { isDynamic:true, friction:0.5, restitution:0 } ));
 			Actual.body.SetFixedRotation(true);
 			Actual.physicsProperties.contactGroup = "Jugador";
+		}
+		
+		public function getBoundsBrazo():Rectangle
+		{
+			return new Rectangle(brazo.x+x, brazo.y+y, brazo.width, brazo.height);
 		}
 	}
 }
