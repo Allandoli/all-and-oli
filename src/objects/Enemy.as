@@ -19,7 +19,7 @@ package objects
 	public class Enemy extends Sprite 
 	{
 		private var physics:PhysInjector;
-		private var health:int;
+		private var _health:int;
 		private var movement:MovieClip;//animacionas para andar
 		private var enemyType:int;//1 mordedor, 2 volador, 3 aspiradora, 4 olla, 5 robot imanes
 		public var Cuerpo:PhysicsObject;
@@ -28,7 +28,7 @@ package objects
 		private var origen:int;
 		private	var atlas:TextureAtlas = Media.getAtlas();
 		private var atacando:Boolean;
-		private var vel:Number = -140;
+		public var vel:Number = -140;
 
 		
 		public function Enemy(type:int,p:PhysInjector, x:int) 
@@ -45,6 +45,8 @@ package objects
 			animaciones.addAnimation("DinoAtIzq", 4, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.addEventListener(Event.ENTER_FRAME, onRango);
+			this.addEventListener(Event.ENTER_FRAME, attackMode);
+
 		}
 		
 		private function onRango(e:Event):void 
@@ -74,15 +76,26 @@ package objects
 			}
 		}
 		
-		private function attackMode(pj:Character):void
+		private function attackMode(e:Event):void
 		{
-			if (pj.x <= this.x - 300)
+			for (var i:int = 0; i < parent.numChildren; i++)
 			{
-				this.movement = animaciones.play("DinoAtIzq");
-			}
-			if (pj.x >= this.x && pj.x <= this.x + 300)
-			{
-				this.movement = animaciones.play("DinoAtDer");
+				var obj:starling.display.DisplayObject = parent.getChildAt(i);
+				var pj:Character = (obj as Character);
+				if (pj != null)
+				{
+					trace(pj.x + "JUGADOR");
+					trace(this.x + "Bicho");
+
+					if (pj.x >= this.x - 100 && pj.x <=this.x)
+					{
+						this.movement = animaciones.play("DinoAtIzq");
+					}
+					if (pj.x >= this.x+1 && pj.x <= this.x + this.width + 100)
+					{
+						this.movement = animaciones.play("DinoAtDer");
+					}
+				}
 			}
 		}
 		
@@ -126,6 +139,16 @@ package objects
 		private function attack():void
 		{
 			//cambio de imagen
+		}
+		
+		public function get health():int 
+		{
+			return _health;
+		}
+		
+		public function set health(value:int):void 
+		{
+			_health = value;
 		}
 		
 	}

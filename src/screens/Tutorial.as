@@ -258,9 +258,13 @@ package screens
 				var enemy:Enemy = (obj as Enemy);
 				if (enemy != null)
 				{
-					trace("brazo b:"+Player.getBoundsBrazo());
 					if (Player.getBoundsBrazo().intersects(obj.bounds)) {
-						trace("CHOCA BRAZO ENEMIGO");
+						enemy.health = enemy.health - Player.damage;
+						enemy.Cuerpo.body.ApplyForce(new b2Vec2(-enemy.vel*2, 0),new b2Vec2(enemy.Cuerpo.body.GetLocalCenter().x, enemy.Cuerpo.body.GetLocalCenter().y));
+						if (enemy.health <= 0) 
+						{
+							physics.removePhysics(enemy, true);
+						}
 					}
 					
 				}

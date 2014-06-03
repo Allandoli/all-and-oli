@@ -175,7 +175,7 @@ package objects
 			{
 				switch (aux.toLowerCase())
 				{
-					case "j":
+					case "j"://ataque corto
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
 							brazo.x = 10;
@@ -186,9 +186,8 @@ package objects
 							brazo.x = -5;
 							brazo.texture = atlas.getTexture("AllBrazoIzq1");
 						}
-						brazo.readjustSize();
 						break;
-					case "k":
+					case "k"://ataque medio
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
 							brazo.x = 10;
@@ -199,9 +198,8 @@ package objects
 							brazo.x = -22;
 							brazo.texture = atlas.getTexture("AllBrazoIzq2");
 						}
-						brazo.readjustSize();
 						break;
-					case "l":
+					case "l"://ataque largo
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
 							brazo.x = 10;
@@ -212,21 +210,9 @@ package objects
 							brazo.x = -52;
 							brazo.texture = atlas.getTexture("AllBrazoIzq3");
 						}
-						brazo.readjustSize();
 						break;
 				}
-			}
-			else 
-			{
-				switch (aux.toLowerCase())
-				{
-					case "j":
-						break;
-					case "k":
-						break;
-					case "l":
-						break;
-				}
+				brazo.readjustSize();
 			}
 		}
 
