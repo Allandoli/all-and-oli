@@ -2,6 +2,7 @@ package objects
 {
 	import starling.display.Image;
 	import starling.display.Sprite;
+	import starling.events.EnterFrameEvent;
 	import starling.events.Event;
 	import starling.text.TextField;
 	import objects.Character;
@@ -55,7 +56,7 @@ package objects
 			exhaustionTri = new Image (Media.getTexture("exhaustiontri"));
 			portaChapas = new Image (Media.getTexture("portachapas"));
 			screwImage = new Image (Media.getTexture("Screw4"));
-			screwText = new TextField(58, 30, screws.toString(), "Arial", 20, 0x0, false);
+			screwText = new TextField(58, 30, "0", "Arial", 20, 0x0, false);
 			createChapas();
 			
 		}
@@ -68,17 +69,18 @@ package objects
 			vidaImagenFondo.x = 27;
 			vidaImagenFondo.y = 75;
 			this.addChild(vidaImagenFondo);
-			vidaImagen.x = 28;
-			vidaImagen.y = 86;
+			vidaImagen.x = 28 + vidaImagen.width;
+			vidaImagen.y = 86 + vidaImagen.height;
 			this.addChild(vidaImagen);
-			vidaImagen.height = (vidaImagenAltIni * 85) / 100; //El valor 85 será el valor entero que tendrá el personaje (Hay que crear una función que se llame al quitar energia y que actualice el tamaño)
+			vidaImagen.height = (vidaImagenAltIni * 100 ) / 100; //El valor 85 será el valor entero que tendrá el personaje (Hay que crear una función que se llame al quitar energia y que actualice el tamaño)
 			vidaImagen.y += vidaImagenAltIni - vidaImagen.height;
+			vidaImagen.rotation = Math.PI;
 			
 			exhaustionFondo.x = 75;
 			exhaustionFondo.y = 30;
 			exhaustionBarra.x = 76;
 			exhaustionBarra.y = 31;
-			exhaustionTri.x = exhaustionBarra.width + 76;
+			exhaustionTri.x = exhaustionBarra.width + 76; 
 			exhaustionTri.y = 31;
 			this.addChild(exhaustionFondo);
 			this.addChild(exhaustionBarra);
@@ -100,6 +102,25 @@ package objects
 			contadorPiezasOli.x = 785;
 			contadorPiezasOli.y = 80;
 			this.addChild(contadorPiezasOli);
+			this.addEventListener(EnterFrameEvent.ENTER_FRAME, actualizarVida);
+		}
+		
+		private function actualizarVida(e:EnterFrameEvent):void 
+		{
+			for (var i:int = 0; i < parent.numChildren; i++)
+			{
+				var obj:starling.display.DisplayObject = parent.getChildAt(i);
+				var pj:Character = (obj as Character);
+				if (pj != null)
+				{
+					vidaImagen.height = (vidaImagenAltIni * pj.energyAll) / 100; //El valor 85 será el valor entero que tendrá el personaje (Hay que crear una función que se llame al quitar energia y que actualice el tamaño)
+					
+					screwText.text = pj.screwCounter.toString();
+					
+					
+					////exhaustionBarra.width = (168 * cansancio(0-100)) / 100; 
+				}
+			}
 		}
 		
 		public function contadorPiezas(char:Character):void
@@ -130,7 +151,7 @@ package objects
 		{
 			energiaImagen.x = x;
 			vidaImagenFondo.x = x + 7; //El 7 es la diferencia de posición respecto a energiaImagen, ya que cada una tiene un ancho ^^'
-			vidaImagen.x = x + 8; //Same as above
+			vidaImagen.x = x + 8 + vidaImagen.width; //Same as above
 			exhaustionFondo.x = x + 55;
 			exhaustionBarra.x = x + 56;
 			exhaustionTri.x = x + exhaustionBarra.width + 56;
