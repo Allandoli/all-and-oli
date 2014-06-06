@@ -155,6 +155,7 @@ package screens
 				new Platforms(this.physics, 2, 5120),
 				new Platforms(this.physics, 1, 6144),
 				new Platforms(this.physics, 2, 6144),
+				new Platforms(this.physics, 2, 7168),
 				// Empiezan las paltaformas
 				new Platforms(this.physics, 6, 280),
 				new Platforms(this.physics, 9, 450),
@@ -166,7 +167,7 @@ package screens
 				new Platforms(this.physics, 6, 1430),
 				new Platforms(this.physics, 3, 1600),
 				new Platforms(this.physics, 6, 1800),
-				new Platforms(this.physics, 8, 1880),
+				new Platforms(this.physics, 8, 1900),
 				new Platforms(this.physics, 6, 2210),
 				new Platforms(this.physics, 10, 2280),
 				new Platforms(this.physics, 6, 2350),
@@ -179,43 +180,63 @@ package screens
 				new Platforms(this.physics, 8, 3700),
 				new Platforms(this.physics, 11, 3950),
 				new Platforms(this.physics, 10, 4130),
-				new Platforms(this.physics, 3, 4280),
-				new Platforms(this.physics, 3, 4380),
-				new Platforms(this.physics, 4, 4580),
-				new Platforms(this.physics, 6, 4730),
-				new Platforms(this.physics, 6, 4800),
-				new Platforms(this.physics, 3, 4950),
+				new Platforms(this.physics, 9, 4250),
+				new Platforms(this.physics, 4, 4610),
+				new Platforms(this.physics, 9, 4650),
+				new Platforms(this.physics, 3, 4830),
 				new Platforms(this.physics, 8, 5100),
 				new Platforms(this.physics, 4, 5350),
 				new Platforms(this.physics, 11, 5500),
 				new Platforms(this.physics, 11, 5650),
 				new Platforms(this.physics, 3, 5800),
 				new Platforms(this.physics, 8, 5970),
-				new Platforms(this.physics, 4, 6240),];
+				new Platforms(this.physics, 3, 6200),
+				new Platforms(this.physics, 10, 6370),
+				new Platforms(this.physics, 9, 6500),
+				new Platforms(this.physics, 3, 6700),
+				new Platforms(this.physics, 6, 6930),
+				new Platforms(this.physics, 3, 6990),
+				new Platforms(this.physics, 8, 7150),
+				new Platforms(this.physics, 3, 7550),
+				new Platforms(this.physics, 11, 7750),
+				new Platforms(this.physics, 11, 7950),
+				new Platforms(this.physics, 3, 8170),
+				new Platforms(this.physics, 4, 8400),
+				new Platforms(this.physics, 8, 8650),];
 
 			for (var i:int = 0; i < newLevel.length; i++) 
 			{
 				addChild(newLevel[i]);
 			}
 			
-			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 400), 
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 600),		
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 870),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1175),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1350),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1600),		
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 1900),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 2100),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 2550),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 2980),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 3100),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 3270),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 3560),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 3940),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 4100),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 4330),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 4570),
-			new Screw(this.physics, Math.ceil(Math.random() * 4), 4820),];
+			var arrayScrew:Array = [new Screw(this.physics, Math.ceil(Math.random() * 4), 630), 
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 855),		
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 975),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1300),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 1630),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2240),		
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2535),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 2785),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3015),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3215),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3585),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3635),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 3870),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4020),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4305),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4655),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 4810),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 5000),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 5190),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 5550),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 5850),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 6060),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 6400),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 6750),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 7050),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 7200),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 7800),
+			new Screw(this.physics, Math.ceil(Math.random() * 4), 8220),];
 				
 			
 			for (var j:int = 0; j < arrayScrew.length; j++)
@@ -223,10 +244,10 @@ package screens
 				addChild(arrayScrew[j]);
 			}
 			
-			var arrayOliParts:Array = [new Collectible(this.physics, 4, 1000), 
-			new Collectible(this.physics, 2, 2300),		
-			new Collectible(this.physics, 3, 3380),
-			new Collectible(this.physics, 1, 5050)];
+			var arrayOliParts:Array = [new Collectible(this.physics, 4, 1990), 
+			new Collectible(this.physics, 2, 3780),		
+			new Collectible(this.physics, 3, 5670),
+			new Collectible(this.physics, 1, 8740)];
 			
 			for (var k:int = 0; k < arrayOliParts.length; k++)
 			{

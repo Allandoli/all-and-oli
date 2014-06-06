@@ -121,14 +121,12 @@ package objects
 				Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				if (left&&up) 
 				{
-					trace("SALTOOOO");
 					brazo.visible = false;
 					characterMovement = animaciones.play("AllSaltoIzq");
 					Actual.body.ApplyImpulse(new b2Vec2(-2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
 				if (right&&up) 
 				{
-					trace("SALTOOOO");
 					characterMovement = animaciones.play("AllSaltoDer");
 					brazo.visible = false;
 					Actual.body.ApplyImpulse(new b2Vec2(2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));

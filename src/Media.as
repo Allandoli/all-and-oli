@@ -19,6 +19,12 @@ package
 		[Embed(source = "../media/images/BgTutorial.png")]
 		public static const BgTutorial:Class;
 		
+		[Embed(source = "../media/images/BgTutorial1.png")]
+		public static const BgTutorial1:Class;
+		
+		[Embed(source = "../media/images/BgTutorial2.png")]
+		public static const BgTutorial2:Class;
+		
 		[Embed(source = "../media/images/BgEnd.jpg")]
 		public static const BgEnd:Class;
 		
