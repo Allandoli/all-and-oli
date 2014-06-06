@@ -40,6 +40,9 @@ package
 		[Embed(source = "../media/images/SueloTutorial.png")]
 		public static const SueloTutorial:Class;
 		
+		[Embed(source = "../media/images/PlatTutoA1.png")]
+		public static const PlatTutoA1:Class;
+		
 		[Embed(source = "../media/images/PlatTutoA2.png")]
 		public static const PlatTutoA2:Class;
 		
@@ -48,6 +51,12 @@ package
 		
 		[Embed(source = "../media/images/PlatTutoS2.png")]
 		public static const PlatTutoS2:Class;
+		
+		[Embed(source = "../media/images/PlatTutoS3.png")]
+		public static const PlatTutoS3:Class;
+		
+		[Embed(source = "../media/images/PlatTutoS4.png")]
+		public static const PlatTutoS4:Class;
 		
 		[Embed(source = "../media/images/chapaoli.png")]
 		public static const chapaoli:Class;		

@@ -75,6 +75,26 @@ package objects
 					this.addChild(cuerpo);
 					y = 400;
 					break;
+				case 8:
+					cuerpo = new Image(Media.getTexture("PlatTutoA1"));//Aerea Media Doble
+					this.addChild(cuerpo);
+					y = 280;
+					break;
+				case 9:
+					cuerpo = new Image(Media.getTexture("PlatTutoS3"));//CuboDobleHorizontal
+					this.addChild(cuerpo);
+					y = 470;
+					break;
+				case 10:
+					cuerpo = new Image(Media.getTexture("PlatTutoS4"));//CuboDobleVertical
+					this.addChild(cuerpo);
+					y = 400;
+					break;
+				case 11:
+					cuerpo = new Image(Media.getTexture("PlatTutoA2"));//Aerea Muy Baja
+					this.addChild(cuerpo);
+					y = 450;
+					break;
 				}
 		}
 		

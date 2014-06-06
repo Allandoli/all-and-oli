@@ -52,6 +52,10 @@ package
 					this.addChild(screenEnd);
 					break;
 				case "start":
+					if (screenInGame != null) 
+					{
+						this.removeChild(screenInGame);
+					}
 					screenWelcome = new Welcome();
 					this.addChild(screenWelcome);
 					screenWelcome.initialize();

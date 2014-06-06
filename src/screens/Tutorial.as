@@ -149,41 +149,49 @@ package screens
 				new Platforms(this.physics, 2, 1024),
 				new Platforms(this.physics, 1, 2048),
 				new Platforms(this.physics, 2, 2048),
-				new Platforms(this.physics, 1, 3800),
-				new Platforms(this.physics, 2, 3800),
+				new Platforms(this.physics, 2, 3072),
+				new Platforms(this.physics, 1, 4096),
+				new Platforms(this.physics, 2, 4096),
+				new Platforms(this.physics, 2, 5120),
+				new Platforms(this.physics, 1, 6144),
+				new Platforms(this.physics, 2, 6144),
+				// Empiezan las paltaformas
 				new Platforms(this.physics, 6, 280),
-				new Platforms(this.physics, 6, 450),
-				new Platforms(this.physics, 6, 520),
+				new Platforms(this.physics, 9, 450),
 				new Platforms(this.physics, 7, 520),
-				new Platforms(this.physics, 6, 650),
-				new Platforms(this.physics, 6, 720),
+				new Platforms(this.physics, 6, 690),
 				new Platforms(this.physics, 3, 820),
-				new Platforms(this.physics, 4, 950),
-				new Platforms(this.physics, 6, 1150),
-				new Platforms(this.physics, 6, 1480),
-				new Platforms(this.physics, 3, 1580),
-				new Platforms(this.physics, 6, 1880),
+				new Platforms(this.physics, 4, 940),
+				new Platforms(this.physics, 10, 1150),
+				new Platforms(this.physics, 6, 1430),
+				new Platforms(this.physics, 3, 1600),
+				new Platforms(this.physics, 6, 1800),
+				new Platforms(this.physics, 8, 1880),
 				new Platforms(this.physics, 6, 2210),
-				new Platforms(this.physics, 6, 2280),
-				new Platforms(this.physics, 7, 2280),
+				new Platforms(this.physics, 10, 2280),
 				new Platforms(this.physics, 6, 2350),
-				new Platforms(this.physics, 6, 2870),
-				new Platforms(this.physics, 3, 3000),
-				new Platforms(this.physics, 4, 3120),
-				new Platforms(this.physics, 4, 3220),
-				new Platforms(this.physics, 3, 3350),
-				new Platforms(this.physics, 4, 3550),
-				new Platforms(this.physics, 6, 3830),
-				new Platforms(this.physics, 7, 3830),
-				new Platforms(this.physics, 3, 3980),
-				new Platforms(this.physics, 3, 4080),
-				new Platforms(this.physics, 4, 4280),
-				new Platforms(this.physics, 6, 4430),
-				new Platforms(this.physics, 6, 4500),
-				new Platforms(this.physics, 3, 4650),
-				new Platforms(this.physics, 4, 4800),
-				new Platforms(this.physics, 4, 4900),
-				new Platforms(this.physics, 4, 5000),];
+				new Platforms(this.physics, 3, 2500),
+				new Platforms(this.physics, 9, 2730),
+				new Platforms(this.physics, 3, 2980),
+				new Platforms(this.physics, 8, 3120),
+				new Platforms(this.physics, 3, 3400),
+				new Platforms(this.physics, 3, 3550),
+				new Platforms(this.physics, 8, 3700),
+				new Platforms(this.physics, 11, 3950),
+				new Platforms(this.physics, 10, 4130),
+				new Platforms(this.physics, 3, 4280),
+				new Platforms(this.physics, 3, 4380),
+				new Platforms(this.physics, 4, 4580),
+				new Platforms(this.physics, 6, 4730),
+				new Platforms(this.physics, 6, 4800),
+				new Platforms(this.physics, 3, 4950),
+				new Platforms(this.physics, 8, 5100),
+				new Platforms(this.physics, 4, 5350),
+				new Platforms(this.physics, 11, 5500),
+				new Platforms(this.physics, 11, 5650),
+				new Platforms(this.physics, 3, 5800),
+				new Platforms(this.physics, 8, 5970),
+				new Platforms(this.physics, 4, 6240),];
 
 			for (var i:int = 0; i < newLevel.length; i++) 
 			{
@@ -283,6 +291,11 @@ package screens
 				gui.update(chapaposicion);
 			}
 			colisionBrazo()
+			
+			if (Player.y > 600)
+			{
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"start" }, true));
+			}
 			/*if (Player.y > 600) 
 			{
 				Player.x = Player.lastX;
