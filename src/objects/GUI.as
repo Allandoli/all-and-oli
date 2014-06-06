@@ -118,7 +118,8 @@ package objects
 					screwText.text = pj.screwCounter.toString();
 					
 					
-					////exhaustionBarra.width = (168 * cansancio(0-100)) / 100; 
+					exhaustionBarra.width = (168 * pj.exhaustionAll) / 100; 
+					exhaustionTri.x = exhaustionBarra.x + exhaustionBarra.width;
 				}
 			}
 		}
@@ -154,12 +155,11 @@ package objects
 			vidaImagen.x = x + 8 + vidaImagen.width; //Same as above
 			exhaustionFondo.x = x + 55;
 			exhaustionBarra.x = x + 56;
-			exhaustionTri.x = x + exhaustionBarra.width + 56;
-			portaChapas.x = x + 1004-portaChapas.width;
+			portaChapas.x = x + 1008-portaChapas.width;
 			//Para añadir mas objetos, basta con poner x + la posicion suya original - 20 
-			screwImage.x = x + 1004 - portaChapas.width + 40;
-			screwText.x = x + 1004 - portaChapas.width + 50;
-			contadorPiezasOli.x = x + 1004 - contadorPiezasOli.width;
+			screwImage.x = x + 1008 - portaChapas.width + 40;
+			screwText.x = x + 1008 - portaChapas.width + 50;
+			contadorPiezasOli.x = x + 1008 - contadorPiezasOli.width;
 		}
 		
 		

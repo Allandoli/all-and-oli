@@ -91,6 +91,7 @@ package screens
 		{
 			Player.collectibleCounter = Player.collectibleCounter + 1;
 			physics.removePhysics(objectB.displayObject, true);
+			gui.contadorPiezas(Player);
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -108,6 +109,9 @@ package screens
 		private function puntos(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void
 		{
 			Player.screwCounter = Player.screwCounter + 1;
+			if (Player.energyAll < 100) {
+				Player.energyAll += 5;
+				}
 			physics.removePhysics(objectB.displayObject, true);
 		}
 		
@@ -301,15 +305,15 @@ package screens
 		}
 		
 		protected function onUpdate(event:Event):void
-        {			
+        {		
 			
 			if (Player.x > stage.stageWidth-600-x)
 			{
+				gui.update(chapaposicion);
 				gui.contadorPiezas(Player);
 				x -= 4;
 				physics.globalOffsetX -= 4;
 				chapaposicion += 4;
-				gui.update(chapaposicion);
 			}
 			colisionBrazo()
 			
@@ -317,17 +321,6 @@ package screens
 			{
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"start" }, true));
 			}
-			/*if (Player.y > 600) 
-			{
-				Player.x = Player.lastX;
-				Player.y = Player.lastY;
-				Player.energyAll -= 10;
-			}
-			if (Player.x < 300-x)
-			{
-				x += 1;
-				physics.globalOffsetX += 1;
-			}*/
             physics.update();
 			
         }

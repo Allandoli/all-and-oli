@@ -6,6 +6,7 @@ package objects
     import com.reyco1.physinjector.data.PhysicsObject;
     import com.reyco1.physinjector.data.PhysicsProperties;
 	import flash.geom.Rectangle;
+	import flash.utils.Timer;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -17,6 +18,7 @@ package objects
 	import Media;
 	import events.Animations;
 	import starling.textures.TextureAtlas;
+	import flash.events.TimerEvent;
 
 
 	/**
@@ -40,7 +42,7 @@ package objects
 		private var _screwCounter:int;
 		public var energyAll:int;//max 100%
 		private var energyOli:int;//max 100%
-		private var exhaustionAll:int;//max 100%
+		public var exhaustionAll:int;//max 100%
 		private var exhaustionOli:int;//max 100%
 		private var _exhaustionChar:int;//max 100%
 		private var _energyChar:int;//max 100%
@@ -50,8 +52,9 @@ package objects
 		private var left:Boolean = false;
 		private var right:Boolean = false;
 		private var animaciones:events.Animations;
-		public var salto:Boolean=true;
-
+		public var salto:Boolean = true;
+		public var myTimer:Timer = new Timer(3000);
+		
 
 		public function Character(p:PhysInjector) 
 		{
@@ -78,7 +81,16 @@ package objects
 			animaciones.addAnimation("OliDispDer", 5, true);
 			animaciones.addAnimation("OliDispIzq", 5, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			myTimer.start();
+			myTimer.addEventListener(TimerEvent.TIMER, actualizarEnergia);
 		}
+		
+		private function actualizarEnergia(e:TimerEvent):void 
+		{
+			if(exhaustionAll<100){
+			exhaustionAll += 10;}
+		}
+	
 
 		private function onAddedToStage(e:Event):void 
 		{
@@ -187,18 +199,23 @@ package objects
 						}
 						break;
 					case "k"://ataque medio
-						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
-						{
-							brazo.x = 10;
-							brazo.texture = atlas.getTexture("AllBrazoDer2");
-						}
-						if (animaciones.currentAnimation=="AllIzq"||animaciones.currentAnimation=="AllEstaticoIzq") 
-						{
-							brazo.x = -22;
-							brazo.texture = atlas.getTexture("AllBrazoIzq2");
+						if(exhaustionAll >= 10){
+							exhaustionAll -= 10;
+							if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
+							{
+								brazo.x = 10;
+								brazo.texture = atlas.getTexture("AllBrazoDer2");
+							}
+							if (animaciones.currentAnimation=="AllIzq"||animaciones.currentAnimation=="AllEstaticoIzq") 
+							{
+								brazo.x = -22;
+								brazo.texture = atlas.getTexture("AllBrazoIzq2");
+							}
 						}
 						break;
 					case "l"://ataque largo
+						if (exhaustionAll >= 20){
+						exhaustionAll -= 20;
 						if (animaciones.currentAnimation=="AllDer"|| animaciones.currentAnimation=="AllEstaticoDer") 
 						{
 							brazo.x = 10;
@@ -208,7 +225,7 @@ package objects
 						{
 							brazo.x = -52;
 							brazo.texture = atlas.getTexture("AllBrazoIzq3");
-						}
+						}}
 						break;
 				}
 				brazo.readjustSize();
