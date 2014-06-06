@@ -84,9 +84,6 @@ package objects
 				var pj:Character = (obj as Character);
 				if (pj != null)
 				{
-					trace(pj.x + "JUGADOR");
-					trace(this.x + "Bicho");
-
 					if (pj.x >= this.x - 100 && pj.x <=this.x)
 					{
 						this.movement = animaciones.play("DinoAtIzq");

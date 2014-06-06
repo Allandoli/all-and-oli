@@ -32,7 +32,6 @@ package objects
 		//	public var ActualBrazo:PhysicsObject = null;
 		private var Desactivado:PhysicsObject;
 		public static var currentChar:String;
-		private var lastmove:String;
 		public var brazo:Image;
 		private	var atlas:TextureAtlas = Media.getAtlas();
 		private var characterMovement:MovieClip;
@@ -120,14 +119,16 @@ package objects
 			{
 				salto = false;
 				Actual.body.ApplyImpulse(new b2Vec2(0, -8), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
-				if (left) 
+				if (left&&up) 
 				{
+					trace("SALTOOOO");
 					brazo.visible = false;
 					characterMovement = animaciones.play("AllSaltoIzq");
 					Actual.body.ApplyImpulse(new b2Vec2(-2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 				}
-				if (right) 
+				if (right&&up) 
 				{
+					trace("SALTOOOO");
 					characterMovement = animaciones.play("AllSaltoDer");
 					brazo.visible = false;
 					Actual.body.ApplyImpulse(new b2Vec2(2, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
@@ -136,12 +137,12 @@ package objects
 			else 
 			{
 					brazo.visible = true;
-					if (left) 
+					if (left&&!up) 
 					{
 						characterMovement = animaciones.play("AllIzq");
 						Actual.body.ApplyForce(new b2Vec2(-20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));
 					}
-					if (right) 
+					if (right&&!up) 
 					{
 						characterMovement = animaciones.play("AllDer");
 						Actual.body.ApplyForce(new b2Vec2(20, 0), new b2Vec2(Actual.body.GetLocalCenter().x, Actual.body.GetLocalCenter().y));

@@ -97,7 +97,7 @@ package objects
 			this.addChild(screwImage);
 			this.addChild(screwText);
 			contadorPiezasOli = new Image(Media.getTexture("OliPiezas1"));
-			contadorPiezasOli.x = 780;
+			contadorPiezasOli.x = 785;
 			contadorPiezasOli.y = 80;
 			this.addChild(contadorPiezasOli);
 		}
@@ -138,7 +138,7 @@ package objects
 			//Para añadir mas objetos, basta con poner x + la posicion suya original - 20 
 			screwImage.x = x + 1004 - portaChapas.width + 40;
 			screwText.x = x + 1004 - portaChapas.width + 50;
-			contadorPiezasOli.x = x + 1004 - contadorPiezasOli.width + 50;
+			contadorPiezasOli.x = x + 1004 - contadorPiezasOli.width;
 		}
 		
 		
