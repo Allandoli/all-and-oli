@@ -69,7 +69,7 @@ package objects
 				case 1:
 					
 					this.movement = animaciones.play("DinoIzq");
-					this.y = 300;
+					this.y = 310;
 					this.health = 150;
 				break;
 				

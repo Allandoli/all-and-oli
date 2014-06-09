@@ -258,8 +258,13 @@ package screens
 				addChild(arrayOliParts[k]);
 			}
 			
-			var enemy:Enemy = new Enemy(1, physics, 850);
-			this.addChild(enemy);
+			var arrayEnemigos:Array = [new Enemy(1, physics, 850), new Enemy(1, physics, 1575), new Enemy(1, physics, 2035), new Enemy(1, physics, 2606), new Enemy(1, physics, 4480), new Enemy(1, physics, 6755)];
+			
+				for (var l:int = 0; l < arrayEnemigos.length; l++)
+			{
+				addChild(arrayEnemigos[l]);
+			}
+			
 			
 			Player = new Character(physics);
 			Player.x = 200;
