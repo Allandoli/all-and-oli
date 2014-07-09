@@ -32,18 +32,18 @@ package screens
 		private function drawScreen():void
 		{
 			
-			endBg = new Image(Media.getTexture("fondomenu"));
+			endBg = new Image(Media.getTexture("BgEnd"));
 			this.addChild(endBg);
 			
 			endStartBtn = new Button(Media.getTexture("PlayButton"));
-			endStartBtn.x = 200;
-			endStartBtn.y = 100;
+			endStartBtn.x = 437;
+			endStartBtn.y = 350;
 			this.addChild(endStartBtn);
 			
-			endCreditsBtn = new Button(Media.getTexture("CreditsButton"));
+			/*endCreditsBtn = new Button(Media.getTexture("CreditsButton"));
 			endCreditsBtn.x = 200;
 			endCreditsBtn.y = 200;
-			this.addChild(endCreditsBtn);
+			this.addChild(endCreditsBtn);*/
 			
 			this.addEventListener(Event.TRIGGERED, onMainMenuClick);
 		}

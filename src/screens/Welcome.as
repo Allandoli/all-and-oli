@@ -87,7 +87,7 @@ package screens
 			if ((buttonClicked as Button) == welcomePlayBtn)
 			{
 				Character.currentChar = "all";
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"play" }, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"teclas" }, true));
 			}
 			
 			if ((buttonClicked as Button) == welcomeCreBtn)

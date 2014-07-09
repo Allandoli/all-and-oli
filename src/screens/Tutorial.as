@@ -24,6 +24,7 @@ package screens
 	import com.reyco1.physinjector.contact.ContactManager;
 	import events.NavigationEvent;
 	import objects.GUI;
+	import flash.media.Sound;
 	
 	/**
 	 * ...
@@ -49,9 +50,7 @@ package screens
 		public var right:Boolean = false;
 		public var chapaposicion:int;
 		public var pie:Image;
-		
-		
-		// llamar a los objetos a crear
+		public var ScrewSound:Sound;
 		
 		public function Tutorial() 
 		{
@@ -72,7 +71,6 @@ package screens
 			ContactManager.onContactBegin("Enemigo", "Tornillo", colisionMonstruoTornillo, true);
 			ContactManager.onContactBegin("Jugador", "Enemigo", daño, true);
 
-
 		}
 		
 		private function daño(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -83,7 +81,7 @@ package screens
 			{
 				physics.removePhysics(objectA.displayObject, true);
 				
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"start" }, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"end" }, true));
 			}
 		}
 		
@@ -92,6 +90,8 @@ package screens
 			Player.collectibleCounter = Player.collectibleCounter + 1;
 			physics.removePhysics(objectB.displayObject, true);
 			gui.contadorPiezas(Player);
+			//ScrewSound = new Sound(Media.ScrewSound);
+			//ScrewSound.play();
 			if ( (objectB.displayObject as Collectible).oliPart == 1)
 			{
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"end" }, true));

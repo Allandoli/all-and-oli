@@ -5,6 +5,7 @@ package
 	import starling.textures.Texture;
 	import flash.display.BitmapData;
 	import starling.textures.TextureAtlas;
+	import flash.media.Sound;
 	
 	/**
 	 * ...
@@ -25,8 +26,11 @@ package
 		[Embed(source = "../media/images/BgTutorial2.png")]
 		public static const BgTutorial2:Class;
 		
-		[Embed(source = "../media/images/BgEnd.jpg")]
+		[Embed(source = "../media/images/fondogracias.png")]
 		public static const BgEnd:Class;
+		
+		[Embed(source = "../media/images/fondoteclas.png")]
+		public static const BgTeclas:Class;
 		
 		[Embed(source = "../media/images/BgCredits.jpg")]
 		public static const BgCredits:Class;
@@ -151,6 +155,9 @@ package
 		[Embed(source = "../media/spritesheets/CharSheet.xml", mimeType="application/octet-stream")]
 		public static const AtlasCharXML:Class;
 		
+		[Embed(source="../media/sounds/screw.mp3")]
+		public static const ScrewSound:Class;
+		
 		public static function getAtlas():TextureAtlas
 		{
 			if (CharTextureAtlas == null)
@@ -171,7 +178,7 @@ package
 			}
 			
 			return gameTextures[name];
-		}	
+		}
 		
 		public function Media() 
 		{

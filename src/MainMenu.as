@@ -2,6 +2,7 @@ package
 {
 	import events.NavigationEvent;
 	import objects.Character;
+	import screens.Teclas;
 	import starling.display.Sprite;
 	import starling.events.Event;
 	import screens.Welcome;
@@ -17,6 +18,7 @@ package
 	public class MainMenu extends Sprite 
 	{
 		private var screenWelcome:Welcome;
+		private var screenTeclas:Teclas;
 		private var screenInGame:Tutorial;
 		private var screenEnd:End;
 		private var screenCredits:Credits;
@@ -44,6 +46,12 @@ package
 					screenInGame = new Tutorial();
 					this.addChild(screenInGame);
 					screenInGame.initialize();
+					this.removeChild(screenTeclas);
+					break;
+				case "teclas":
+					screenTeclas = new Teclas();
+					this.addChild(screenTeclas);
+					screenTeclas.initialize();
 					this.removeChild(screenWelcome);
 					break;
 				case "end":
