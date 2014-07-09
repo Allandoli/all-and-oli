@@ -92,6 +92,11 @@ package screens
 			Player.collectibleCounter = Player.collectibleCounter + 1;
 			physics.removePhysics(objectB.displayObject, true);
 			gui.contadorPiezas(Player);
+			if ( (objectB.displayObject as Collectible).oliPart == 1)
+			{
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"end" }, true));
+			}
+			
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -324,7 +329,7 @@ package screens
 			
 			if (Player.y > 600)
 			{
-				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"start" }, true));
+				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"end" }, true));
 			}
             physics.update();
 			

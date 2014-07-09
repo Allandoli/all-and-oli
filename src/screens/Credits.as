@@ -31,10 +31,10 @@ package screens
 		private function drawScreen():void
 		{
 			
-			creditsBg = new Image(Media.getTexture("BgCredits"));
+			creditsBg = new Image(Media.getTexture("fondomenu"));
 			this.addChild(creditsBg);
 			
-			creditsStartBtn = new Button(Media.getTexture("StartButton"));
+			creditsStartBtn = new Button(Media.getTexture("PlayButton"));
 			creditsStartBtn.x = 200;
 			creditsStartBtn.y = 200;
 			this.addChild(creditsStartBtn);

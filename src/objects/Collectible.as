@@ -17,7 +17,7 @@ package objects
 		
 		private var collect:Image;
 		protected var physics:PhysInjector;
-		private var oliPart:int;
+		public var oliPart:int;
 		public var obj:PhysicsObject;
 		
 		public function Collectible(p:PhysInjector, tipo:int, x:int)
