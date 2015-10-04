@@ -96,7 +96,6 @@ package screens
 			{
 				this.dispatchEvent(new NavigationEvent(NavigationEvent.CHANGE_SCREEN, { id:"end" }, true));
 			}
-			
 		}
 		
 		private function saltar(objectA:PhysicsObject, objectB:PhysicsObject, contact:b2Contact):void 
@@ -307,7 +306,8 @@ package screens
 						enemy.Cuerpo.body.ApplyForce(new b2Vec2(-enemy.vel*5, 0),new b2Vec2(enemy.Cuerpo.body.GetLocalCenter().x, enemy.Cuerpo.body.GetLocalCenter().y));
 						if (enemy.health <= 0) 
 						{
-							physics.removePhysics(enemy, true);
+							
+							//physics.removePhysics(enemy, true);
 						}
 					}
 				}

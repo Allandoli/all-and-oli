@@ -43,6 +43,9 @@ package objects
 			animaciones.addAnimation("DinoIzq", 4, true);
 			animaciones.addAnimation("DinoAtDer", 4, true);
 			animaciones.addAnimation("DinoAtIzq", 4, true);
+			animaciones.addAnimation("DinoExp", 4, true);
+			//animaciones.addAnimation("DinoDesDer", 2, true);
+			//animaciones.addAnimation("DinoDesIzq", 2, true);
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			this.addEventListener(Event.ENTER_FRAME, onRango);
 			this.addEventListener(Event.ENTER_FRAME, attackMode);
@@ -88,12 +91,19 @@ package objects
 					{
 						this.movement = animaciones.play("DinoAtIzq");
 					}
+					
 					if (pj.x >= this.x+1 && pj.x <= this.x + this.width + 100)
 					{
 						this.movement = animaciones.play("DinoAtDer");
 					}
 				}
 			}
+		}
+		
+		public function Death():void
+		{
+			vel = 0;
+			this.movement = animaciones.play("DinoExp");
 		}
 		
 		public function invertirMov():void

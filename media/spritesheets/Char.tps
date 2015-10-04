@@ -94,7 +94,7 @@
             <key>sizeConstraints</key>
             <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
-            <false/>
+            <true/>
             <key>forceWordAligned</key>
             <false/>
             <key>maxRects</key>
@@ -235,6 +235,14 @@
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq2.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq3.png</filename>
             <filename>../../../ALL&amp;OLI BETA/PNGs/DinoSheet/DinoIzq4.png</filename>
+            <filename>../images/DinoDesDer1.png</filename>
+            <filename>../images/DinoDesDer2.png</filename>
+            <filename>../images/DinoDesIzq1.png</filename>
+            <filename>../images/DinoDesIzq2.png</filename>
+            <filename>../images/DinoExp1.png</filename>
+            <filename>../images/DinoExp2.png</filename>
+            <filename>../images/DinoExp3.png</filename>
+            <filename>../images/DinoExp4.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

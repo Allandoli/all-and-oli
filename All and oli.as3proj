@@ -12,6 +12,7 @@
     <movie minorVersion="9" />
     <movie platform="Flash Player" />
     <movie background="#FFFFFF" />
+    <movie preferredSDK="C:\Users\Vicent\Documents\UJIVideojocs\2 - Segon\Jocs Web\1. Proyectos\All and oli" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>

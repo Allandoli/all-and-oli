@@ -11,7 +11,7 @@ package objects
 	
 	/**
 	 * ...
-	 * @author Edgar
+	 * @author Vicent
 	 */
 	public class GUI extends Sprite 
 	{
